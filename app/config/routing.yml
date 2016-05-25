@@ -1,0 +1,5 @@
+scout:
+    resource: "@ScoutBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

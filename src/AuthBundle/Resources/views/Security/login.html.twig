@@ -1,0 +1,76 @@
+
+{% extends "base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+{#<form action="{{ path("fos_user_security_check") }}" method="post">#}
+    {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+
+    {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
+    {#<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />#}
+
+    {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
+    {#<input type="password" id="password" name="_password" required="required" />#}
+
+    {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
+    {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
+
+    {#<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />#}
+{#</form>#}
+
+
+    <ul  class="nav nav-pills">
+        <li class="active">
+            <a  href="#1a" data-toggle="tab">Login</a>
+        </li>
+
+        <li><a href="#2a" data-toggle="tab">Register</a>
+        </li>
+
+    </ul>
+
+    <div class="tab-content clearfix">
+        <div class="tab-pane active" id="1a">
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <div class="form-group">
+                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                    <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                    <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="Password">
+                </div>
+
+                <div class="checkbox">
+                    <label for="remember_me">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        {{ 'security.login.remember_me'|trans }}
+                    </label>
+                </div>
+                <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+        <div class="tab-pane" id="2a">
+            {{ render(controller(
+            'OctopouceAuthBundle:Registration:register'
+
+            )) }}
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock fos_user_content %}

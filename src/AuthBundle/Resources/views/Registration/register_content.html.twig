@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-group'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+
+
+{#->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))#}
+{#->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))#}
+{#->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(#}
+{#'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),#}
+{#'options' => array('translation_domain' => 'FOSUserBundle'),#}
+{#'first_options' => array('label' => 'form.password'),#}
+{#'second_options' => array('label' => 'form.password_confirmation'),#}
+{#'invalid_message' => 'fos_user.password.mismatch',#}
+
+
+
+{#<form action="{{ path("fos_user_registration_register") }}" method="post">#}
+    {#<input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="YpLDCxn3ry5EgguEzxU9uyBbYN5M-KlMgoFo5v89HYw" />#}
+    {#<div class="form-group">#}
+        {#<label for="exampleInputEmail1">Email address</label>#}
+        {#<input type="email" class="form-control" value="{{ form.email }}" id="exampleInputEmail1" placeholder="Email">#}
+    {#</div>#}
+    {#<div class="form-group">#}
+        {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
+        {#<input type="text" class="form-control" id="username" name="_username" value="{{ username }}" required="required" placeholder="username">#}
+    {#</div>#}
+    {#<div class="form-group">#}
+        {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
+        {#<input type="password" class="form-control"id="password" name="_password" required="required" placeholder="Password">#}
+    {#</div>#}
+    {#<div class="form-group">#}
+      {#<label for="fos_user_registration_form_plainPassword_second" class="required">Repeat password</label>#}
+        {#<input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" />#}
+    {#</div>#}
+    {#<div class="form-group">#}
+        {#<label for="fos_user_registration_form_usertype" class="required">I am a, </label>#}
+        {#<select id="fos_user_registration_form_usertype" name="fos_user_registration_form[usertype]" class="form-control" style="margin-bottom:15px">#}
+            {#<option value="2" >Job Seeker</option>#}
+            {#<option value="3" >Company</option></select>#}
+    {#</div>#}
+    {#<button type="submit" class="btn btn-default">{{ 'registration.submit'|trans }}</button>#}
+
+{#</form>#}
+
+
+{#<div id="fos_user_registration_form"><div><label for="fos_user_registration_form_email" class="required">Email</label><input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" /></div><div><label for="fos_user_registration_form_username" class="required">Username</label><input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="255" pattern=".{2,}" /></div><div><label for="fos_user_registration_form_plainPassword_first" class="required">Password</label><input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" /></div>#}
+    {#<div><label for="fos_user_registration_form_plainPassword_second" class="required">Repeat password</label><input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" /></div>#}
+
+
+
+
+{{ form_end(form) }}

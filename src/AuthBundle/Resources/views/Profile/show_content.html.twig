@@ -1,0 +1,8 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+    <p><i class="glyphicon glyphicon-user"></i>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p><i class="glyphicon glyphicon-envelope"></i>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+
+    <a href="{{ path('fos_user_change_password') }}">Change Password</a>
+</div>

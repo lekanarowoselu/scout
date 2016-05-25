@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/octopoucecareerbundle/css/style.css') }}" />
+
+
+
+
+
+    {% block stylesheets %} <style>
+        .resume .list-group-item:first-child, .resume .list-group-item:last-child{
+            border-radius:0;
+        }
+        .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+        small {
+            display: block;
+            line-height: 1.428571429;
+            color: #999;}</style>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse" >
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('octopouce_career_homepage') }}">JobScout.<i>mu</i></a>
+        </div>
+
+
+
+        <div id="navbar" class="collapse navbar-collapse">
+
+
+
+
+
+
+
+            <ul class="nav navbar-nav">
+                <li><a href="{{ path('octopouce_career_homepage') }}">Home</a></li>
+
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') or is_granted('ROLE_ROOMSEEKER')  %}
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Room Seekers <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="{{ path('agent_house_index') }}">Browse Houses</a></li>
+                            <li><a href="{{ path('agent_housecategory_index') }}">Browse House Categories</a></li>
+                            {#<li><a href="{{ path('company_profile_index') }}">Browse Companies</a></li>#}
+                            <li><a href="{{ path('roomseeker_profile') }}">Update Profile</a></li>
+                            <li><a href="{{ path('roomseeker_profile') }}">Room Seeker DashBoard</a></li>
+                            <li><a href="{{ path('roomseeker_profile') }}">Configure JobAlerts</a></li>
+                        </ul>
+                    </li> {% endif %}
+
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') or is_granted('ROLE_AGENT')  %}
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Agents<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+
+
+
+
+                            <li><a href="{{ path('agent_house_new') }}">Post a House</a></li>
+                            {#<li><a href="{{ path('jobseeker_profile_index') }}">Browse Candidates</a></li>#}
+                            <li><a href="{{ path('agent_profile') }}">Agent Dashboard</a></li>
+                            <li><a href="{{ path('agent_profile') }}">Manage Houses</a></li>
+                            <li><a href="{{ path('agent_profile') }}">View Prospects</a></li>
+
+                        </ul>
+                    </li>
+                {% endif %}
+
+                {#<li><a href="{{ path('jobseeker_profile_new') }}">New Jobseeker Profile</a></li>#}
+                {#<li><a href="{{ path('jobseeker_education_index') }}">Jobseeker Education</a></li>#}
+                {#<li><a href="{{ path('jobseeker_education_new') }}">New Jobseeker Education</a></li>#}
+                {#<li><a href="{{ path('jobseeker_experience_new') }}">New Jobseeker Experience</a></li>#}
+                {#<li><a href="{{ path('jobseeker_experience_index') }}">Jobseeker Experience</a></li>#}
+
+                {#<li><a href="{{ path('company_profile_new') }}">New Company Profile</a></li>#}
+                {#<li><a href="{{ path('company_application_index') }}">Company Applications</a></li>#}
+                {#<li><a href="{{ path('company_application_new') }}">New Company Applications</a></li>#}
+                {#<li><a href="{{ path('company_job_index') }}">Company Jobs</a></li>#}
+                {#<li><a href="{{ path('company_job_new') }}"> New Company Jobs</a></li>#}
+                {#<li><a href="{{ path('company_jobcategory_index') }}">Company Job Category</a></li>#}
+                {#<li><a href="{{ path('company_jobcategory_new') }}">New Company Job Category</a></li>#}
+
+                {#<li><a href="{{ path('fos_user_profile_show') }}">Your Profile</a></li>#}
+                {#<li><a href="{{ path('fos_user_profile_edit') }}">edit your profile</a></li>#}
+                {#<li><a href="{{ path('fos_user_security_login') }}">Login</a></li>#}
+                {#<li><a href="{{ path('fos_user_registration_register') }}">Registration</a></li>#}
+                {##}
+
+
+
+
+
+
+                {% if is_granted('ROLE_SUPER_ADMIN') %}  <li><a href="{{ path('admin_profile_index') }}">DashBoard</a></li> {% endif %}
+
+                {% if is_granted('ROLE_AGENT') %} <li><a href="{{ path('agent_profile') }}">DashBoard</a></li> {% endif %}
+
+                {% if is_granted('ROLE_ROOMSEEKER') %}  <li><a href="{{ path('roomseeker_profile') }}">DashBoard</a></li> {% endif %}
+
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li><a href="{{ path('fos_user_security_login') }}">SignUp</a></li>|
+                {% endif %}
+
+
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li role="presentation">
+
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}<span class="caret"></span>
+                        </a></li>
+
+                    <li> <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                {% endif %}
+
+
+
+            </ul>
+        </div><!--/.nav-collapse -->
+
+    </div>
+</nav>
+
+
+
+
+<div class="container">
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
+            {#<p> Welcome: {{ app.user.username }}|#}
+            {#<a href="{{ path('fos_user_security_logout') }}">Logout</a></p>#}
+
+            {#{% endif %}#}
+            {% for flash_message in app.session.flashbag.get('notice') %}
+                <div class="alert alert-success"> {{ flash_message }}</div>
+            {% endfor %}
+            {% for flash_message in app.session.flashbag.get('error') %}
+                <div class="alert alert-danger"> {{ flash_message }}</div>
+            {% endfor %}
+
+
+            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+            {#<p> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+            {#<a href="{{ path('fos_user_security_logout') }}">#}
+            {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+            {#</a>#}
+            {#{% else %}#}
+            {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></p>#}
+            {#{% endif %}#}
+
+
+            {% block body %}{% endblock %}
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+
+        {#{% if app.request.hasPreviousSession %}#}
+        {#{% for type, messages in app.session.flashbag.all() %}#}
+        {#{% for message in messages %}#}
+        {#<div class="flash-{{ type }}">#}
+        {#{{ message }}#}
+        {#</div>#}
+        {#{% endfor %}#}
+        {#{% endfor %}#}
+        {#{% endif %}#}
+
+
+
+
+    </div>
+
+</div><!-- /.container -->
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{{ asset('plugins/bootstrap-datepicker-master/js/bootstrap-datepicker.js') }}"></script>
+
+{% block javascripts %}
+    {#{{ tinymce_init() }}#}
+
+{% endblock %}
+</body>
+</html>
