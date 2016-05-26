@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\House;
+namespace ScoutBundle\Entity\Agent;
 
 use Doctrine\ORM\Mapping as ORM;
 use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
@@ -47,19 +47,19 @@ class House
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="how_to_apply", type="text")
-     */
-    private $howToApply;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="how_to_apply", type="text")
+//     */
+//    private $howToApply;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="expires_at", type="datetime")
-     */
-    private $expiresAt;
+//    /**
+//     * @var \DateTime
+//     *
+//     * @ORM\Column(name="expires_at", type="datetime")
+//     */
+//    private $expiresAt;
 
     /**
      * @var \DateTime
@@ -77,28 +77,35 @@ class House
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="jobs")
-     * @ORM\JoinColumn(name="company_id", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="houses")
+     * @ORM\JoinColumn(name="agent_id", referencedColumnName="id", nullable=false)
      */
-    private $company;
+    private $agent;
 
     /**
-     * @ORM\OneToMany(targetEntity="Application", mappedBy="jobs")
+     * @ORM\OneToMany(targetEntity="Room", mappedBy="rooms")
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $applications;
+    private $rooms;
 
     /**
-     * @ORM\ManyToMany(targetEntity="JobCategory", inversedBy="jobs")
-     * @ORM\JoinTable(name="company_jobs_categories")
+     * @ORM\ManyToMany(targetEntity="HouseCategory", inversedBy="houses")
+     * @ORM\JoinTable(name="agent_houses_categories")
      */
     private $categories;
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="HouseAmenity", inversedBy="amenities")
+     * @ORM\JoinTable(name="agent_houses_amenities")
+     */
+    private $amenities;
 
 
 
     public function __construct()
     {
-        $this->applications = new ArrayCollection();
+        $this->rooms = new ArrayCollection();
         $this->categories = new ArrayCollection();
     }
 
@@ -119,7 +126,7 @@ class House
      *
      * @param string $type
      *
-     * @return Job
+     * @return house
      */
     public function setType($type)
     {
@@ -143,7 +150,7 @@ class House
      *
      * @param string $title
      *
-     * @return Job
+     * @return house
      */
     public function setTitle($title)
     {
@@ -167,7 +174,7 @@ class House
      *
      * @param string $description
      *
-     * @return Job
+     * @return house
      */
     public function setDescription($description)
     {
@@ -186,29 +193,29 @@ class House
         return $this->description;
     }
 
-    /**
-     * Set howToApply
-     *
-     * @param string $howToApply
-     *
-     * @return Job
-     */
-    public function setHowToApply($howToApply)
-    {
-        $this->howToApply = $howToApply;
-
-        return $this;
-    }
+//    /**
+//     * Set howToApply
+//     *
+//     * @param string $howToApply
+//     *
+//     * @return house
+//     */
+//    public function setHowToApply($howToApply)
+//    {
+//        $this->howToApply = $howToApply;
+//
+//        return $this;
+//    }
 
     /**
      * Get howToApply
      *
      * @return string
      */
-    public function getHowToApply()
-    {
-        return $this->howToApply;
-    }
+//    public function getHowToApply()
+//    {
+//        return $this->howToApply;
+//    }
 
     /**
      * Set expiresAt
@@ -217,22 +224,22 @@ class House
      *
      * @return Job
      */
-    public function setExpiresAt($expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
+//    public function setExpiresAt($expiresAt)
+//    {
+//        $this->expiresAt = $expiresAt;
+//
+//        return $this;
+//    }
 
-        return $this;
-    }
-
-    /**
-     * Get expiresAt
-     *
-     * @return \DateTime
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
-    }
+//    /**
+//     * Get expiresAt
+//     *
+//     * @return \DateTime
+//     */
+//    public function getExpiresAt()
+//    {
+//        return $this->expiresAt;
+//    }
 
 
 
@@ -240,7 +247,7 @@ class House
      * Set createdAt
      *
      * @internal param \DateTime $createdAt
-     * @return Job
+     * @return house
      * @ORM\PrePersist
      */
     public function setCreatedAt()
@@ -269,7 +276,7 @@ class House
      *
      * @ORM\PrePersist
      * @internal param \DateTime $updatedAt
-     * @return Job
+     * @return house
      */
     public function setUpdatedAt()
     {
@@ -292,13 +299,13 @@ class House
     /**
      * Set company
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\Profile $company
+     * @param \ScoutBundle\Entity\Agent\Profile $agent
      *
-     * @return Job
+     * @return house
      */
-    public function setCompany(\Octopouce\CareerBundle\Entity\Company\Profile $company = null)
+    public function setAgent(\ScoutBundle\Entity\Agent\Profile $agent = null)
     {
-        $this->company = $company;
+        $this->agent = $agent;
 
         return $this;
     }
@@ -306,23 +313,23 @@ class House
     /**
      * Get company
      *
-     * @return \Octopouce\CareerBundle\Entity\Company\Profile
+     * @return \ScoutBundle\Entity\Agent\Profile
      */
-    public function getCompany()
+    public function getAgent()
     {
-        return $this->company;
+        return $this->agent;
     }
 
     /**
      * Add application
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
+     * @param \ScoutBundle\Room $room
      *
-     * @return Job
+     * @return House
      */
-    public function addApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
+    public function addRoom(\Octopouce\CareerBundle\Entity\Agent\Room $room)
     {
-        $this->applications[] = $application;
+        $this->rooms[] = $room;
 
         return $this;
     }

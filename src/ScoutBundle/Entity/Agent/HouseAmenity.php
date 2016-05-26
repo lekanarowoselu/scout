@@ -1,18 +1,18 @@
 <?php
 
-namespace Octopouce\CareerBundle\Entity\Company;
+namespace ScoutBundle\Entity\Agent;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Category
+ * Amenities
  *
- * @ORM\Table(name="company_job_category")
- * @ORM\Entity(repositoryClass="Octopouce\CareerBundle\Repository\Company\JobCategoryRepository")
+ * @ORM\Table(name="agent_house_amenity")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\HouseAmenityRepository")
  */
-class JobCategory
+class AmenityCategory
 {
     /**
      * @var int
@@ -38,13 +38,13 @@ class JobCategory
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Job", mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity="House", mappedBy="Amenities")
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $jobs;
+    private $houses;
 
     public function __construct() {
-        $this->jobs = new ArrayCollection();
+        $this->houses = new ArrayCollection();
     }
 
 
@@ -65,7 +65,7 @@ class JobCategory
      *
      * @param string $name
      *
-     * @return JobCategory
+     * @return HouseAmenity
      */
     public function setName($name)
     {
@@ -89,13 +89,13 @@ class JobCategory
      *
      * @param string $description
      *
-     * @return JobCategory
-     */
+     * @return HouseAmenity
+     *
     public function setDescription($description)
     {
-        $this->description = $description;
+    $this->description = $description;
 
-        return $this;
+    return $this;
     }
 
     /**
@@ -109,42 +109,42 @@ class JobCategory
     }
 
     /**
-     * Add job
+     * Add house
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\Job $job
+     * @param \ScoutBundle\Entity\Agent\House $house
      *
-     * @return JobCategory
+     * @return HouseAmenity
      */
-    public function addJob(\Octopouce\CareerBundle\Entity\Company\Job $job)
+    public function addHouse(\ScoutBundle\Entity\Agent\House $house)
     {
-        $this->jobs[] = $job;
+        $this->houses[] = $house;
 
         return $this;
     }
 
     /**
-     * Remove job
+     * Remove house
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\Job $job
+     * @param \ScoutBundle\Entity\Agent\House $house
      */
-    public function removeJob(\Octopouce\CareerBundle\Entity\Company\Job $job)
+    public function removeHouse(\ScoutBundle\Entity\Agent\House $house )
     {
-        $this->jobs->removeElement($job);
+        $this->houses->removeElement($house);
     }
 
     /**
-     * Get jobs
+     * Get house
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getJobs()
+    public function getHouses()
     {
-        return $this->jobs;
+        return $this->houses;
     }
-/*    public function __toString()
-    {
-        return $this->getName();
-    }*/
+    /*    public function __toString()
+        {
+            return $this->getName();
+        }*/
     public function getCategory()
     {
         return $this->getName();
