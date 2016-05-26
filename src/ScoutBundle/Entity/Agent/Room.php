@@ -1,20 +1,20 @@
 <?php
 
-namespace Octopouce\CareerBundle\Entity\Agent;
+namespace ScoutBundle\Entity\Agent;
 
 use Doctrine\ORM\Mapping as ORM;
-use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Job
+ * Room
  *
- * @ORM\Table(name="company_job")
- * @ORM\Entity(repositoryClass="Octopouce\CareerBundle\Repository\Company\JobRepository")
+ * @ORM\Table(name="agent_house_room")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\RoomRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Job
+class Room
 {
     /**
      * @var int
@@ -47,19 +47,19 @@ class Job
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="how_to_apply", type="text")
-     */
-    private $howToApply;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="how_to_apply", type="text")
+//     */
+//    private $howToApply;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="expires_at", type="datetime")
-     */
-    private $expiresAt;
+//    /**
+//     * @var \DateTime
+//     *
+//     * @ORM\Column(name="expires_at", type="datetime")
+//     */
+//    private $expiresAt;
 
     /**
      * @var \DateTime
@@ -77,29 +77,36 @@ class Job
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="jobs")
-     * @ORM\JoinColumn(name="company_id", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="House", inversedBy="rooms")
+     * @ORM\JoinColumn(name="house_id", referencedColumnName="id", nullable=false)
      */
-    private $company;
+    private $house;
+
+//    /**
+//     * @ORM\OneToMany(targetEntity="Room", mappedBy="rooms")
+//     * @var \Doctrine\Common\Collections\ArrayCollection
+//     */
+//    private $rooms;
+
+//    /**
+//     * @ORM\ManyToMany(targetEntity="HouseCategory", inversedBy="houses")
+//     * @ORM\JoinTable(name="agent_houses_categories")
+//     */
+//    private $categories;
+
 
     /**
-     * @ORM\OneToMany(targetEntity="Application", mappedBy="jobs")
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ORM\ManyToMany(targetEntity="RoomFeature", inversedBy="features")
+     * @ORM\JoinTable(name="agent_rooms_features")
      */
-    private $applications;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="JobCategory", inversedBy="jobs")
-     * @ORM\JoinTable(name="company_jobs_categories")
-     */
-    private $categories;
+    private $features;
 
 
 
     public function __construct()
     {
-        $this->applications = new ArrayCollection();
-        $this->categories = new ArrayCollection();
+        $this->features= new ArrayCollection();
+        //$this->categories = new ArrayCollection();
     }
 
 
@@ -119,7 +126,7 @@ class Job
      *
      * @param string $type
      *
-     * @return Job
+     * @return room
      */
     public function setType($type)
     {
@@ -143,7 +150,7 @@ class Job
      *
      * @param string $title
      *
-     * @return Job
+     * @return room
      */
     public function setTitle($title)
     {
@@ -167,7 +174,7 @@ class Job
      *
      * @param string $description
      *
-     * @return Job
+     * @return room
      */
     public function setDescription($description)
     {
@@ -186,53 +193,53 @@ class Job
         return $this->description;
     }
 
-    /**
-     * Set howToApply
-     *
-     * @param string $howToApply
-     *
-     * @return Job
-     */
-    public function setHowToApply($howToApply)
-    {
-        $this->howToApply = $howToApply;
-
-        return $this;
-    }
+//    /**
+//     * Set howToApply
+//     *
+//     * @param string $howToApply
+//     *
+//     * @return house
+//     */
+//    public function setHowToApply($howToApply)
+//    {
+//        $this->howToApply = $howToApply;
+//
+//        return $this;
+//    }
 
     /**
      * Get howToApply
      *
      * @return string
      */
-    public function getHowToApply()
-    {
-        return $this->howToApply;
-    }
+//    public function getHowToApply()
+//    {
+//        return $this->howToApply;
+//    }
 
     /**
      * Set expiresAt
      *
      * @param \DateTime $expiresAt
      *
-     * @return Job
+     * @return House
      */
-    public function setExpiresAt($expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
+//    public function setExpiresAt($expiresAt)
+//    {
+//        $this->expiresAt = $expiresAt;
+//
+//        return $this;
+//    }
 
-        return $this;
-    }
-
-    /**
-     * Get expiresAt
-     *
-     * @return \DateTime
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
-    }
+//    /**
+//     * Get expiresAt
+//     *
+//     * @return \DateTime
+//     */
+//    public function getExpiresAt()
+//    {
+//        return $this->expiresAt;
+//    }
 
 
 
@@ -240,7 +247,7 @@ class Job
      * Set createdAt
      *
      * @internal param \DateTime $createdAt
-     * @return Job
+     * @return house
      * @ORM\PrePersist
      */
     public function setCreatedAt()
@@ -269,7 +276,7 @@ class Job
      *
      * @ORM\PrePersist
      * @internal param \DateTime $updatedAt
-     * @return Job
+     * @return house
      */
     public function setUpdatedAt()
     {
@@ -292,97 +299,135 @@ class Job
     /**
      * Set company
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\Profile $company
+     * @param \ScoutBundle\Entity\Agent\Profile $agent
      *
-     * @return Job
+     * @return house
      */
-    public function setCompany(\Octopouce\CareerBundle\Entity\Company\Profile $company = null)
+    public function setHouse(\ScoutBundle\Entity\Agent\House $house = null)
     {
-        $this->company = $company;
+        $this->house = $house;
 
         return $this;
     }
 
     /**
-     * Get company
+     * Get House
      *
-     * @return \Octopouce\CareerBundle\Entity\Company\Profile
+     * @return \ScoutBundle\Entity\Agent\House
      */
-    public function getCompany()
+    public function getHouse()
     {
-        return $this->company;
+        return $this->house;
     }
 
-    /**
-     * Add application
-     *
-     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
-     *
-     * @return Job
-     */
-    public function addApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
-    {
-        $this->applications[] = $application;
+//    /**
+//     * Add application
+//     *
+//     * @param \ScoutBundle\Entity\Agent\Room $room
+//     *
+//     * @return House
+//     */
+//    public function addRoom(\ScoutBundle\Entity\Agent\Room $room)
+//    {
+//        $this->rooms[] = $room;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove room
+//     *
+//     * @param \ScoutBundle\Entity\Agent\Room $room
+//     */
+//    public function removeRoom(\ScoutBundle\Entity\Agent\Room $room)
+//    {
+//        $this->rooms->removeElement($room);
+//    }
+//
+//    /**
+//     * Get applications
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getRooms()
+//    {
+//        return $this->rooms;
+//    }
 
-        return $this;
-    }
-
-    /**
-     * Remove application
-     *
-     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
-     */
-    public function removeApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
-    {
-        $this->applications->removeElement($application);
-    }
-
-    /**
-     * Get applications
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getApplications()
-    {
-        return $this->applications;
-    }
+//    /**
+//     * Add category
+//     *
+//     * @param \ScoutBundle\Entity\Agent\HouseCategory $category
+//     *
+//     * @return house
+//     */
+//    public function addCategory(\ScoutBundle\Entity\Agent\HouseCategory $category)
+//    {
+//        $this->categories[] = $category;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove category
+//     *
+//     * @param \ScoutBundle\Entity\Agent\HouseCategory $category
+//     */
+//    public function removeCategory(\ScoutBundle\Entity\Agent\HouseCategory $category)
+//    {
+//        $this->categories->removeElement($category);
+//    }
+//
+//    /**
+//     * Get categories
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getCategories()
+//    {
+//        return $this->categories;
+//    }
 
     /**
      * Add category
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\JobCategory $category
+     * @param \ScoutBundle\Entity\Agent\RoomFeature $feature
      *
-     * @return Job
+     * @return room
      */
-    public function addCategory(\Octopouce\CareerBundle\Entity\Company\JobCategory $category)
+    public function addAmenity(\ScoutBundle\Entity\Agent\RoomFeature $feature)
     {
-        $this->categories[] = $category;
+        $this->features[] = $feature;
 
         return $this;
     }
 
-    /**
-     * Remove category
-     *
-     * @param \Octopouce\CareerBundle\Entity\Company\JobCategory $category
-     */
-    public function removeCategory(\Octopouce\CareerBundle\Entity\Company\JobCategory $category)
-    {
-        $this->categories->removeElement($category);
-    }
+
+
+
 
     /**
-     * Get categories
+     * Remove feature
+     *
+     * @param \ScoutBundle\Entity\Agent\RoomFeature $feature
+     */
+    public function removeFeature(\ScoutBundle\Entity\Agent\RoomFeature $feature)
+    {
+        $this->features->removeElement($feature);
+    }
+
+
+    /**
+     * Get amenities
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategories()
+    public function getFeatures()
     {
-        return $this->categories;
+        return $this->features;
     }
-
-        public function __toString()
+    public function __toString()
     {
-        return $this->getCompany()->getName();
+        return $this->getTitle();
     }
 }

@@ -3,12 +3,12 @@
 namespace ScoutBundle\Entity\Agent;
 
 use Doctrine\ORM\Mapping as ORM;
-use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Job
+ * House
  *
  * @ORM\Table(name="agent_house")
  * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\HouseRepository")
@@ -222,7 +222,7 @@ class House
      *
      * @param \DateTime $expiresAt
      *
-     * @return Job
+     * @return House
      */
 //    public function setExpiresAt($expiresAt)
 //    {
@@ -323,11 +323,11 @@ class House
     /**
      * Add application
      *
-     * @param \ScoutBundle\Room $room
+     * @param \ScoutBundle\Entity\Agent\Room $room
      *
      * @return House
      */
-    public function addRoom(\Octopouce\CareerBundle\Entity\Agent\Room $room)
+    public function addRoom(\ScoutBundle\Entity\Agent\Room $room)
     {
         $this->rooms[] = $room;
 
@@ -335,13 +335,13 @@ class House
     }
 
     /**
-     * Remove application
+     * Remove room
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
+     * @param \ScoutBundle\Entity\Agent\Room $room
      */
-    public function removeApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
+    public function removeRoom(\ScoutBundle\Entity\Agent\Room $room)
     {
-        $this->applications->removeElement($application);
+        $this->rooms->removeElement($room);
     }
 
     /**
@@ -349,19 +349,19 @@ class House
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getApplications()
+    public function getRooms()
     {
-        return $this->applications;
+        return $this->rooms;
     }
 
     /**
      * Add category
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\JobCategory $category
+     * @param \ScoutBundle\Entity\Agent\HouseCategory $category
      *
-     * @return Job
+     * @return house
      */
-    public function addCategory(\Octopouce\CareerBundle\Entity\Company\JobCategory $category)
+    public function addCategory(\ScoutBundle\Entity\Agent\HouseCategory $category)
     {
         $this->categories[] = $category;
 
@@ -371,9 +371,9 @@ class House
     /**
      * Remove category
      *
-     * @param \Octopouce\CareerBundle\Entity\Company\JobCategory $category
+     * @param \ScoutBundle\Entity\Agent\HouseCategory $category
      */
-    public function removeCategory(\Octopouce\CareerBundle\Entity\Company\JobCategory $category)
+    public function removeCategory(\ScoutBundle\Entity\Agent\HouseCategory $category)
     {
         $this->categories->removeElement($category);
     }
@@ -388,8 +388,46 @@ class House
         return $this->categories;
     }
 
+    /**
+     * Add category
+     *
+     * @param \ScoutBundle\Entity\Agent\HouseAmenity $amenity
+     *
+     * @return house
+     */
+    public function addAmenity(\ScoutBundle\Entity\Agent\HouseAmenity $amenity)
+    {
+        $this->amenities[] = $amenity;
+
+        return $this;
+    }
+
+
+
+
+
+    /**
+     * Remove amenity
+     *
+     * @param \ScoutBundle\Entity\Agent\HouseAmenity $amenity
+     */
+    public function removeAmenity(\ScoutBundle\Entity\Agent\HouseAmenity $amenity)
+    {
+        $this->amenities->removeElement($amenity);
+    }
+
+
+    /**
+     * Get amenities
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAmenities()
+    {
+        return $this->amenities;
+    }
         public function __toString()
     {
-        return $this->getCompany()->getName();
+        return $this->getTitle();
     }
 }

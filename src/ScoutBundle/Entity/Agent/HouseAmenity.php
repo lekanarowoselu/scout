@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="agent_house_amenity")
  * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\HouseAmenityRepository")
  */
-class AmenityCategory
+class HouseAmenity
 {
     /**
      * @var int
@@ -145,7 +145,7 @@ class AmenityCategory
         {
             return $this->getName();
         }*/
-    public function getCategory()
+    public function getAmenity()
     {
         return $this->getName();
     }
