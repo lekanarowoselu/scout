@@ -43,7 +43,7 @@ class Room
      * @var string
      *
      * @ORM\Column(name="description", type="text")
-     * @Algolia\Attribute
+     *
      */
     private $description;
 

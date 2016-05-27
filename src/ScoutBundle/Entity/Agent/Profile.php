@@ -106,10 +106,10 @@ class Profile
 //    private $applications;
 
     /**
-     * @ORM\OneToMany(targetEntity="House", mappedBy="company")
+     * @ORM\OneToMany(targetEntity="House", mappedBy="agent")
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-   // private $houses;
+    private $houses;
 
     public function __construct()
     {
