@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Agent
  *
- * @ORM\Table(name="company_profile")
+ * @ORM\Table(name="agent_profile")
  * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\ProfileRepository")
  *
  * @ORM\HasLifecycleCallbacks

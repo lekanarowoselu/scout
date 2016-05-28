@@ -97,7 +97,7 @@ class Room
 
     /**
      * @ORM\ManyToMany(targetEntity="RoomFeature", inversedBy="features")
-     * @ORM\JoinTable(name="agent_rooms_features")
+     * @ORM\JoinTable(name="agent_house_rooms_features")
      */
     private $features;
 

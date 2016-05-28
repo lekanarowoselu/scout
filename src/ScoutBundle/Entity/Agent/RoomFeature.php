@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Category
  *
- * @ORM\Table(name="agent_room_feature")
+ * @ORM\Table(name="agent_house_room_feature")
  * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\HouseCategoryRepository")
  */
 class RoomFeature

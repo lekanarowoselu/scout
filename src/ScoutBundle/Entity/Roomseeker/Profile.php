@@ -641,40 +641,40 @@ class Profile
         if ($file) {
             unlink($file);
         }
-    }
-    /**
-     * Add application
-     *
-     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
-     *
-     * @return Profile
-     */
-    public function addApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
-    {
-        $this->applications[] = $application;
-
-        return $this;
-    }
-
-    /**
-     * Remove application
-     *
-     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
-     */
-    public function removeApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
-    {
-        $this->applications->removeElement($application);
-    }
-
-    /**
-     * Get applications
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getApplications()
-    {
-        return $this->applications;
-    }
+  }
+//    /**
+//     * Add application
+//     *
+//     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
+//     *
+//     * @return Profile
+//     */
+//    public function addApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
+//    {
+//        $this->applications[] = $application;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove application
+//     *
+//     * @param \Octopouce\CareerBundle\Entity\Company\Application $application
+//     */
+//    public function removeApplication(\Octopouce\CareerBundle\Entity\Company\Application $application)
+//    {
+//        $this->applications->removeElement($application);
+//    }
+//
+//    /**
+//     * Get applications
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getApplications()
+//    {
+//        return $this->applications;
+//    }
 
     public function __toString() {
         return $this->firstname;

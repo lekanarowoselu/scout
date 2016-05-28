@@ -47,12 +47,12 @@ class House
      */
     private $description;
 
-//    /**
-//     * @var string
-//     *
-//     * @ORM\Column(name="how_to_apply", type="text")
-//     */
-//    private $howToApply;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="how_to_apply", type="text")
+     */
+    private $address;
 
 //    /**
 //     * @var \DateTime
@@ -81,6 +81,12 @@ class House
      * @ORM\JoinColumn(name="agent_id", referencedColumnName="id", nullable=false)
      */
     private $agent;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Location", inversedBy="houses")
+     * @ORM\JoinColumn(name="location_id", referencedColumnName="id", nullable=false)
+     */
+    private $location;
 
     /**
      * @ORM\OneToMany(targetEntity="Room", mappedBy="rooms")

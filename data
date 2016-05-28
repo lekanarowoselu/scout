@@ -19,4 +19,4 @@ ALTER TABLE agent_houses_amenities ADD CONSTRAINT FK_E57541CDFE0F5B08 FOREIGN KE
 ALTER TABLE agent_house_room ADD CONSTRAINT FK_5BB7AEBE6BB74515 FOREIGN KEY (house_id) REFERENCES agent_house (id);
 ALTER TABLE agent_rooms_features ADD CONSTRAINT FK_DC17C3C54177093 FOREIGN KEY (room_id) REFERENCES agent_house_room (id) ON DELETE CASCADE;
 ALTER TABLE agent_rooms_features ADD CONSTRAINT FK_DC17C3C5416C865 FOREIGN KEY (room_feature_id) REFERENCES agent_room_feature (id) ON DELETE CASCADE;
-dev2@dev2:/var/www/html/roomscout$
+
