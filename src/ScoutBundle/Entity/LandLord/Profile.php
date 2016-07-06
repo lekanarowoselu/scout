@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\Agent;
+namespace ScoutBundle\Entity\LandLord;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -8,10 +8,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Agent
+ * LandLord
  *
- * @ORM\Table(name="agent_profile")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\ProfileRepository")
+ * @ORM\Table(name="landlord_profile")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\LandLord\ProfileRepository")
  *
  * @ORM\HasLifecycleCallbacks
  *

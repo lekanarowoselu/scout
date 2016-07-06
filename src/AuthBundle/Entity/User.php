@@ -32,14 +32,14 @@ class User extends BaseUser
     public $usertype;
 
     /**
-     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Roomseeker\Profile", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\RoomSeeker\Profile", mappedBy="user")
      */
     public $roomseeker;
 
     /**
-     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Agent\Profile" , mappedBy="user")
+     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\LandLord\Profile" , mappedBy="user")
      */
-    public $agent;
+    public $landlord;
 
 
     public function __construct()

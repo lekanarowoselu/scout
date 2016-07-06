@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\Roomseeker;
+namespace ScoutBundle\Entity\RoomSeeker;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -8,10 +8,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Roomseeker
+ * RoomSeeker
  *
  * @ORM\Table(name="roomseeker_profile")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Roomseeker\ProfileRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\RoomSeeker\ProfileRepository")
  *
  * @ORM\HasLifecycleCallbacks
  *

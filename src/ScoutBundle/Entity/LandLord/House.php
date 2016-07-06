@@ -1,6 +1,6 @@
 <?php
 
-namespace coutBundle\Entity\LandLord;
+namespace ScoutBundle\Entity\LandLord;
 
 use Doctrine\ORM\Mapping as ORM;
 

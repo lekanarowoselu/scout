@@ -1,6 +1,6 @@
 <?php
 
-namespace Octopouce\AuthBundle\Controller;
+namespace AuthBundle\Controller;
 use FOS\UserBundle\Controller\ProfileController as BaseController;
 
 use FOS\UserBundle\FOSUserEvents;

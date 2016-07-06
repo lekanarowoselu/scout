@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/fonts/font-awesome/css/font-awesome.min.css')  }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/libraries/owl-carousel/owl.carousel.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/libraries/chartist/chartist.min.css')  }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/css/leaflet.css')  }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/css/leaflet.markercluster.css')  }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/css/leaflet.markercluster.default.css')  }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('bundles/scout/assets/css/villareal-turquoise.css')  }}" rel="stylesheet" type="text/css" id="css-primary">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/scout/assets/favicon.png')  }}">
+
+    <title>ROOM SCOUT</title>
+</head>
+
+<body class="cover-pull-top header-transparent">
+<div class="page-wrapper">
+
+    <div class="header-wrapper">
+        <div class="header header-small">
+            <div class="header-inner">
+                <div class="container">
+                    <div class="header-top">
+                        <div class="header-top-inner">
+                            <a class="header-logo" href="index.html">
+                                <span class="header-logo-shape"><img src="{{ asset('bundles/scout/assets/img/logo_white.png')  }}" style="height: 51px;"></span>
+                                <!--<span class="header-logo-text">Room Scout</span>-->
+                            </a><!-- /.header-logo -->
+
+                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
+                                <ul class="nav nav-pills nav-primary">
+                                    <li class="nav-item">
+                                        <a href="index.html" class="nav-link active">
+                                            Home
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="properties.html" class="nav-link ">
+                                            Houses
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="agents-grid.html" class="nav-link ">
+                                            Landlords
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="locations.html" class="nav-link ">
+                                            Locations
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="contact.html" class="nav-link ">
+                                            Get in Touch
+                                        </a>
+                                    </li>
+                                </ul><!-- /.nav -->
+                            </div><!-- /.nav-primary -->
+
+
+                            <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div><!-- /.header-top-inner -->
+                    </div><!-- /.header-top -->
+                </div><!-- /.container -->
+            </div><!-- /.header-inner -->
+        </div><!-- /.header -->
+    </div><!-- /.header-wrapper-->
+
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="main-inner">
+
+                {% block body %}{% endblock %}
+                <div class="content">
+                    <div class="cover cover-center">
+                        <div class="cover-image"></div><!-- /.cover-image -->
+
+                        <div class="cover-title">
+                            <div class="container">
+                                <div class="cover-title-inner">
+                                    <h1>Find and Rent Rooms in Mauritius</h1>
+
+                                    <p>Search through our database for standard rooms in different locations</p>
+                                </div><!-- /.cover-title-->
+
+                                <form method="get" action="properties.html">
+                                    <div class="form-group col-sm-3">
+                                        <select class="form-control">
+                                            <option value="">Location</option>
+                                            <option value="">Flic En Flac</option>
+                                            <option value="">Port Louis</option>
+                                        </select>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-3">
+                                        <select class="form-control">
+                                            <option value="">Property Type</option>
+                                            <option value="">Single Apartment</option>
+                                            <option value="">Shared Appartment</option>
+                                        </select>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-2">
+                                        <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                    </div>
+                                </form>
+                            </div><!-- /.container -->
+                        </div><!-- /.cover-title -->
+                    </div><!-- /.cover -->
+
+                    <div class="information-bar">
+                        <div class="container">
+                            <i class="fa fa-star"></i> Room Scout is an online platform which specializes in helping you get standard and good quality rooms within Mauritius with ease.
+                        </div><!-- /.container -->
+                    </div><!-- /.information-bar -->
+
+                    <div class="container">
+                        <div class="page-header">
+                            <h1>Most Rated Houses</h1>
+                        </div><!-- /.page-header -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="listing-box listing-box-simple">
+                                    <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-12.jpg')  }}')">
+                                        <div class="listing-box-image-title">
+                                            <h2><a href="properties-detail-tabbed.html">Thunder Pond Centre</a></h2>
+                                            <h3>MUR 480 / per month</h3>
+                                        </div><!-- /.listing-box-image-title -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare</span></a>
+		</span>
+                                    </div><!-- /.listing-box-image -->
+                                </div><!-- /.listing-box -->
+                            </div><!-- /.col-* -->
+
+                            <div class="col-md-6">
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="listing-box">
+                                            <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-5.jpg')  }}')">
+                                                <div class="listing-box-image-label">Most Rated</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+            <a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                            </div><!-- /.listing-box-image -->
+
+                                            <div class="listing-box-title">
+                                                <h2><a href="properties-detail-tabbed.html">Bright Island Route</a></h2>
+                                                <h3>MUR 40.000</h3>
+                                            </div><!-- /.listing-box-title -->
+
+                                            <div class="listing-box-content">
+                                                <dl>
+                                                    <dt>Type</dt><dd>House</dd>
+                                                    <dt>Location</dt><dd>Vacoas</dd>
+                                                    <dt>Area</dt><dd>180 sqft</dd>
+                                                </dl>
+                                            </div><!-- /.listing-box-cotntent -->
+                                        </div><!-- /.listing-box -->
+                                    </div><!-- /.col-* -->
+
+                                    <div class="col-sm-6">
+                                        <div class="listing-box">
+                                            <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-4.jpg')  }}')">
+                                                <div class="listing-box-image-label">Most Rated</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                            </div><!-- /.listing-box-image -->
+
+                                            <div class="listing-box-title">
+                                                <h2><a href="properties-detail-tabbed.html">Misty Valley</a></h2>
+                                                <h3>MUR 27.000</h3>
+                                            </div><!-- /.listing-box-title -->
+
+                                            <div class="listing-box-content">
+                                                <dl>
+                                                    <dt>Type</dt><dd>House</dd>
+                                                    <dt>Location</dt><dd>Vacoas</dd>
+                                                    <dt>Area</dt><dd>180 sqft</dd>
+                                                </dl>
+                                            </div><!-- /.listing-box-cotntent -->
+                                        </div><!-- /.listing-box -->
+                                    </div><!-- /.col-* -->
+
+                                </div><!-- /.row -->
+                            </div><!-- /.col-* -->
+                        </div><!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="listing-box-wrapper">
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <div class="listing-box">
+                                                <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-3.jpg')  }}')">
+                                                    <div class="listing-box-image-label">Most Rated</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                                </div><!-- /.listing-box-image -->
+
+                                                <div class="listing-box-title">
+                                                    <h2><a href="properties-detail-tabbed.html">Little Brook Court</a></h2>
+                                                    <h3>MUR 800 / per month</h3>
+                                                </div><!-- /.listing-box-title -->
+
+                                                <div class="listing-box-content">
+                                                    <dl>
+                                                        <dt>Type</dt><dd>House</dd>
+                                                        <dt>Location</dt><dd>Vacoas</dd>
+                                                        <dt>Area</dt><dd>180 sqft</dd>
+                                                    </dl>
+                                                </div><!-- /.listing-box-cotntent -->
+                                            </div><!-- /.listing-box -->
+                                        </div><!-- /.col-* -->
+
+                                        <div class="col-md-3">
+                                            <div class="listing-box">
+                                                <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-2.jpg')  }}')">
+                                                    <div class="listing-box-image-label">Most Rated</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                                </div><!-- /.listing-box-image -->
+
+                                                <div class="listing-box-title">
+                                                    <h2><a href="properties-detail-tabbed.html">Quiet Parade</a></h2>
+                                                    <h3>MUR 256.000</h3>
+                                                </div><!-- /.listing-box-title -->
+
+                                                <div class="listing-box-content">
+                                                    <dl>
+                                                        <dt>Type</dt><dd>House</dd>
+                                                        <dt>Location</dt><dd>Vacoas</dd>
+                                                        <dt>Area</dt><dd>180 sqft</dd>
+                                                    </dl>
+                                                </div><!-- /.listing-box-cotntent -->
+                                            </div><!-- /.listing-box -->
+                                        </div><!-- /.col-* -->
+
+                                        <div class="col-md-3">
+                                            <div class="listing-box">
+                                                <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-1.jpg')  }}')">
+                                                    <div class="listing-box-image-label">Most Rated</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                                </div><!-- /.listing-box-image -->
+
+                                                <div class="listing-box-title">
+                                                    <h2><a href="properties-detail-tabbed.html">Fallen Rise Parkway</a></h2>
+                                                    <h3>MUR 1200 / per month</h3>
+                                                </div><!-- /.listing-box-title -->
+
+                                                <div class="listing-box-content">
+                                                    <dl>
+                                                        <dt>Type</dt><dd>House</dd>
+                                                        <dt>Location</dt><dd>Vacoas</dd>
+                                                        <dt>Area</dt><dd>180 sqft</dd>
+                                                    </dl>
+                                                </div><!-- /.listing-box-cotntent -->
+                                            </div><!-- /.listing-box -->
+                                        </div><!-- /.col-* -->
+
+                                        <div class="col-md-3">
+                                            <div class="listing-box">
+                                                <div class="listing-box-image" style="background-image: url('{{ asset('bundles/scout/assets/img/tmp/tmp-8.jpg')  }}')">
+                                                    <div class="listing-box-image-label">Most Rated</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                                </div><!-- /.listing-box-image -->
+
+                                                <div class="listing-box-title">
+                                                    <h2><a href="properties-detail-tabbed.html">Hidden Trace</a></h2>
+                                                    <h3>MUR 340.000</h3>
+                                                </div><!-- /.listing-box-title -->
+
+                                                <div class="listing-box-content">
+                                                    <dl>
+                                                        <dt>Type</dt><dd>House</dd>
+                                                        <dt>Location</dt><dd>Vacoas</dd>
+                                                        <dt>Area</dt><dd>180 sqft</dd>
+                                                    </dl>
+                                                </div><!-- /.listing-box-cotntent -->
+                                            </div><!-- /.listing-box -->
+                                        </div><!-- /.col-* -->
+
+                                    </div><!-- /.row -->
+                                </div><!-- /.listing-box-wrapper -->
+                            </div><!-- /.col-sm-* -->
+                        </div><!-- /.row -->
+
+                        <div class="push-top">
+                            <div class="background-white fullwidth">
+                                <div class="boxes">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="box">
+                                                <div class="box-icon">
+                                                    <i class="fa fa-hand-pointer-o"></i>
+                                                </div><!-- /.box-icon -->
+
+                                                <div class="box-content">
+                                                    <h2>STEP 1</h2>
+                                                    <p>Select a house</p>
+                                                </div><!-- /.box-content -->
+                                            </div><!-- /.box -->
+                                        </div><!-- /.col-* -->
+
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="box">
+                                                <div class="box-icon">
+                                                    <i class="fa fa-search"></i>
+                                                </div><!-- /.box-icon -->
+
+                                                <div class="box-content">
+                                                    <h2>STEP 2</h2>
+                                                    <p>Search rooms</p>
+                                                </div><!-- /.box-content -->
+                                            </div><!-- /.box -->
+                                        </div><!-- /.col-* -->
+
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="box">
+                                                <div class="box-icon">
+                                                    <i class="fa fa-phone"></i>
+                                                </div><!-- /.box-icon -->
+
+                                                <div class="box-content">
+                                                    <h2>STEP 3</h2>
+                                                    <p>Book for a room</p>
+                                                </div><!-- /.box-content -->
+                                            </div><!-- /.box -->
+                                        </div><!-- /.col-* -->
+
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="box">
+                                                <div class="box-icon">
+                                                    <i class="fa fa-university"></i>
+                                                </div><!-- /.box-icon -->
+
+                                                <div class="box-content">
+                                                    <h2>STEP 4</h2>
+                                                    <p>Proceed with payment</p>
+                                                </div><!-- /.box-content -->
+                                            </div><!-- /.box -->
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.boxes -->
+                            </div>
+
+                        </div>
+
+
+                    </div><!-- /.container -->
+
+                    <!-- /.image-wrapper -->
+
+                    <div class="container">
+                        <div class="page-header">
+                            <h2>Featured Houses</h2>
+                        </div>
+
+                        <div class="listing-box-wrapper listing-box-background">
+                            <div class="listing-carousel-wrapper">
+                                <div class="listing-carousel">
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-5.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Bright Island Route</a></h2>
+                                            <h3>MUR 40.000</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-4.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Misty Valley</a></h2>
+                                            <h3>MUR 27.000</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-11.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Foggy Anchor Campus</a></h2>
+                                            <h3>MUR 840.000</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-10.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Golden Fawn Thicket</a></h2>
+                                            <h3>MUR 321.000</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-3.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Little Brook Court</a></h2>
+                                            <h3>MUR 800 / per month</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-2.jpg')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Quiet Parade</a></h2>
+                                            <h3>MUR 256.000</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-1.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Fallen Rise Parkway</a></h2>
+                                            <h3>MUR 1200 / per month</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                    <div class="listing-box">
+                                        <div class="listing-box-image" style="background-image: url('assets/img/tmp/tmp-8.jpg)  }}')">
+                                            <div class="listing-box-image-label">Featured</div><!-- /.listing-box-image-label -->
+
+		<span class="listing-box-image-links">
+			<a href="properties-detail-tabbed.html"><i class="fa fa-search"></i> <span>View details</span></a>
+			<a href="properties-compare.html"><i class="fa fa-balance-scale"></i> <span>Compare room</span></a>
+		</span>
+                                        </div><!-- /.listing-box-image -->
+
+                                        <div class="listing-box-title">
+                                            <h2><a href="properties-detail-tabbed.html">Hidden Trace</a></h2>
+                                            <h3>MUR 340.000</h3>
+                                        </div><!-- /.listing-box-title -->
+
+                                        <div class="listing-box-content">
+                                            <dl>
+                                                <dt>Type</dt><dd>House</dd>
+                                                <dt>Location</dt><dd>Vacoas</dd>
+                                                <dt>Area</dt><dd>180 sqft</dd>
+                                            </dl>
+                                        </div><!-- /.listing-box-cotntent -->
+                                    </div><!-- /.listing-box -->
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="partners">
+                            <div class="partner-wrapper">
+                                <a href="#"><img src="{{ asset('bundles/scout/assets/img/tmp/partner-1.jpg')  }}" alt=""></a>
+                            </div><!-- /.partner-wrapper -->
+
+                            <div class="partner-wrapper">
+                                <a href="#"><img src="{{ asset('bundles/scout/assets/img/tmp/partner-2.jpg')  }}" alt=""></a>
+                            </div><!-- /.partner-wrapper -->
+
+                            <div class="partner-wrapper">
+                                <a href="#"><img src="{{ asset('bundles/scout/assets/img/tmp/partner-3.jpg')  }}" alt=""></a>
+                            </div><!-- /.partner-wrapper -->
+
+                            <div class="partner-wrapper">
+                                <a href="#"><img src="{{ asset('bundles/scout/assets/img/tmp/partner-4.jpg')  }}" alt=""></a>
+                            </div><!-- /.partner-wrapper -->
+
+                            <div class="partner-wrapper partner-wrapper-no-right-border">
+                                <a href="#"><img src="{{ asset('bundles/scout/assets/img/tmp/partner-1.jpg')  }}" alt=""></a>
+                            </div><!-- /.partner-wrapper -->
+                        </div><!-- /.partners -->
+                    </div><!-- /.container -->
+                </div><!-- /.content -->
+            </div><!-- /.main-inner -->
+        </div><!-- /.main -->
+    </div><!-- /.main-wrapper -->
+
+
+
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-top-left">
+                        <h2>Room Scout</h2>
+
+                        <p>
+                            Room Scout is an advanced online housing agency which specializes in renting of rooms online within Mauritius. We help students and tourist book good quality and standard rooms online thus providing comprehensive help and support to our customers with regards to accomodation.
+                        </p>
+
+
+                    </div><!-- /.footer-top-left -->
+
+                    <div class="footer-top-right">
+                        <h2>Let Us Connect</h2>
+                        <div class="social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div><!-- /.social -->
+                    </div><!-- /.footer-top-right -->
+                </div><!-- /.footer-top -->
+
+                <div class="footer-bottom">
+                    <div class="footer-left">
+                        &copy; 2016 Roomscout.mu. All Rights reserved.
+                    </div><!-- /.footer-left -->
+
+                    <div class="footer-right">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Get in Touch</a></li>
+                            <li class="nav-item"><a href="dashboard-login.html" class="nav-link">Admin</a></li>
+                        </ul>
+                    </div><!-- /.footer-right -->
+                </div><!-- /.footer-bottom -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </div><!-- /.footer-wrapper -->
+</div><!-- /.page-wrapper -->
+
+<script src="//maps.googleapis.com/maps/api/js" type="text/javascript"></script>
+
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/jquery.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/jquery.ezmark.min.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/tether.min.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/bootstrap.min.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/gmap3.min.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/leaflet.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/leaflet.markercluster.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/libraries/owl-carousel/owl.carousel.min.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/libraries/chartist/chartist.min.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/scrollPosStyler.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/scout/assets/js/villareal.js')  }}"></script>
+
+</body>
+</html>

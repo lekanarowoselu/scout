@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new ScoutBundle\ScoutBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AuthBundle\AuthBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+          
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@ScoutBundle/Resources/config/services.yml" }
+#    - { resource: "@ScoutBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -37,6 +37,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+                - 'bootstrap_3_horizontal_layout.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -88,3 +90,13 @@ fos_user:
     resetting:
         email:
             template: emails/password_resetting_email.html.twig
+
+vich_uploader:
+    db_driver: orm # or mongodb or propel or phpcr
+
+    mappings:
+
+
+        image:
+            uri_prefix:         /bundles/scout/assets/images/sliders
+            upload_destination: %kernel.root_dir%/../web/bundles/scout/assets/images/sliders

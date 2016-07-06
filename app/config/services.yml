@@ -7,3 +7,14 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+     scoutBundle.eventListeners.localeRewriteListener:
+          class: ScoutBundle\EventListener\LocaleRewriteListener
+          arguments: ["@router", "%kernel.default_locale%", "%locale_supported%"]
+          tags:
+            - { name: kernel.event_subscriber }
+
+     slugify:
+          class: ScoutBundle\Service\Slugify
+          tags:
+            - { name: slugify, alias: slugify }
