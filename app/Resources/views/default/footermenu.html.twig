@@ -1,0 +1,94 @@
+<div class="container clearfix">
+
+    <div class="clear"></div>
+    <div class="one">
+        <hr>
+    </div>
+    <div class="one-third_div3">
+        <div class="widget">
+
+        </div>
+    </div>
+    <div class="one-third ">
+        <div class="widget">
+            <h3><a href="{{ path('villa_index') }}">VILLAS</a></h3>
+
+
+
+            <ul id="menu-smartvillas-main-menu" class="menu">
+
+                {% for cat in categories %}
+
+
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-603" ><a href="{{ path('villacategory_show',{ '_locale':app.request.locale,'id': cat.Id}) }}">{{ cat.Name }}</a></li>
+
+
+
+                {% endfor %}
+
+            </ul>
+
+
+
+
+
+
+
+            {#<h3><a href="http://smart-villas-mauritius.com/en/villas-2/">VILLAS</a></h3>#}
+
+
+            {#<ul id="menu-smartvillas-main-menu" class="menu">#}
+            {#<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-602"><a href="http://smart-villas-mauritius.com/en/category/premium-villas/">Premium Villas</a></li>#}
+            {#<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-603"><a href="http://smart-villas-mauritius.com/en/category/luxury-beachfront/">Luxury Beachfront Villas</a></li>#}
+            {#<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-604"><a href="http://smart-villas-mauritius.com/en/category/beachfront/">Beachfront Villas</a></li>#}
+            {#<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-605"><a href="http://smart-villas-mauritius.com/en/category/residences/">Residences/Appts</a></li>#}
+            {#<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-606"><a href="http://smart-villas-mauritius.com/en/category/best-deals/">Best deals rentals</a></li>#}
+            {#<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3956"><a href="http://smart-villas-mauritius.com/en/category/seychelles/">Premium Villas in Seychelles</a></li>#}
+            {#</ul>	#}
+
+        </div>
+    </div>
+
+    <div class="one-third_div3">
+        <div class="widget">
+
+        </div>
+    </div>
+
+    <div class="one-third  column-last">
+        <div class="widget">
+
+            {#<h3><a href="{{ path('villa_index') }}">VILLAS</a></h3>#}
+
+
+
+
+
+
+
+            <ul id="menu-smartvillas-footer-menu" class="menu">
+                {% for pagecategory in pagecategories %}
+                    {% if(pagecategory.special) %}
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687">
+                            <a href="{{ path('pagecategory_show', { '_locale':app.request.locale,'id': pagecategory.id}) }}">{{pagecategory.title }}</a></li>
+                    {% endif %}
+
+
+                {% endfor %}
+            </ul>
+
+
+            {#<ul id="menu-smartvillas-footer-menu" class="menu">#}
+                {#<li id="menu-item-322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-322">#}
+                    {#<a href="http://smart-villas-mauritius.com/en/the-smartgirls/">The Smartgirls</a></li>#}
+                {#<li id="menu-item-323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><a href="http://smart-villas-mauritius.com/en/terms-of-sale-and-payment/">Terms of Sale and Payment</a></li>#}
+                {#<li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-325"><a href="http://smart-villas-mauritius.com/en/activities/">Activities</a></li>#}
+                {#<li id="menu-item-324" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-324"><a href="http://smart-villas-mauritius.com/en/airline-tickets/">Airline Tickets</a></li>#}
+                {#<li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-326"><a href="http://smart-villas-mauritius.com/en/mauritius/">Mauritius</a></li>#}
+                {#<li id="menu-item-327" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-327"><a href="http://smart-villas-mauritius.com/en/press/">Press</a></li>#}
+                {#<li id="menu-item-328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-328"><a href="http://smart-villas-mauritius.com/en/our-partners/">Our partners</a></li>#}
+            {#</ul>					#}
+        {##}
+        </div>
+    </div>
+</div>

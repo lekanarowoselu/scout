@@ -10,3 +10,8 @@ parameters:
     mailer_user: olalekanarowoselu@gmail.com
     mailer_password: mur=1234
     secret: 409a3eab6d7a75bbe625d5d066832c26378930f3
+    locale: en
+    app.locales: en|fr
+    locale_supported:
+        - en
+        - fr

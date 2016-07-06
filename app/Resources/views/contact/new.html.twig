@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+{#{% set translationsLink = null %}#}
+{% block body %}
+
+
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('contact_index') }}">Back to the list</a>#}
+        {#</li>#}
+    {#</ul>#}
+
+
+
+
+
+
+
+
+
+    <!-- begin content -->
+    <section id="slider-home">
+        <section id="content" class="container clearfix">
+            <div class="one-third w31">
+                <div id="clean-design" class="iconbox icon-left">
+
+                    <h2 class="unforget">{{ 'contact.page.title'|trans }}</h2>
+
+                </div>
+            </div>
+
+            <div class="one-third w31">
+
+
+
+                <!-- BEGIN Schema.org microdata added by Add-Meta-Tags WordPress plugin -->
+                <!-- Scope BEGIN: Article -->
+                <div itemscope itemtype="http://schema.org/Article">
+                    <!-- Scope BEGIN: Organization -->
+<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+<meta itemprop="name" content="Smartvillas Mauritius Ltd" />
+<meta itemprop="description" content="We are a villa rental agency in mauritius specialists in vacation villa rentals mauritius, Mauritius villas, holiday villas in Mauritius" />
+<meta itemprop="logo" content="http://smart-villas-mauritius.com/wp-content/themes/Smartvillas/images/logo.png" />
+<meta itemprop="url" content="http://smart-villas-mauritius.com/" />
+</span> <!-- Scope END: Organization -->
+                    <!-- Scope BEGIN: Person -->
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<meta itemprop="name" content="admin" />
+<meta itemprop="image" content="http://www.gravatar.com/avatar/33cc52cbdb3433c6011d6a55e1e298e4?s=128" />
+<meta itemprop="url" content="http://smart-villas-mauritius.com/en/author/admin/" />
+</span> <!-- Scope END: Person -->
+                    <meta itemprop="url" content="http://smart-villas-mauritius.com/en/contact-us/" />
+                    <meta itemprop="datePublished" content="2014-06-11T09:50:55+00:00" />
+                    <meta itemprop="dateModified" content="2014-08-26T07:42:48+00:00" />
+                    <meta itemprop="copyrightYear" content="2014" />
+                    <meta itemprop="inLanguage" content="en_US" />
+                    <meta itemprop="name" content="Contact-Us" />
+                    <meta itemprop="headline" content="Contact-Us" />
+                    <meta itemprop="description" content="[contact-form-7 id=229 title=Smartvillas Contact Form]..." />
+                    <!-- Scope BEGIN: ImageObject -->
+<span itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+<meta itemprop="contentUrl" content="http://smart-villas-mauritius.com/wp-content/themes/Smartvillas/images/logo.png" />
+</span> <!-- Scope END: ImageObject -->
+                    <div itemprop="articleBody">
+                        <div class="wpcf7" id="wpcf7-f229-p14-o1">
+                            <div class="screen-reader-response"></div>
+
+
+                            <form name="contact" method="post" id="wpcf7-form" class="wpcf7-form" action="{{path('contact_ajax')}}" >
+ {#<form method="POST" class="ajaxForm" action="{{path('demo_create')}}" {{ form_enctype(form) }}>#}
+
+
+                                <p>{{ 'contact.form.required.label'|trans }}</p>
+
+
+
+                                    <p><label  for="contact_firstName">{{ 'contact.form.firstname.label'|trans }}:<span class="note">*</span></label><br/>
+                                        <span class="wpcf7-form-control-wrap your-surname">
+
+                                            <input type="text" id="contact_firstName" name="contact[firstName]" required="required" maxlength="255" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" />
+                                                    </span>
+                                    </p>
+
+
+
+                                <p><label for="contact_lastName">{{ 'contact.form.lastname.label'|trans }}:<span class="note">*</span> </label><br/>
+                                        <span class="wpcf7-form-control-wrap your-name">
+
+                                            <input type="text" id="contact_lastName"
+                                                   name="contact[lastName]" required="required"
+                                                   maxlength="255"  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"/>
+                                           </span>
+                                </p>
+
+
+                                <p><label for="contact_country">{{ 'contact.form.country.label'|trans }}:<span class="note">*</span></label><br/>
+                                        <span class="wpcf7-form-control-wrap text-682">
+
+                                              <input type="text" id="contact_country"
+                                                     name="contact[country]" required="required"
+                                                     maxlength="255"  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"/>
+
+</span>
+                                </p>
+
+
+
+                                <p><label  for="contact_telephone">{{ 'contact.form.telephone.label'|trans }}:<span class="note">*</span></label><br/>
+<span class="wpcf7-form-control-wrap tel-483">
+                                    <input type="text" id="contact_telephone"
+                                           name="contact[telephone]" required="required"
+                                           maxlength="255"   class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel"/>
+
+                                      </span>
+                                </p>
+
+
+                                <p><label  for="contact_email">{{ 'contact.form.email.label'|trans }}:<span class="note">*</span></label><br/>
+                                        <span class="wpcf7-form-control-wrap email-118">
+
+                                            <input type="text" id="contact_email"
+                                                   name="contact[email]" required="required"
+                                                   maxlength="255"    class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"/>
+
+
+                                        </span>
+                                </p>
+
+                                <p> <label class="col-sm-2 control-label required"
+                                           for="contact_message">{{ 'contact.form.message.label'|trans }}:<span class="note">*</span></label><br/>
+                                    <span class="wpcf7-form-control-wrap your-message">
+
+                                        <textarea id="contact_message" name="contact[message]"
+                                                  required="required"
+                                                  class="wpcf7-form-control wpcf7-textarea">
+
+                                            </textarea>
+                                       </span>
+                                </p>
+
+
+                                <input type="hidden" id="contact__token" name="contact[_token]"
+                                       value="VjKXZrPq-bRiAxfA005QymML9AJ_W3azznxu6U4aK48"/>
+
+                                <p>
+
+                                <input type="submit" value="Send"
+                                          class="wpcf7-form-control wpcf7-submit submit_callback" />
+                                </p>
+
+                            </form>
+
+
+
+
+                        </div>
+
+                    </div> <!-- Itemprop END: articleBody -->
+                </div> <!-- Scope END: Article -->
+                <!-- END Schema.org microdata added by Add-Meta-Tags WordPress plugin -->
+
+
+                {#<br/>#}
+
+
+                {#<p>*Required fields</p>#}
+
+            </div>
+
+
+            <div class="one-third w31">
+
+   {# load navigation items #}
+    {{render(controller(
+    'AppBundle:Settings:display'
+
+    )) }}
+
+
+
+
+            </div><!-- #primary -->
+
+            ﻿
+
+            <!-- TRANSLATION EN/FR -->
+
+        </section><!-- #main -->
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block javascripts %}
+<script>
+ initAjaxForm();
+</script>
+{% endblock %}

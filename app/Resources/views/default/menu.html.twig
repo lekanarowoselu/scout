@@ -1,0 +1,228 @@
+
+<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+    <h3 class="menu-toggle">MENU</h3>
+    <div class="menu-smartvillas-main-menu-english-container">
+        <ul id="menu-smartvillas-main-menu-english" class="nav-menu">
+
+            {#{% if app.request.get('_route') == 'app_villa' %}#}
+                {#<li class="current"><a href="{{ path('villa_index')}}">Home</a></li>#}
+            {#{% else %}#}
+                {#<li><a href="{{ path('villa_index')}}">Home2</a></li>#}
+            {#{% endif %}#}
+
+            {#{% if app.request.get('_route') == 'app_testimonial' %}#}
+                {#<li class="current"><a href="{{ path('app_testimonial') }}">Reports</a></li>#}
+            {#{% else %}#}
+                {#<li><a href="{{ path('testimonial_index') }}">Reports2</a></li>#}
+            {#{% endif %}#}
+
+{#{{ dump(maxw) }}#}
+
+            <li id="menu-item-273" class=" {% if 'villa' in _route    %}
+   menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307
+        {% else %}
+tt
+            {% endif %}"><a href="{{ path('villa_index') }}">Villas</a>
+
+
+
+                <ul class="sub-menu">
+
+                    {% for cat in categories %}
+
+
+                    <li ><a href="{{ path('villacategory_show',{ '_locale':app.request.locale,'id': cat.Id}) }}">{{ cat.Name }}</a></li>
+
+
+
+                    {% endfor %}
+
+                </ul>
+            </li>
+
+            {#--------------------------------------------------#}
+
+
+
+            {% for pagecategory in pagecategories %}
+                {#{% if category.pages | length > 0  %}#}
+
+
+                {% if((pagecategory.showinmenu == 1)) %}
+
+                        <li id="" class="{% if 'page' in _route    %}
+   menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307
+        {% else %}
+tt
+            {% endif %}"><a href="#!">{{ pagecategory.title }}</a>
+                            <ul class="sub-menu">
+                                {% for page in pagecategory.pages %}
+                                    {% if(page.showinmenu) %}
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687">
+                                            <a href="{{ path('page_show', { '_locale':app.request.locale,'slug': page.slug}) }}">{{ page.pageName }}</a></li>
+                                        {% endif %}
+
+
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                {% endif %}
+            {% endfor %}
+
+
+
+            {#------------------------------------------------------#}
+
+
+            {#<li id="" class=""><a href="{{ path('page_show', { 'slug': "services" }) }}">Services</a>#}
+            {#<li id="" class="{% if 'page' in _route    %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="#!">Services</a>#}
+                {#<ul class="sub-menu">#}
+
+                    {#{% for servicePage in servicePages %}#}
+                    {#{% if(servicePage.showinmenu) %}#}
+                    {#{% if(page.internalLink|length > 0) %}#}
+                    {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687"><a href="{{ path(page.internalLink,{ 'lang':app.request.locale}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                    {#{% else %}#}
+                    {#<li><a href="{{ path('page_show', { '_locale':app.request.locale,'slug': servicePage.slug}) }}"><span>{{ servicePage.pageName }}</span></a></li>#}
+                    {#{% endif %}#}
+                    {#{% endif %}#}
+
+                    {#{% endfor %}#}
+
+
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/airport-transferyu-lounge/">Yu lounge</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/airport-transfer/">Airport Transfer</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/car-rental/">Car Rental</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/smartvillas-chef/">Smartvillas Chef</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/equipment-for-babies-and-children/">Equipment for Babies and Children</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/fitness-and-spa/">Grooming and fitness</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/massage-and-spa-treatment/">Massage and Spa Treatment</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/your-wedding-in-mauritius/">Special Events</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/grocery-deliveries/">Grocery delivery</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/services/shopping/">Shopping</a></li>#}
+                {#</ul>#}
+            {#</li>#}
+            <li id="" class="{% if _route == 'testimonial_index' %}
+   menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307
+        {% else %}
+tt
+            {% endif %}"><a href="{{ path('testimonial_index') }}">Smartbook</a></li>
+            {#<li id="" class=""><a href="{{ path('page_show', { 'slug': "smartbuy" }) }}">Smartbuy</a>#}
+            {#<li id="" class="{% if 'page' in _route    %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="#!">Smartbuy</a>#}
+                {#<ul class="sub-menu">#}
+                    {#{% for smartbuyPage in smartbuyPages %}#}
+                        {#{% if(smartbuyPage.showinmenu) %}#}
+                            {#{% if(page.internalLink|length > 0) %}#}
+                            {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687"><a href="{{ path(page.internalLink,{ 'lang':app.request.locale}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                            {#{% else %}#}
+                            {#<li><a href="{{ path('page_show', { '_locale':app.request.locale,'slug': smartbuyPage.slug}) }}">{{ smartbuyPage.pageName }}</a></li>#}
+                            {#{% endif %}#}
+                        {#{% endif %}#}
+
+                    {#{% endfor %}#}
+
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/smartvillas-advice/">OUR ADVICE FOR PROPERTY IN MAURITIUS</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/residents-permits/">Residence Permits</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/real-estate-projects/">BUY, SELL PROPERTY IN MAURITIUS, IRS &#038; RES</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/other-advantages/">Other advantages</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/long-term/">Long term</a></li>#}
+                {#</ul>#}
+            {#</li>#}
+            <li id="menu-item-30" class="{% if _route == 'contact_new' %}
+   menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307
+        {% else %}
+tt
+            {% endif %}"><a href="{{ path('contact_new') }}">  {{ 'menu.contact'|trans }}</a></li>
+        </ul></div>
+</nav><!-- #site-navigation -->
+
+{#{% if app.request.get('_route') == 'dbe_underConstruction' %}#}
+{#<div id="navscroll-wrapper" class="navscroll-wrapper" ng-class="{'menuShow': !menuIsClose}" tabindex="-1">#}
+    {#<div class="custom-navbar-collapse">    #}
+        {#<div class="headCover">#}
+            {#<p class="head"><span>MENU</span></p>#}
+        {#</div>#}
+        {#<p ng-click="blah()">sdfsdfsdsdf</p>#}
+        {#<div class="menuContainer">#}
+            {#<ul class="navbarWrapper" drop-down-menu>#}
+                {#<li><a href="{{ path('web_index', { 'lang':app.request.locale} )  }}"><span>Home</span></a></li>#}
+
+                {#{% for category in categories %}#}
+                    {#{% if category.pages | length > 0  %}#}
+                    {#{% set news = 0 %}#}
+                    {#{% set players = 0 %}#}
+                    {#{% set competition = 0 %}#}
+                    {#{% if((category.title == categoryPlayersTitle)) %}#}
+                        {#{% if( players == 0 ) %}#}
+                            {#<li class="subMenu secLevel"><a href="#"><span>{{ category.title }}</span></a>#}
+                                {#<ul><li><a href="{{ path('player_home',{'lang' : lang}) }}"><span>{% verbatim %}{{ 'PLAYERS_GALLERY' | translate }}{% endverbatim %}</span></a></li> </ul>#}
+                            {#</li>#}
+                            {#{% set players = 1 %}#}
+                        {#{% endif %}#}
+                    {#{% elseif ((category.title == categoryNewsTitle)) %}#}
+                        {#{% if( news == 0 ) %}#}
+                            {#<li class="subMenu secLevel"><a href="#"><span>{{ category.title }}</span></a>#}
+                            {#<ul>#}
+                                {#<li><a href="{{ path('page_news',{ 'lang':app.request.locale}) }}"><span>{% verbatim %}{{ 'THE_LASTEST' | translate }}{% endverbatim %}</span></a></li>#}
+                                {#<li><a href="{{ path('page_social_media_wall',{ 'lang':app.request.locale,"date":'all'}) }}"><span>{% verbatim %}{{ 'SOCIAL_MEDIA_WALL' | translate }}{% endverbatim %}</span></a></li>#}
+                            {#</ul>#}
+                            {#{% set news = 1 %}#}
+                        {#{% endif %}#}
+                    {#{% elseif ((category.title == categoryCompetitionTitle)) %}#}
+                        {#{% if( competition == 0 ) %}#}
+                            {#<li class="subMenu secLevel"><a href="#"><span>{{ category.title }}</span></a>#}
+                            {#<ul>#}
+                                {#<li><a href="#"><span>{% verbatim %}{{ 'DRAWS_SCORES' | translate }}{% endverbatim %}</span></a></li>#}
+                                {#<li><a href="{{ path('competition_show',{ 'lang':app.request.locale}) }}"><span>{% verbatim %}{{ 'COMPETITION' | translate }}{% endverbatim %}</span></a></li>#}
+                                {#<li><a href="#"><span>{% verbatim %}{{ 'LIVESCORE' | translate }}{% endverbatim %}</span></a></li>#}
+                            {#</ul>#}
+                            {#{% set competition = 1 %}#}
+                        {#{% endif %}#}
+                    {#{% elseif ((category.title == categoryMultimediaTitle)) %}#}
+                        {#{% if( news == 0 ) %}#}
+                            {#<li class="subMenu secLevel"><a href="#"><span>{{ category.title }}</span></a>#}
+                            {#<ul>#}
+                                {#<li><a href="{{ path('gallery_show',{'lang':app.request.locale}) }}"><span>{% verbatim %}{{ 'PHOTOS' | translate }}{% endverbatim %}</span></a></li>#}
+                            {#</ul>#}
+                            {#{% set news = 1 %}#}
+                        {#{% endif %}#}
+                    {#{% else %}#}
+                        {#<li class="subMenu secLevel"><a href="#"><span>{{ category.title }}</span></a>#}
+                            {#<ul>#}
+                                {#{% for page in category.pages %}#}
+                                    {#{% if(page.showinmenu) %}#}
+                                        {#{% if(page.internalLink|length > 0) %}#}
+                                            {#<li><a href="{{ path(page.internalLink,{ 'lang':app.request.locale}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                                        {#{% else %}#}
+                                            {#<li><a href="{{ path('page_show', { 'lang':page.lang.locale,'slug': page.slug}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                                        {#{% endif %}#}
+                                    {#{% endif %}#}
+
+                                {#{% endfor %}#}
+                            {#</ul>#}
+                        {#</li>#}
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+                {#<!-- page with no categories -->#}
+                {#{% for page in  pagesWithoutCat %}#}
+                    {#<li><a href="{{ path('page_show', { 'lang':page.lang.locale,'slug': page.slug}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                {#{% endfor %}#}
+            {#</ul>#}
+        {#</div>#}
+    {#</div>#}
+    {#<div class="closeWrapper">#}
+        {#<p class="manuToggle">#}
+            {#<button type="button" role="button" class="custom-navbar-toggle" ng-class="{'menuOpen': !menuIsClose}" mo-click="toggleMenu()" aria-expanded="false" aria-controls="navbar" title="{% verbatim %} {{ 'TOGGLE_MENU' | translate }} {% endverbatim %}"><span class="spinner-master3"><span class="spinner3 diagonal part-1"></span> <span class="spinner3 horizontal"></span> <span class="spinner3 diagonal part-2"></span></span>#}
+            {#</button>#}
+        {#</p>#}
+    {#</div>#}
+{#</div>#}

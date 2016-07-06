@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaBooking list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Email</th>
+                {#<th>Arrivaldate</th>#}
+                {#<th>Departuredate</th>#}
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Babies</th>
+                <th>Message</th>
+                {#<th>Createdat</th>#}
+                {#<th>Updatedat</th>#}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villaBooking in villaBookings %}
+            <tr>
+                <td><a href="{{ path('villabooking_show', { 'id': villaBooking.id }) }}">{{ villaBooking.id }}</a></td>
+                <td>{{ villaBooking.firstname }}</td>
+                <td>{{ villaBooking.lastname }}</td>
+                <td>{{ villaBooking.email }}</td>
+                {#<td>{% if villaBooking.arrivalDate %}{{ villaBooking.arrivalDate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                {#<td>{% if villaBooking.departureDate %}{{ villaBooking.departureDate|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                <td>{{ villaBooking.adults }}</td>
+                <td>{{ villaBooking.children }}</td>
+                <td>{{ villaBooking.babies }}</td>
+                <td>{{ villaBooking.message }}</td>
+                {#<td>{% if villaBooking.createdAt %}{{ villaBooking.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                {#<td>{% if villaBooking.updatedAt %}{{ villaBooking.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villabooking_show', { 'id': villaBooking.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villabooking_edit', { 'id': villaBooking.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villabooking_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Villa</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ villa.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ villa.title }}</td>
+            </tr>
+            <tr>
+                <th>Metatitle</th>
+                <td>{{ villa.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>Metadescription</th>
+                <td>{{ villa.metaDescription }}</td>
+            </tr>
+            <tr>
+                <th>Price_terms</th>
+                <td>{{ villa.priceterms }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ villa.region }}</td>
+            </tr>
+            <tr>
+                <th>Numberofrooms</th>
+                <td>{{ villa.numberOfRooms }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if villa.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ villa.description }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if villa.createdAt %}{{ villa.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if villa.updatedAt %}{{ villa.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sorting</th>
+                <td>{{ villa.sorting }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villa_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('villa_edit', { 'id': villa.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

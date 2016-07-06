@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaAmenity list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Metatitle</th>
+                <th>Metadescription</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villaAmenity in villaAmenities %}
+            <tr>
+                <td><a href="{{ path('villaamenity_show', { 'id': villaAmenity.id }) }}">{{ villaAmenity.id }}</a></td>
+                <td>{{ villaAmenity.metaTitle }}</td>
+                <td>{{ villaAmenity.metaDescription }}</td>
+                <td>{{ villaAmenity.name }}</td>
+                <td>{{ villaAmenity.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villaamenity_show', { 'id': villaAmenity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villaamenity_edit', { 'id': villaAmenity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villaamenity_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

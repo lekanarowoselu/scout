@@ -1,0 +1,385 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <!-- begin content -->
+    <section id="slider-home" xmlns="http://www.w3.org/1999/html">
+        <section id="content" class="container clearfix">
+            <div class="one-third w31">
+                <div id="clean-design" class="iconbox icon-left">
+
+                    <h2 class="unforget">Smartbook</h2>
+
+                </div>
+            </div>
+
+            <div class="two-thirds column-last w62">
+
+
+                <div id="" class="comment-respond content-form">
+                    <!--<h2 id="reply-title" class="comment-reply-title iconbox-title_top1">-->
+
+
+
+
+                    <small><a rel="nofollow" id="cancel-comment-reply-link" href="/en/smartbook/#respond" style="display:none;">Cancel reply</a></small><!--</h2>-->
+
+
+                    <form name="testimonial" method="post" class="comment-form"  action="{{path('testimonial_ajax')}}">
+                        <h2 id="reply-title" class="comment-reply-title iconbox-title_top1">GIVE US YOUR FEEDBACK</h2>
+                        <p>*Required fields</p>
+                        <div class="one-half">
+                            <p class="comment-form-author">
+                                <label class="col-sm-2 control-label required" for="testimonial_name">Name:<span
+                                            class="required note">*</span></label>
+
+                                    <input type="text" id="author"
+                                           name="testimonial[name]"
+                                           required="required"  maxlength="255"   />
+
+                            </p>
+                            <p class="comment-form-email">
+
+                                <label class="col-sm-2 control-label required"
+                                       for="testimonial_email">Email:<span
+                                  class="required note">*</span></label>
+                                <input type="text" id="email"
+                                       name="testimonial[email]" required="required" size="30"
+                                       maxlength="255" />
+</p>
+
+                        </div>
+
+
+                        <div class="one-half">
+
+                            <p class="comment-form-country">
+
+
+
+
+
+                            <label class="col-sm-2 control-label required"
+                                   for="testimonial_country">Country:<span
+                                        class="required note">*</span></label>
+                    <input type="text"  id="pmg_comment_title"
+                                                      name="testimonial[country]" required="required"
+                                                      maxlength="255" />
+                        </p>
+
+                            <p class="comment-form-email">
+
+                        <label class="col-sm-2 control-label required"
+                                                           for="testimonial_property">Property:<span
+                                    class="required note">*</span></label>
+
+                                <select id="testimonial_property" name="testimonial[property]" class="refine_property"  >
+                                    <option value="-1"> Select Property</option>
+                                    <option> Villa Letchis</option>
+                                    <option> Domaine des Alizées</option>
+                                    <option> Duplex Island View</option>
+                                    <option> Villa Bambous</option>
+                                    <option> Villa Frangipane</option>
+                                    <option> Villa La Pointe</option>
+                                    <option> Villa Lavangère</option>
+                                    <option> Villa Les Palmiers</option>
+                                    <option> Les Villas Oasis</option>
+                                    <option> Villa La Perle 3</option>
+                                    <option> Villa Banian 2</option>
+                                    <option> Villa Seychelles</option>
+                                    <option> Villas So beach 3-4-5</option>
+                                    <option> Villa Teresa</option>
+                                    <option> Villa Camphrier</option>
+                                    <option> Leora Beach</option>
+                                    <option> Belle Crique</option>
+                                    <option> Villa Cocotier</option>
+                                    <option> Villa Filao</option>
+                                    <option> Cap Bay</option>
+                                    <option> La Résidence</option>
+                                    <option> Villa Balinea</option>
+                                    <option> Paradise Beach</option>
+                                    <option> Villa Gingembre</option>
+                                    <option> Esplanade</option>
+                                    <option> Villa So beach 1</option>
+                                    <option> Villa Turquoise</option>
+                                    <option> Villa Solen</option>
+                                    <option> Villa Kariba</option>
+                                    <option> Villa Canelle</option>
+                                    <option> Villa L&#8217;Ilot</option>
+                                    <option> Villa Veloutier</option>
+                                    <option> Villa C&#8217;Sablon</option>
+                                    <option> Villa Majorelle</option>
+                                    <option> Villa Corail</option>
+                                    <option> Villa Agena</option>
+                                    <option> Villa Grenadine</option>
+                                    <option> Villa Crecerelle</option>
+                                    <option> Azur Appartment</option>
+                                    <option> Villa Bengali 3</option>
+                                    <option> Villa Bengali 1</option>
+                                    <option> Villa Balima</option>
+                                    <option> Villa Carambole</option>
+                                    <option> Villa Mapou</option>
+                                    <option> Villa Mandarine</option>
+                                    <option> Villa Palmier</option>
+                                    <option> Penthouse Open Sky</option>
+                                    <option> Villa Porcelaine</option>
+                                    <option> Villa Paradis</option>
+                                    <option> Penthouse Ivoire</option>
+                                    <option> Villa Banian</option>
+                                    <option> Villa Safran</option>
+                                    <option> Villa So Beach n°7</option>
+                                    <option> Heritage Villas</option>
+                                    <option> Villa Baladirou</option>
+                                    <option> Villa Casita 1</option>
+                                    <option> Villa Virginia</option>
+                                    <option> Villa Nenuphar</option>
+                                    <option> Villa Latanier</option>
+                                    <option> Villa Canne à Sucre</option>
+                                    <option> Villa Paletuvier</option>
+                                    <option> Villa Baobab</option>
+                                    <option> Villa Mervent</option>
+                                    <option> Villa Badamier</option>
+                                    <option> Villa Dune 1</option>
+                                    <option> Villa Anthurium</option>
+                                    <option> Villa Sentosa</option>
+                                    <option> Villa Orchidée</option>
+                                    <option> Villa Du Cap</option>
+                                    <option> Villa 4 Epices</option>
+                                    <option> Villa Tiara</option>
+                                    <option> Villa CapAna</option>
+                                    <option> Villa Coloniale</option>
+                                    <option> Villa Casetta</option>
+                                    <option> Villa Gecko Bleu</option>
+                                    <option> Villa Karma</option>
+                                    <option> Villa Intendance</option>
+
+                                    {#<option value="1" > Select Property</option>#}
+                                    {#<option value="2" > Villa Letchis</option>#}
+                                    {#<option value="3" > Domaine des Alizées</option>#}
+                                    {#<option value="4" >Duplex Island View</option>#}
+                                    {#<option value="5" > Villa Bambous</option>#}
+                                    {#<option value="6" > Villa Frangipane</option>#}
+                                    {#<option value="7" >Villa La Pointe</option>#}
+                                    {#<option value="8" > Villa Lavangère</option>#}
+                                    {#<option value="9" >Villa Les Palmiers</option>#}
+                                    {#<option value="10" > Les Villas Oasis</option>#}
+                                    {#<option value="11" >Villa La Perle 3</option>#}
+                                    {#<option value="12" > Villa Banian 2</option>#}
+                                    {#<option value="13" > Villa Seychelles</option>#}
+                                    {#<option value="14" > Villas So beach 3-4-5</option>#}
+                                    {#<option value="15" > Villa Teresa</option>#}
+                                    {#<option value="16" > Villa Camphrier</option>#}
+                                    {#<option value="17" >Leora Beach</option>#}
+                                    {#<option value="18" >Belle Crique</option>#}
+                                    {#<option value="19" > Villa Cocotier</option>#}
+                                    {#<option value="20" > Villa Filao</option>#}
+                                    {#<option value="21" > Cap Bay</option>#}
+                                    {#<option value="22" > La Résidence</option>#}
+                                    {#<option value="23" >Villa Balinea</option>#}
+                                    {#<option value="24" >Paradise Beach</option>#}
+                                    {#<option value="25" > Villa Gingembre</option>#}
+                                    {#<option value="26" > Esplanade</option>#}
+                                    {#<option value="27" > Villa So beach 1</option>#}
+                                    {#<option value="28" > Villa Turquoise</option>#}
+                                    {#<option value="29" >Villa Solen</option>#}
+                                    {#<option value="30" >Villa Kariba</option>#}
+                                    {#<option value="31" > Villa Canelle</option>#}
+                                    {#<option value="32" > Villa L&#8217;Ilot</option>#}
+                                    {#<option value="33" > Villa Veloutier</option>#}
+                                    {#<option value="34" >Villa C&#8217;Sablon</option>#}
+                                    {#<option value="35" > Villa Majorelle</option>#}
+                                    {#<option value="36" > Villa Corail</option>#}
+                                    {#<option value="37" > Villa Agena</option>#}
+                                    {#<option value="38" > Villa Grenadine</option>#}
+                                    {#<option value="39" >Villa Crecerelle</option>#}
+                                    {#<option value="40" > Azur Appartment</option>#}
+                                    {#<option value="1" > Villa Bengali 3</option>#}
+                                    {#<option value="1" > Villa Bengali 1</option>#}
+                                    {#<option value="1" > Villa Balima</option>#}
+                                    {#<option value="1" > Villa Carambole</option>#}
+                                    {#<option value="1" > Villa Mapou</option>#}
+                                    {#<option value="1" > Villa Mandarine</option>#}
+                                    {#<option value="1" > Villa Palmier</option>#}
+                                    {#<option value="1" > Penthouse Open Sky</option>#}
+                                    {#<option value="1" > Villa Porcelaine</option>#}
+                                    {#<option value="1" > Villa Paradis</option>#}
+                                    {#<option value="1" > Penthouse Ivoire</option>#}
+                                    {#<option value="1" > Villa Banian</option>#}
+                                    {#<option value="1" > Villa Safran</option>#}
+                                    {#<option value="1" > Villa So Beach n°7</option>#}
+                                    {#<option value="1" > Heritage Villas</option>#}
+                                    {#<option value="1" >Villa Baladirou</option>#}
+                                    {#<option value="1" > Villa Casita 1</option>#}
+                                    {#<option value="1" > Villa Virginia</option>#}
+                                    {#<option value="1" > Villa Nenuphar</option>#}
+                                    {#<option value="1" > Villa Latanier</option>#}
+                                    {#<option value="1" > Villa Canne à Sucre</option>#}
+                                    {#<option value="1" > Villa Paletuvier</option>#}
+                                    {#<option value="1" > Villa Baobab</option>#}
+                                    {#<option value="1" > Villa Mervent</option>#}
+                                    {#<option value="1" > Villa Badamier</option>#}
+                                    {#<option value="1" > Villa Dune 1</option>#}
+                                    {#<option value="1" >Villa Anthurium</option>#}
+                                    {#<option value="1" > Villa Sentosa</option>#}
+                                    {#<option value="1" > Villa Orchidée</option>#}
+                                    {#<option value="1" > Villa Du Cap</option>#}
+                                    {#<option value="1" > Villa 4 Epices</option>#}
+                                    {#<option value="1" > Villa Tiara</option>#}
+                                    {#<option value="1" >Villa CapAna</option>#}
+                                    {#<option value="1" >Villa Coloniale</option>#}
+                                    {#<option value="1" > Villa Casetta</option>#}
+                                    {#<option value="1" >Villa Gecko Bleu</option>#}
+                                    {#<option value="1" > Villa Karma</option>#}
+                                    {#<option value="1" > Villa Intendance</option>#}
+                                </select>
+
+
+
+                            </p>
+                        </div>
+
+
+                        <p class="comment-form-comment">
+                            <label for="testimonial_comment">Comment<span class="">:</span></label>
+                            <textarea id="testimonial_comment" name="testimonial[comment]" class="textarea.wpcf7-form-control.wpcf7-comment"
+                                      required="required"  cols="45" rows="8" aria-required="true"></textarea></p>
+
+
+
+
+
+
+
+                            <input type="hidden" id="testimonial__token" name="testimonial[_token]"
+                                   value="MDGLp683d4iH_aXWS6-bovHPBIEVRjCOx5Y7qu0wbfE"/>
+
+                        <p class="form-submit">
+                            <input name="submit" type="submit" id="submit" value="Post Comment"/>
+                            </p>
+
+                    </form>
+
+
+
+
+
+
+                </div><!-- #respond -->
+
+                <h2 class="iconbox-title_top1 "></h2>
+
+
+
+
+            </div>
+
+            <div class="clear"></div><br/><br/>
+
+
+            {#{% for testimonial in testimonials %}#}
+                {#<tr>#}
+                    {#<td><a href="{{ path('testimonial_show', { 'id': testimonial.id }) }}">{{ testimonial.id }}</a></td>#}
+                    {#<td>{{ testimonial.name }}</td>#}
+                    {#<td>{{ testimonial.country }}</td>#}
+                    {#<td>{{ testimonial.email }}</td>#}
+                    {#<td>{{ testimonial.property }}</td>#}
+                    {#<td>{{ testimonial.comment }}</td>#}
+                    {#<td>{% if testimonial.createdAt %}{{ testimonial.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                    {#<td>{% if testimonial.updatedAt %}{{ testimonial.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+
+                {#</tr>#}
+            {#{% endfor %}#}
+            {% for testimonial in testimonials|reverse %}
+
+            <div class="one-third w31">
+                <div id="clean-design" class="iconbox icon-left">
+
+                    <h2 class="no_bor_al_right">
+                        <a href="#" rel="nofollow" class="username ext">{{ testimonial.name }}</a></h2>
+                    <p class="no_bor_al_right">{% if testimonial.createdAt %}{{ testimonial.createdAt|date('Y-m-d H:i:s') }}{% endif %}</p>
+                </div>
+            </div>
+            <div class="two-thirds column-last w62">
+
+                <div class="comment-text">
+                    <div class="comment-arrow"></div>
+
+                    <div class="content" style='padding:2%'>
+
+                        <p class="no_borderless"><a href="http://smart-villas-mauritius.com/?post_type=smartvillas-villas&#038;p=3242">{{ testimonial.property }}</a></p>
+                        <blockquote>
+                            <p style='margin-bottom:14px!important;'>{{ testimonial.comment }}</p>
+                            <br/><br/>
+
+                            <div class="border"></div>
+                            <div class="field-items">
+                                <div class="field-item even">{{ testimonial.country }}</div>
+                            </div>
+                        </blockquote>
+
+                    </div> <!-- /.content -->
+
+                </div>
+                <div class="iconbox icon-left"></div>
+            </div>
+
+            {% endfor %}
+
+            {#<div class="one-third w31">#}
+                {#<div id="clean-design" class="iconbox icon-left">#}
+
+                    {#<h2 class="no_bor_al_right">#}
+                        {#<a href="#" rel="nofollow" class="username ext">Tina Slater</a></h2>#}
+                    {#<p class="no_bor_al_right">2015-09-26 04:50:21</p>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="two-thirds column-last w62">#}
+
+                {#<div class="comment-text">#}
+                    {#<div class="comment-arrow"></div>#}
+
+                    {#<div class="content" style='padding:2%'>#}
+
+                        {#<p class="no_borderless"><a href="http://smart-villas-mauritius.com/?post_type=smartvillas-villas&#038;p=3242">Villa Bengali 1</a></p>#}
+
+                        {#<blockquote>#}
+                            {#<p style='margin-bottom:14px!important;'>Thank you so much Marie for arranging our stay at Bengali 1 - what a fabulous villa - great position - lovely and spacious. Close to all amenities in Grand Baie but also lovely and peaceful on our private beach! We really don't want to leave !! Highly recommended for families - look forward to coming back in the future and dealing with Marie who was amazing and answered all my questions via email so promptly....Tina David Hannah and Max x</p>#}
+                            {#<br/><br/>#}
+
+                            {#<div class="border"></div>#}
+                            {#<div class="field-items">#}
+                                {#<div class="field-item even">South Africa</div>#}
+                            {#</div>#}
+                        {#</blockquote>#}
+
+                    {#</div> <!-- /.content -->#}
+
+                {#</div>#}
+                {#<div class="iconbox icon-left"></div>#}
+            {#</div>#}
+
+
+
+            <div class="navigation">
+                <div class="alignleft"></div>
+                <div class="alignright"></div>
+            </div>
+
+        </section>
+
+        ﻿
+
+        <!-- TRANSLATION EN/FR -->
+
+    </section><!-- #main -->
+
+
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        initAjaxForm2();
+    </script>
+{% endblock %}

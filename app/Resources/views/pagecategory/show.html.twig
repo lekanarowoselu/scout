@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+
+
+
+
+    <h1>PageCategory</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pageCategory.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ pageCategory.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ pageCategory.slug }}</td>
+            </tr>
+            <tr>
+                <th>Metatitle</th>
+                <td>{{ pageCategory.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>Metadescription</th>
+                <td>{{ pageCategory.metaDescription }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if pageCategory.createdAt %}{{ pageCategory.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if pageCategory.updatedAt %}{{ pageCategory.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sorting</th>
+                <td>{{ pageCategory.sorting }}</td>
+            </tr>
+            <tr>
+                <th>Showinmenu</th>
+                <td>{% if pageCategory.showInMenu %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Special</th>
+                <td>{% if pageCategory.special %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pagecategory_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('pagecategory_edit', { 'id': pageCategory.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

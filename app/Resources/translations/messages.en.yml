@@ -1,0 +1,11 @@
+
+menu.contact: Contact Us
+
+contact.page.title: Contact Us
+contact.form.firstname.label: First Name
+contact.form.lastname.label: Last Name
+contact.form.country.label: Country
+contact.form.telephone.label: Telephone Number
+contact.form.email.label: Email
+contact.form.message.label: Message
+contact.form.required.label: Required fields

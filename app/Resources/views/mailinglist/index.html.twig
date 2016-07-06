@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>MailingList list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Isconfirmed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mailingList in mailingLists %}
+            <tr>
+                <td><a href="{{ path('mailinglist_show', { 'id': mailingList.id }) }}">{{ mailingList.id }}</a></td>
+                <td>{{ mailingList.name }}</td>
+                <td>{{ mailingList.email }}</td>
+                <td>{% if mailingList.createdAt %}{{ mailingList.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if mailingList.updatedAt %}{{ mailingList.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if mailingList.isConfirmed %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mailinglist_show', { 'id': mailingList.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mailinglist_edit', { 'id': mailingList.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mailinglist_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

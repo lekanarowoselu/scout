@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaCategory list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Enabled</th>
+                <th>Metatitle</th>
+                <th>Metadescription</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villaCategory in villaCategories %}
+            <tr>
+                <td><a href="{{ path('villacategory_show', { 'id': villaCategory.id }) }}">{{ villaCategory.id }}</a></td>
+                <td>{{ villaCategory.name }}</td>
+                <td>{% if villaCategory.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>{{ villaCategory.metaTitle }}</td>
+                <td>{{ villaCategory.metaDescription }}</td>
+                <td>{{ villaCategory.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villacategory_show', { 'id': villaCategory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villacategory_edit', { 'id': villaCategory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villacategory_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

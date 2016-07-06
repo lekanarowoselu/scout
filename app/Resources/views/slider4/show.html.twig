@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Slider</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ slider.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ slider.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ slider.description }}</td>
+            </tr>
+            <tr>
+                <th>Sorting</th>
+                <td>{{ slider.sorting }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if slider.createdAt %}{{ slider.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if slider.updatedAt %}{{ slider.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if slider.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('slider_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('slider_edit', { 'id': slider.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

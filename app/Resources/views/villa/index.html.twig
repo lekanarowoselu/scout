@@ -1,0 +1,215 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+
+
+    <div class="clear"></div>
+    <!-- begin content -->
+    <section id="slider-home"><section id="content" class="container clearfix">
+            <div class="one-third w31">
+                <div id="clean-design" class="iconbox icon-left">
+                    <h2 class="unforget">Villas</h2>
+                </div>
+            </div>
+
+            <div class="two-thirds column-last w62">
+                <div id="mobile-ready" class="iconbox icon-left">
+
+                    <h1 class="iconbox-title_top1 ">Premium Villas for rent in Mauritius</h1>
+                    <p>
+                        <!-- BEGIN Schema.org microdata added by Add-Meta-Tags WordPress plugin -->
+                        <!-- Scope BEGIN: Article -->
+                        <div itemscope itemtype="http://schema.org/Article">
+                            <!-- Scope BEGIN: Organization -->
+<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+<meta itemprop="name" content="Smartvillas Mauritius Ltd" />
+<meta itemprop="description" content="We are a villa rental agency in mauritius specialists in vacation villa rentals mauritius, Mauritius villas, holiday villas in Mauritius" />
+<meta itemprop="logo" content="http://smart-villas-mauritius.com/wp-content/themes/Smartvillas/images/logo.png" />
+<meta itemprop="url" content="http://smart-villas-mauritius.com/" />
+</span> <!-- Scope END: Organization -->
+                            <!-- Scope BEGIN: Person -->
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<meta itemprop="name" content="admin" />
+<meta itemprop="image" content="http://www.gravatar.com/avatar/33cc52cbdb3433c6011d6a55e1e298e4?s=128" />
+<meta itemprop="url" content="http://smart-villas-mauritius.com/en/author/admin/" />
+</span> <!-- Scope END: Person -->
+                            <meta itemprop="url" content="http://smart-villas-mauritius.com/en/villas-2/" />
+                            <meta itemprop="datePublished" content="2014-07-01T11:58:19+00:00" />
+                            <meta itemprop="dateModified" content="2015-12-01T11:03:20+00:00" />
+                            <meta itemprop="copyrightYear" content="2014" />
+                            <meta itemprop="inLanguage" content="en_US" />
+                            <meta itemprop="name" content="Villas" />
+                            <meta itemprop="headline" content="Villas" />
+                            <meta itemprop="description" content="A dream of luxury and beauty, this is what you will find in our prestigious villas. Looking for refinement, space and peace, discover our hidden jewels, havens of peace and intimacy." />
+                            <!-- Scope BEGIN: ImageObject -->
+<span itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+<meta itemprop="contentUrl" content="http://smart-villas-mauritius.com/wp-content/themes/Smartvillas/images/logo.png" />
+</span> <!-- Scope END: ImageObject -->
+                            <div itemprop="articleBody">
+                    <p>
+                        <span style="color: #555555;">A dream of luxury and beauty, this is what you will find in our prestigious villas. Looking for refinement, space and peace, discover our hidden jewels, havens of peace and intimacy. Often located at the heart of a beautiful resort, the level of service in these villas will remind you the attention you can get in a 5* hotel. Live the dream!</span>
+                    </p>
+
+                </div> <!-- Itemprop END: articleBody -->
+            </div> <!-- Scope END: Article -->
+            <!-- END Schema.org microdata added by Add-Meta-Tags WordPress plugin -->
+            </p>
+
+</div>
+</div>
+<div class="clear"></div>
+
+<div class="one-third">
+    <h3  class="iconbox-affichage_par"></h3>
+</div>
+
+<div class="one-fourth prop-search">
+
+
+    <form action="" method="post" class="searchandfilter">
+        <div>
+            <ul><li><select name='ofcategory' id='ofcategory' class='postform' >
+                        <option value='0' selected='selected'>Types of Villas</option>
+                        <option class="level-0" value="50">Premium Villas</option>
+                        <option class="level-0" value="48">Luxury Beachfront Villas</option>
+                        <option class="level-0" value="49">Beachfront Villas</option>
+                        <option class="level-0" value="47">Residences/Appts</option>
+                        <option class="level-0" value="51">Best deals rentals</option>
+                        <option class="level-0" value="268">Premium Villas in Seychelles</option>
+                    </select>
+                    <input type="hidden" name="ofcategory_operator" value="and" /></li><li><select name='oflocations' id='oflocations' class='postform' >
+                        <option value='0' selected='selected'>Location</option>
+                        <option class="level-0" value="84">North</option>
+                        <option class="level-0" value="88">South</option>
+                        <option class="level-0" value="91">East</option>
+                        <option class="level-0" value="85">West</option>
+                    </select>
+                    <input type="hidden" name="oflocations_operator" value="and" /></li><li><select name='ofnum' id='ofnum' class='postform' >
+                        <option value='0' selected='selected'>Number of rooms</option>
+                        <option class="level-0" value="114">1-3</option>
+                        <option class="level-0" value="116">4</option>
+                        <option class="level-0" value="118">5 or more</option>
+                    </select>
+                    <input type="hidden" name="ofnum_operator" value="and" /></li><li><input type="hidden" name="ofsubmitted" value="1">
+                    <input type="submit" value="Submit">
+                </li></ul></div>
+    </form>
+</div>
+<div class="clear"></div>
+<br/>
+<br/>
+
+
+
+            {% for villa in villas %}
+
+                {#{{ dump(villas) }}#}
+
+
+<div class="one-third w31"><a href="{{ path('villa_show', { 'id': villa.id }) }}"><img src="{{ asset('bundles/app/assets/images/villas/')  }}{{ villa.id }}" alt="{{ villa.title }}" width="310" height="195"/></a></div>
+
+<div class="two-thirds column-last w62">
+
+    <h2 onclick="location.href='{{ path('villa_show', { 'id': villa.id }) }}'" class="no_borderless link">{{ villa.title }}</h2>
+    <h4 class="blue_price">{{ villa.priceterms }}*</h4>
+
+    <p class="spacing_villa">
+
+
+        {{ villa.description }}
+
+        </p>
+    <div class="main_reservation_tab" style="width: 300px; ">
+     <a class="hover_en" style="margin-right: 20px;font-weight: bold" href="{{ path('villa_show', { 'id': villa.id }) }}">
+                DISCOVER                        </a>
+
+   <a  class="bookthisvilla"  href="{{ path('villabooking_new', { 'id': villa.id }) }}">
+
+
+BOOK THIS VILLA
+
+        </a>
+    </div>
+
+</div>
+<div class="clear"></div>
+<br/>
+<br/>
+<br/>
+
+
+            {% endfor %}
+
+
+</section>
+﻿
+
+<!-- TRANSLATION EN/FR -->
+
+</section><!-- #main -->
+<!-- begin footer -->
+
+
+    {#<table>#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<th>Title</th>#}
+                {#<th>Metatitle</th>#}
+                {#<th>Metadescription</th>#}
+                {#<th>Price_terms</th>#}
+                {#<th>Region</th>#}
+                {#<th>Numberofrooms</th>#}
+                {#<th>Enabled</th>#}
+                {#<th>Description</th>#}
+                {#<th>Createdat</th>#}
+                {#<th>Updatedat</th>#}
+                {#<th>Sorting</th>#}
+                {#<th>Actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for villa in villas %}#}
+            {#<tr>#}
+                {#<td><a href="{{ path('villa_show', { 'id': villa.id }) }}">{{ villa.id }}</a></td>#}
+                {#<td>{{ villa.title }}</td>#}
+                {#<td>{{ villa.metaTitle }}</td>#}
+                {#<td>{{ villa.metaDescription }}</td>#}
+                {#<td>{{ villa.priceterms }}</td>#}
+                {#<td>{{ villa.region }}</td>#}
+                {#<td>{{ villa.numberOfRooms }}</td>#}
+                {#<td>{% if villa.enabled %}Yes{% else %}No{% endif %}</td>#}
+                {#<td>{{ villa.description }}</td>#}
+                {#<td>{% if villa.createdAt %}{{ villa.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                {#<td>{% if villa.updatedAt %}{{ villa.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                {#<td>{{ villa.sorting }}</td>#}
+                {#<td>#}
+                    {#<ul>#}
+                        {#<li>#}
+                            {#<a href="{{ path('villa_show', { 'id': villa.id }) }}">show</a>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="{{ path('villa_edit', { 'id': villa.id }) }}">edit</a>#}
+                        {#</li>#}
+                    {#</ul>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+{#</tbody></table>#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('villa_new') }}">Create a new entry</a>#}
+        {#</li>#}
+    {#</ul>#}
+{% endblock %}
+{% block stylesheets %}
+    <style>
+        .bookthisvilla:hover{ background-color:deepskyblue;color: #ffffff}
+   .bookthisvilla{padding: 5px 14px 7px;color:#ffffff;margin-left:  10px;background-color:#9FA1A3;font-weight: bold}
+    </style>
+{% endblock %}

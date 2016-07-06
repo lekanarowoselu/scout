@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Settings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sitename</th>
+                <th>Description</th>
+                <th>Telephone</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td><a href="{{ path('settings_show', { 'id': setting.id }) }}">{{ setting.id }}</a></td>
+                <td>{{ setting.siteName }}</td>
+                <td>{{ setting.description }}</td>
+                <td>{{ setting.telephone }}</td>
+                <td>{{ setting.address }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('settings_show', { 'id': setting.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('settings_edit', { 'id': setting.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('settings_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaSurfaceArea list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villaSurfaceArea in villaSurfaceAreas %}
+            <tr>
+                <td><a href="{{ path('villasurfacearea_show', { 'id': villaSurfaceArea.id }) }}">{{ villaSurfaceArea.id }}</a></td>
+                <td>{{ villaSurfaceArea.name }}</td>
+                <td>{{ villaSurfaceArea.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villasurfacearea_show', { 'id': villaSurfaceArea.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villasurfacearea_edit', { 'id': villaSurfaceArea.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villasurfacearea_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

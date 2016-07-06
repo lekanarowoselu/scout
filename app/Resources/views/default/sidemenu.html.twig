@@ -1,0 +1,170 @@
+
+
+
+    <h6 class="active">
+        <div class="menu-smartvillas-main-menu-english-container">
+            <ul id="menu-smartvillas-main-menu-english-1" class="menu">
+
+
+
+
+
+                        {% for servicePage in servicePages %}
+                            {% if(servicePage.showinmenu) %}
+
+
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4429">
+                                    <a href="{{ path('page_show', { '_locale':app.request.locale,'slug': servicePage.slug}) }}"><span>{{ servicePage.pageName }}</span></a></li>
+
+                            {% endif %}
+
+                        {% endfor %}
+
+
+
+
+
+
+
+                {#<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-685 current_page_item menu-item-687">
+                <a href="http://smart-villas-mauritius.com/en/smartbuy/smartvillas-advice/">OUR ADVICE FOR PROPERTY IN MAURITIUS</a></li>#}
+                {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-678"><a href="http://smart-villas-mauritius.com/en/smartbuy/residents-permits/">Residence Permits</a></li>#}
+                {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-684"><a href="http://smart-villas-mauritius.com/en/smartbuy/real-estate-projects/">BUY, SELL PROPERTY IN MAURITIUS, IRS &#038; RES</a></li>#}
+                {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="http://smart-villas-mauritius.com/en/smartbuy/other-advantages/">Other advantages</a></li>#}
+                {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-679"><a href="http://smart-villas-mauritius.com/en/smartbuy/long-term/">Long term</a></li>#}
+            </ul></div>            </h6>
+
+
+
+
+
+
+
+
+
+{#<nav id="site-navigation" class="navigation main-navigation" role="navigation">#}
+    {#<h3 class="menu-toggle">MENU</h3>#}
+    {#<div class="menu-smartvillas-main-menu-english-container">#}
+        {#<ul id="menu-smartvillas-main-menu-english" class="nav-menu">#}
+
+
+
+            {#<li id="menu-item-273" class=" {% if 'villa' in _route    %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="{{ path('villa_index') }}">Villas</a>#}
+
+
+
+                {#<ul class="sub-menu">#}
+{#{{ dump(app.request.get('_route') )}}#}
+                    {#{% for cat in categories %}#}
+
+
+                    {#<li ><a href="{{ path('villacategory_show',{ '_locale':app.request.locale,'id': cat.Id}) }}">{{ cat.Name }}</a></li>#}
+
+
+
+                    {#{% endfor %}#}
+
+                {#</ul>#}
+            {#</li>#}
+
+            {#--------------------------------------------------#}
+
+
+
+            {#{% for pagecategory in pagecategories %}#}
+                {#{% if category.pages | length > 0  %}#}
+
+
+                {#{% if((pagecategory.showinmenu == 1)) %}#}
+
+                        {#<li id="" class="{% if 'page' in _route    %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="#!">{{ pagecategory.title }}</a>#}
+                            {#<ul class="sub-menu">#}
+                                {#{% for page in pagecategory.pages %}#}
+                                    {#{% if(page.showinmenu) %}#}
+                                        {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687"><a href="{{ path('page_show', { '_locale':app.request.locale,'slug': page.slug}) }}">{{ page.pageName }}</a></li>#}
+                                        {#{% endif %}#}
+
+
+                                {#{% endfor %}#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                {#{% endif %}#}
+            {#{% endfor %}#}
+
+
+
+            {#------------------------------------------------------#}
+
+
+            {#<li id="" class=""><a href="{{ path('page_show', { 'slug': "services" }) }}">Services</a>#}
+            {#<li id="" class="{% if 'page' in _route    %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="#!">Services</a>#}
+                {#<ul class="sub-menu">#}
+
+                    {#{% for servicePage in servicePages %}#}
+                    {#{% if(servicePage.showinmenu) %}#}
+                    {#{% if(page.internalLink|length > 0) %}#}
+                    {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687"><a href="{{ path(page.internalLink,{ 'lang':app.request.locale}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                    {#{% else %}#}
+                    {#<li><a href="{{ path('page_show', { '_locale':app.request.locale,'slug': servicePage.slug}) }}"><span>{{ servicePage.pageName }}</span></a></li>#}
+                    {#{% endif %}#}
+                    {#{% endif %}#}
+
+                    {#{% endfor %}#}
+
+
+
+                {#</ul>#}
+            {#</li>#}
+            {#<li id="" class="{% if _route == 'testimonial_index' %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="{{ path('testimonial_index') }}">Smartbook</a></li>#}
+            {#<li id="" class=""><a href="{{ path('page_show', { 'slug': "smartbuy" }) }}">Smartbuy</a>#}
+            {#<li id="" class="{% if 'page' in _route    %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="#!">Smartbuy</a>#}
+                {#<ul class="sub-menu">#}
+                    {#{% for smartbuyPage in smartbuyPages %}#}
+                        {#{% if(smartbuyPage.showinmenu) %}#}
+                            {#{% if(page.internalLink|length > 0) %}#}
+                            {#<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687"><a href="{{ path(page.internalLink,{ 'lang':app.request.locale}) }}"><span>{{ page.pageName }}</span></a></li>#}
+                            {#{% else %}#}
+                            {#<li><a href="{{ path('page_show', { '_locale':app.request.locale,'slug': smartbuyPage.slug}) }}">{{ smartbuyPage.pageName }}</a></li>#}
+                            {#{% endif %}#}
+                        {#{% endif %}#}
+
+                    {#{% endfor %}#}
+
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/smartvillas-advice/">OUR ADVICE FOR PROPERTY IN MAURITIUS</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/residents-permits/">Residence Permits</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/real-estate-projects/">BUY, SELL PROPERTY IN MAURITIUS, IRS &#038; RES</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/other-advantages/">Other advantages</a></li>#}
+                    {#<li id="" class=""><a href="http://smart-villas-mauritius.com/en/smartbuy/long-term/">Long term</a></li>#}
+                {#</ul>#}
+            {#</li>#}
+            {#<li id="menu-item-30" class="{% if _route == 'contact_new' %}#}
+   {#menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-307#}
+        {#{% else %}#}
+{#tt#}
+            {#{% endif %}"><a href="{{ path('contact_new') }}">Contact-Us</a></li>#}
+        {#</ul>#}
+
+
+    {#</div>#}
+{#</nav><!-- #site-navigation -->#}

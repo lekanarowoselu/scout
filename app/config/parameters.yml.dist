@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+
+    locale: en
+    app.locales: en|fr
+    locale_supported: ['en','fr']

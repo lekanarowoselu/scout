@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaImage list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villaImage in villaImages %}
+            <tr>
+                <td><a href="{{ path('villaimage_show', { 'id': villaImage.id }) }}">{{ villaImage.id }}</a></td>
+                <td>{{ villaImage.name }}</td>
+                <td>{{ villaImage.description }}</td>
+                <td>{% if villaImage.createdAt %}{{ villaImage.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if villaImage.updatedAt %}{{ villaImage.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if villaImage.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villaimage_show', { 'id': villaImage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villaimage_edit', { 'id': villaImage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villaimage_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

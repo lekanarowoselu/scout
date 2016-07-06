@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Slider list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Sorting</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for slider in sliders %}
+            <tr>
+                <td><a href="{{ path('slider_show', { 'id': slider.id }) }}">{{ slider.id }}</a></td>
+                <td>{{ slider.name }}</td>
+                <td>{{ slider.description }}</td>
+                <td>{{ slider.sorting }}</td>
+                <td>{% if slider.createdAt %}{{ slider.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if slider.updatedAt %}{{ slider.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if slider.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('slider_show', { 'id': slider.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('slider_edit', { 'id': slider.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('slider_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

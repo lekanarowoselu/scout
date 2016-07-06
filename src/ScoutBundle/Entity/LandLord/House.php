@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\Agent;
+namespace coutBundle\Entity\LandLord;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,8 +10,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * House
  *
- * @ORM\Table(name="agent_house")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\HouseRepository")
+ * @ORM\Table(name="landlord_house")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\LandLord\HouseRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class House

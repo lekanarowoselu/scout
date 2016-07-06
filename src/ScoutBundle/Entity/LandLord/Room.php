@@ -74,8 +74,7 @@ class Room
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
-
-
+    
     /**
      * @ORM\ManyToOne(targetEntity="House", inversedBy="rooms")
      * @ORM\JoinColumn(name="house_id", referencedColumnName="id", nullable=false)
@@ -93,7 +92,6 @@ class Room
 //     * @ORM\JoinTable(name="agent_houses_categories")
 //     */
 //    private $categories;
-
 
     /**
      * @ORM\ManyToMany(targetEntity="RoomFeature", inversedBy="features")
@@ -426,6 +424,8 @@ class Room
     {
         return $this->features;
     }
+
+    
     public function __toString()
     {
         return $this->getTitle();

@@ -1,0 +1,35 @@
+
+
+{% block body %}
+
+    {%  if setting is not null %}
+
+        <h2 class="no_borderless_contact">{{ setting.siteName }}</h2>
+        <p>{{ setting.description | raw }}</p>
+
+        <p>&nbsp;</p>
+        <h2 class="no_borderless_contact_1">Head Office,  </h2>
+        <p>  {{ setting.address | raw }}</p>
+        <p>    Tel {{ setting.telephone }} </p>
+        <p>&nbsp;</p>
+        <p>
+            <a href="mailto:marie@smartvillas-m.com">marie@smartvillas-m.com</a><br>
+            +230 59881444                </p>
+
+        <p>
+            <a href="mailto:nathalie@smartvillas-m.com">nathalie@smartvillas-m.com</a><br>
+            +230 52574986                </p>
+
+        <p>
+            <a href="mailto:benedicte@smartvillas-m.com">benedicte@smartvillas-m.com</a><br>
+            +230 57362122                </p>
+
+
+
+        <div class="clear"></div>
+
+
+{% endif %}
+
+
+{% endblock %}

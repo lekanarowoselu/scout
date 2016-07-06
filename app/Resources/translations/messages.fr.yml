@@ -1,0 +1,12 @@
+
+menu.contact: Contactez-Nous
+
+
+contact.page.title: Contactez-Nous
+contact.form.firstname.label: Nom
+contact.form.lastname.label: PreNom
+contact.form.country.label: Country
+contact.form.telephone.label: Telephone Numero
+contact.form.email.label: Email
+contact.form.message.label: Message
+contact.form.required.label: Required fieldsfr

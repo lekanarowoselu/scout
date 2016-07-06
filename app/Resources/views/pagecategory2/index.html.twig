@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>PageCategory list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Metatitle</th>
+                <th>Metadescription</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Sorting</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pageCategory in pageCategories %}
+            <tr>
+                <td><a href="{{ path('pagecategory_show', { 'id': pageCategory.id }) }}">{{ pageCategory.id }}</a></td>
+                <td>{{ pageCategory.title }}</td>
+                <td>{{ pageCategory.slug }}</td>
+                <td>{{ pageCategory.metaTitle }}</td>
+                <td>{{ pageCategory.metaDescription }}</td>
+                <td>{% if pageCategory.createdAt %}{{ pageCategory.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if pageCategory.updatedAt %}{{ pageCategory.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ pageCategory.sorting }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pagecategory_show', { 'id': pageCategory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('pagecategory_edit', { 'id': pageCategory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pagecategory_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

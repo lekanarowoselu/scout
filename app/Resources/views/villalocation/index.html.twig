@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaLocation list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Metatitle</th>
+                <th>Metadescription</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for villaLocation in villaLocations %}
+            <tr>
+                <td><a href="{{ path('villalocation_show', { 'id': villaLocation.id }) }}">{{ villaLocation.id }}</a></td>
+                <td>{{ villaLocation.metaTitle }}</td>
+                <td>{{ villaLocation.metaDescription }}</td>
+                <td>{{ villaLocation.name }}</td>
+                <td>{{ villaLocation.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('villalocation_show', { 'id': villaLocation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('villalocation_edit', { 'id': villaLocation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villalocation_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>VillaImage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ villaImage.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ villaImage.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ villaImage.description }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if villaImage.createdAt %}{{ villaImage.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if villaImage.updatedAt %}{{ villaImage.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if villaImage.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('villaimage_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('villaimage_edit', { 'id': villaImage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

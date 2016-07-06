@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+{#{% set translatelink = translationsLink%}#}
+{% block body %}
+
+
+
+    <!-- begin content -->
+    <section id="slider-home">
+
+        <section id="content" class="container clearfix">
+
+            <div class="one-fourth">
+                <div id="clean-design" class="iconbox icon-left">
+
+                    <h1 class="unforget">{{ page.title }}</h1>
+                {{render(controller(
+                'AppBundle:Default:SideMenu',  { '_route': app.request.get('_route') }
+
+                )) }}
+
+            </div>
+            </div>
+            <div class="three-fourths column-last">
+
+                <div class="camera_wrap camera_azure_skin" id="camera_wrap_2">
+
+
+                    {% if  pageslider.images is not null %}
+
+                    {% for images in pageslider.images %}
+
+                        {{ images.ImageFilename }}
+                        <div data-thumb="{{ vich_uploader_asset(images, 'imageFile') }}"
+                             src="{{ vich_uploader_asset(images, 'imageFile') }}"
+                             data-src=" {{ vich_uploader_asset(images, 'imageFile') }}">
+
+                        </div>
+
+
+                        {#<td><a href="{{ asset('bundles/app/assets/images/sliders/')}}{{ image.imageFilename}}">#}
+                        {#<img width="150px" src="{{ vich_uploader_asset(image, 'imageFile') }}" alt="{{ image.name }}" >#}
+                        {#</a>#}
+                        {#</td>#}
+                    {% endfor %}
+                    {% endif %}
+                </div><!-- #camera_wrap_2-->
+
+
+            </div>
+
+            <div class="spacing"></div>
+
+            <div class="one-fourth" > <h2 class="no_bor_al_right">
+                    CONTACT US</h2>
+
+
+                <p class="alignright">
+                    <a href="mailto:marie@smartvillas-m.com">marie@smartvillas-m.com</a><br>
+                    +230 59881444                    </p>
+
+
+                <p class="alignright">
+                    <a href="mailto:nathalie@smartvillas-m.com">nathalie@smartvillas-m.com</a><br>
+                    +230 52574986                    </p>
+
+
+                <p class="alignright">
+                    <a href="mailto:benedicte@smartvillas-m.com">benedicte@smartvillas-m.com</a><br>
+                    +230 57362122                    </p>
+
+
+            </div>
+            <div class="three-fourths column-last" >
+
+
+
+
+
+
+                <!-- BEGIN Schema.org microdata added by Add-Meta-Tags WordPress plugin -->
+                <!-- Scope BEGIN: Article -->
+                <div itemscope itemtype="http://schema.org/Article">
+                    <!-- Scope BEGIN: Organization -->
+<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+<meta itemprop="name" content="Smartvillas Mauritius Ltd" />
+<meta itemprop="description" content="We are a villa rental agency in mauritius specialists in vacation villa rentals mauritius, Mauritius villas, holiday villas in Mauritius" />
+<meta itemprop="logo" content="http://smart-villas-mauritius.com/wp-content/themes/Smartvillas/images/logo.png" />
+<meta itemprop="url" content="http://smart-villas-mauritius.com/" />
+</span> <!-- Scope END: Organization -->
+                    <!-- Scope BEGIN: Person -->
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<meta itemprop="name" content="admin" />
+<meta itemprop="image" content="http://www.gravatar.com/avatar/33cc52cbdb3433c6011d6a55e1e298e4?s=128" />
+<meta itemprop="url" content="http://smart-villas-mauritius.com/en/author/admin/" />
+</span> <!-- Scope END: Person -->
+                    <meta itemprop="url" content="http://smart-villas-mauritius.com/en/smartbuy/smartvillas-advice/" />
+                    <meta itemprop="datePublished" content="2014-08-28T08:20:22+00:00" />
+                    <meta itemprop="dateModified" content="2015-12-03T13:31:59+00:00" />
+                    <meta itemprop="copyrightYear" content="2014" />
+                    <meta itemprop="inLanguage" content="en_US" />
+                    <meta itemprop="name" content="OUR ADVICE FOR PROPERTY IN MAURITIUS" />
+                    <meta itemprop="headline" content="OUR ADVICE FOR PROPERTY IN MAURITIUS" />
+                    <meta itemprop="description" content="We are a real estate agency and our goal is to give investors the best advice on property to buy and sell in Mauritius." />
+                    <meta itemprop="keywords" content="investment in mauritius, property in mauritius, properties in mauritius, invest in mauritius" />
+                    <!-- Scope BEGIN: ImageObject -->
+<span itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+<meta itemprop="contentUrl" content="http://smart-villas-mauritius.com/wp-content/themes/Smartvillas/images/logo.png" />
+</span> <!-- Scope END: ImageObject -->
+                    <div itemprop="articleBody">
+
+                        {{ page.content | raw }}
+                    </div> <!-- Itemprop END: articleBody -->
+                </div> <!-- Scope END: Article -->
+                <!-- END Schema.org microdata added by Add-Meta-Tags WordPress plugin -->
+
+            </div>
+            <div class="clear"></div>
+
+        </section>
+        <!-- end content -->
+
+
+
+    </section><!-- #primary -->
+
+    ﻿
+
+    <!-- TRANSLATION EN/FR -->
+
+    </section><!-- #main -->
+
+
+{% endblock %}
+{% block javascripts %}
+
+<script>
+    jQuery(function(){
+
+
+
+        jQuery('#camera_wrap_2').camera({
+            height: '467px',
+            loader: 'bar',
+            pagination: false,
+            thumbnails: true
+        });
+    });
+</script>
+{% endblock %}
