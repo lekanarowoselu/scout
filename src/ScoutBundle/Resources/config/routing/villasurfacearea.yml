@@ -1,0 +1,24 @@
+villasurfacearea_index:
+    path:     /admin/villasurfacearea_index
+    defaults: { _controller: "AppBundle:VillaSurfaceArea:index" }
+    methods:  GET
+
+villasurfacearea_show:
+    path:     /admin/{id}/villasurfacearea_show
+    defaults: { _controller: "AppBundle:VillaSurfaceArea:show" }
+    methods:  GET
+
+villasurfacearea_new:
+    path:     /admin/villasurfacearea_new
+    defaults: { _controller: "AppBundle:VillaSurfaceArea:new" }
+    methods:  [GET, POST]
+
+villasurfacearea_edit:
+    path:     /admin/{id}/villasurfacearea_edit
+    defaults: { _controller: "AppBundle:VillaSurfaceArea:edit" }
+    methods:  [GET, POST]
+
+villasurfacearea_delete:
+    path:     /{id}/villasurfacearea_delete
+    defaults: { _controller: "AppBundle:VillaSurfaceArea:delete" }
+    methods:  DELETE

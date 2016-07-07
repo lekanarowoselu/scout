@@ -1,0 +1,24 @@
+villaamenity_index:
+    path:     /admin/villaamenity
+    defaults: { _controller: "AppBundle:VillaAmenity:index" }
+    methods:  GET
+
+villaamenity_show:
+    path:     /admin/{id}/villaamenity_show
+    defaults: { _controller: "AppBundle:VillaAmenity:show" }
+    methods:  GET
+
+villaamenity_new:
+    path:     /admin/villaamenity_new
+    defaults: { _controller: "AppBundle:VillaAmenity:new" }
+    methods:  [GET, POST]
+
+villaamenity_edit:
+    path:     /admin/{id}/villaamenity_edit
+    defaults: { _controller: "AppBundle:VillaAmenity:edit" }
+    methods:  [GET, POST]
+
+villaamenity_delete:
+    path:     /{id}/villaamenity_delete
+    defaults: { _controller: "AppBundle:VillaAmenity:delete" }
+    methods:  DELETE

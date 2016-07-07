@@ -1,0 +1,32 @@
+
+villabooking_new:
+    path:     /villabooking
+    defaults: { _controller: "AppBundle:VillaBooking:new" }
+    methods:  [GET, POST]
+
+
+
+
+
+
+villabooking_index:
+    path:     /admin/villabooking_index
+    defaults: { _controller: "AppBundle:VillaBooking:index" }
+    methods:  GET
+
+villabooking_show:
+    path:     /admin/{id}/villabooking_show
+    defaults: { _controller: "AppBundle:VillaBooking:show" }
+    methods:  GET
+
+
+
+villabooking_edit:
+    path:     /admin/{id}/villabooking_edit
+    defaults: { _controller: "AppBundle:VillaBooking:edit" }
+    methods:  [GET, POST]
+
+villabooking_delete:
+    path:     /{id}/villabooking_delete
+    defaults: { _controller: "AppBundle:VillaBooking:delete" }
+    methods:  DELETE

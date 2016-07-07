@@ -1,0 +1,24 @@
+pagecategory_index:
+    path:     /admin/pagecategory_index
+    defaults: { _controller: "AppBundle:PageCategory:index" }
+    methods:  GET
+
+pagecategory_show:
+    path:     /admin/{id}/pagecategory_show
+    defaults: { _controller: "AppBundle:PageCategory:show" }
+    methods:  GET
+
+pagecategory_new:
+    path:     /admin/pagecategory_new
+    defaults: { _controller: "AppBundle:PageCategory:new" }
+    methods:  [GET, POST]
+
+pagecategory_edit:
+    path:     /admin/{id}/pagecategory_edit
+    defaults: { _controller: "AppBundle:PageCategory:edit" }
+    methods:  [GET, POST]
+
+pagecategory_delete:
+    path:     /{id}/pagecategory_delete
+    defaults: { _controller: "AppBundle:PageCategory:delete" }
+    methods:  DELETE

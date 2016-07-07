@@ -1,0 +1,37 @@
+villa_index:
+    path:     /villa
+    defaults: { _controller: "AppBundle:Villa:index" }
+    methods:  GET
+
+villa_show:
+    path:     /{id}/villa_show
+    defaults: { _controller: "AppBundle:Villa:show" }
+    methods:  GET
+
+
+
+
+villa_list:
+    path:     /admin/villa_list
+    defaults: { _controller: "AppBundle:Villa:list" }
+    methods:  GET
+
+villa_detail:
+    path:     /admin/{id}/villa_detail
+    defaults: { _controller: "AppBundle:Villa:detail" }
+    methods:  GET
+
+villa_new:
+    path:     /admin/villa_new
+    defaults: { _controller: "AppBundle:Villa:new" }
+    methods:  [GET, POST]
+
+villa_edit:
+    path:     /admin/{id}/villa_edit
+    defaults: { _controller: "AppBundle:Villa:edit" }
+    methods:  [GET, POST]
+
+villa_delete:
+    path:     /{id}/villa_delete
+    defaults: { _controller: "AppBundle:Villa:delete" }
+    methods:  DELETE

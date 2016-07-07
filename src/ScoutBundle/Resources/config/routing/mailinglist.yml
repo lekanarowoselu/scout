@@ -1,0 +1,24 @@
+mailinglist_index:
+    path:     /admin/mailinglist
+    defaults: { _controller: "AppBundle:MailingList:index" }
+    methods:  GET
+
+mailinglist_show:
+    path:      /admin/{id}/show
+    defaults: { _controller: "AppBundle:MailingList:show" }
+    methods:  GET
+
+mailinglist_new:
+    path:      /admin/new
+    defaults: { _controller: "AppBundle:MailingList:new" }
+    methods:  [GET, POST]
+
+mailinglist_edit:
+    path:      /admin/{id}/edit
+    defaults: { _controller: "AppBundle:MailingList:edit" }
+    methods:  [GET, POST]
+
+mailinglist_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:MailingList:delete" }
+    methods:  DELETE

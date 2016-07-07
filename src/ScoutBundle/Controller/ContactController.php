@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Contact;
-use AppBundle\Form\ContactType;
+use ScoutBundle\Entity\Site\Contact;
+use ScoutBundle\Form\ContactType;
 
 /**
  * Contact controller.
@@ -23,7 +23,7 @@ class ContactController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $contacts = $em->getRepository('AppBundle:Contact')->findAll();
+        $contacts = $em->getRepository('ScoutBundle:Contact')->findAll();
 
         return $this->render('contact/index.html.twig', array(
             'contacts' => $contacts,
@@ -37,7 +37,7 @@ class ContactController extends Controller
     public function newAction(Request $request)
     {
         $contact = new Contact();
-        $form = $this->createForm('AppBundle\Form\ContactType', $contact);
+        $form = $this->createForm('ScoutBundle\Form\Site\ContactType', $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

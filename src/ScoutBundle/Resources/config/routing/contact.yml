@@ -1,0 +1,30 @@
+contact_index:
+    path:     /
+    defaults: { _controller: "ScoutBundle:Contact:index" }
+    methods:  GET
+
+
+contact_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScoutBundle:Contact:show" }
+    methods:  GET
+
+contact_new:
+    path:     /contact
+    defaults: { _controller: "ScoutBundle:Contact:new" }
+    methods:  [GET, POST]
+
+contact_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScoutBundle:Contact:edit" }
+    methods:  [GET, POST]
+
+contact_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScoutBundle:Contact:delete" }
+    methods:  DELETE
+
+contact_ajax:
+    path:     /create
+    defaults: { _controller: "ScoutBundle:Contact:create" }
+    methods:  [GET, POST]

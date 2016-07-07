@@ -1,0 +1,29 @@
+testimonial_index:
+    path:     /smartbook
+    defaults: { _controller: "AppBundle:Testimonial:index" }
+    methods:  GET
+
+testimonial_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Testimonial:show" }
+    methods:  GET
+
+testimonial_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Testimonial:new" }
+    methods:  [GET, POST]
+
+testimonial_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Testimonial:edit" }
+    methods:  [GET, POST]
+
+testimonial_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Testimonial:delete" }
+    methods:  DELETE
+
+testimonial_ajax:
+    path:     /create
+    defaults: { _controller: "AppBundle:Testimonial:create" }
+    methods:  [GET, POST]
