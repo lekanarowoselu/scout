@@ -1,0 +1,24 @@
+_index:
+    path:     /
+    defaults: { _controller: "ScoutBundle:LandLord:index" }
+    methods:  GET
+
+_show:
+    path:     /{id}/show
+    defaults: { _controller: "ScoutBundle:LandLord:show" }
+    methods:  GET
+
+_new:
+    path:     /new
+    defaults: { _controller: "ScoutBundle:LandLord:new" }
+    methods:  [GET, POST]
+
+_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ScoutBundle:LandLord:edit" }
+    methods:  [GET, POST]
+
+_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ScoutBundle:LandLord:delete" }
+    methods:  DELETE

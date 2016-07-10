@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>LandLord list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Telephone</th>
+                <th>Websiteurl</th>
+                <th>Contactemail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for landLord in landLords %}
+            <tr>
+                <td><a href="{{ path('_show', { 'id': landLord.id }) }}">{{ landLord.id }}</a></td>
+                <td>{{ landLord.name }}</td>
+                <td>{{ landLord.description }}</td>
+                <td>{{ landLord.street }}</td>
+                <td>{{ landLord.city }}</td>
+                <td>{{ landLord.state }}</td>
+                <td>{{ landLord.country }}</td>
+                <td>{{ landLord.telephone }}</td>
+                <td>{{ landLord.websiteUrl }}</td>
+                <td>{{ landLord.contactEmail }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('_show', { 'id': landLord.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('_edit', { 'id': landLord.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
