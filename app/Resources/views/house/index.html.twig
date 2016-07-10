@@ -1,4 +1,4 @@
-{% extends '::innerbase.html.twig' %}
+{% extends 'innerbase.html.twig' %}
 
 {% block body %}
     <h1>House list</h1>
@@ -55,7 +55,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('_new') }}">Create a new entry</a>
+            <a href="{{ path('house_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

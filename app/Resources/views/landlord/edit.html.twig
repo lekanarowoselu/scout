@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '::innerbase.html.twig' %}
 
 {% block body %}
     <h1>LandLord edit</h1>
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('_index') }}">Back to the list</a>
+            <a href="{{ path('landlord_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

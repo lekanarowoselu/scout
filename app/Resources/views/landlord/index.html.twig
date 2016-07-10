@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '::innerbase.html.twig' %}
 
 {% block body %}
     <h1>LandLord list</h1>
@@ -22,7 +22,7 @@
         <tbody>
         {% for landLord in landLords %}
             <tr>
-                <td><a href="{{ path('_show', { 'id': landLord.id }) }}">{{ landLord.id }}</a></td>
+                <td><a href="{{ path('landlord_show', { 'id': landLord.id }) }}">{{ landLord.id }}</a></td>
                 <td>{{ landLord.name }}</td>
                 <td>{{ landLord.description }}</td>
                 <td>{{ landLord.street }}</td>
@@ -35,10 +35,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('_show', { 'id': landLord.id }) }}">show</a>
+                            <a href="{{ path('landlord_show', { 'id': landLord.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('_edit', { 'id': landLord.id }) }}">edit</a>
+                            <a href="{{ path('landlord_edit', { 'id': landLord.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -49,7 +49,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('_new') }}">Create a new entry</a>
+            <a href="{{ path('landlord_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

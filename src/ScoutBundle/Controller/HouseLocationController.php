@@ -24,11 +24,24 @@ class HouseLocationController extends Controller
 
         $houseLocations = $em->getRepository('ScoutBundle:HouseLocation')->findAll();
 
+        return $this->render('houselocation/index.html.twig', array(
+            'houseLocations' => $houseLocations,
+        ));
+    }
+    /**
+     * Lists all HouseLocation entities.
+     *
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $houseLocations = $em->getRepository('ScoutBundle:HouseLocation')->findAll();
+
         return $this->render('ScoutBundle:houselocation:index.html.twig', array(
             'houseLocations' => $houseLocations,
         ));
     }
-
     /**
      * Creates a new houseLocation entity.
      *

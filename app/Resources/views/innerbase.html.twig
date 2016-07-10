@@ -1,6 +1,6 @@
 {% extends '::homebase.html.twig' %}
 
-{% block body %}
+{% block innerbody %}
 <body class="">
 <div class="page-wrapper">
 
@@ -8,13 +8,7 @@
         <div class="header">
             <div class="header-inner">
                 <div class="container">
-                    <div class="header-topbar">
-                        <div class="header-topbar-left">
-                            <ul class="nav nav-pills nav-topbar">
-                                <li class="nav-item"><a href="login.html" class="nav-link"><strong>Login</strong></a></li>
-                            </ul><!-- /.nav -->
-                        </div><!-- /.header-topbar-left -->
-                    </div><!-- /.header-topbar -->
+
 
                     <div class="header-top">
                         <div class="header-top-inner">
@@ -119,7 +113,7 @@
 
                 <div class="content">
 
-                    {% block innerbody %}{% endblock %}
+                    {% block body %}{% endblock %}
                 </div><!-- /.content -->
             </div><!-- /.main-inner -->
         </div><!-- /.main -->
