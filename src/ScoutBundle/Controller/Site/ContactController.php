@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Controller;
+namespace ScoutBundle\Controller\Site;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

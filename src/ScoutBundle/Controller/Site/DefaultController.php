@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Controller;
+namespace ScoutBundle\Controller\Site;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

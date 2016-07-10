@@ -1,6 +1,6 @@
 scout_homepage:
     path:     /
-    defaults: { _controller: ScoutBundle:Default:index }
+    defaults: { _controller: ScoutBundle:Site\Default:index }
 
 
 scout_contact:

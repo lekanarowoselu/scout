@@ -11,7 +11,7 @@ contact_show:
 
 contact_new:
     path:     /contact
-    defaults: { _controller: "ScoutBundle:Contact:new" }
+    defaults: { _controller: "ScoutBundle:Site/Contact:new" }
     methods:  [GET, POST]
 
 contact_edit:
