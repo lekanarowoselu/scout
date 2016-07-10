@@ -123,66 +123,9 @@ class Villa
 
     private $slider;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="VillaService")
-     * @ORM\JoinTable(name="villa_services",
-     *      joinColumns={@ORM\JoinColumn(name="villa_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="villaservice_id", referencedColumnName="id", unique=true)}
-     *      )
-     */
-    private $services;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="VillaAmenity")
-     * @ORM\JoinTable(name="villa_amenities",
-     *      joinColumns={@ORM\JoinColumn(name="villa_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="villaamenity_id", referencedColumnName="id", unique=true)}
-     *      )
-     */
-    private $amenities;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="VillaSurfaceArea")
-     * @ORM\JoinTable(name="villa_surfaceareas",
-     *      joinColumns={@ORM\JoinColumn(name="villa_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="villasurfacearea_id", referencedColumnName="id", unique=true)}
-     *      )
-     */
-    private $surface_areas;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="VillaLocation")
-     * @ORM\JoinTable(name="villa_locations",
-     *      joinColumns={@ORM\JoinColumn(name="villa_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="villalocation_id", referencedColumnName="id", unique=true)}
-     *      )
-     */
-    private $locations;
-
-    /**
-     * @ORM\OneToMany(targetEntity="VillaBooking", mappedBy="villa")
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    private $bookings;
-
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Villa")
-     * ORM\JoinTable(name="translations",
-     *     joinColumns={@JoinColumn(name="villa_a_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@JoinColumn(name="villa_b_id", referencedColumnName="id")}
-     * )
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    protected $translations;
-
-    /**
-     * @var Lang
-     *
-     * @ORM\ManyToOne(targetEntity="Lang", inversedBy="villas")
-     * @ORM\JoinColumn(name="lang_id", referencedColumnName="id")
-     */
-    private $lang;
+    
+    
+    
 
 
     /****************************************************/

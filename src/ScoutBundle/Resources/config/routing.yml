@@ -6,3 +6,11 @@ scout_homepage:
 scout_contact:
     resource: "@ScoutBundle/Resources/config/routing/contact.yml"
     prefix:   /
+
+scout_house:
+        resource: "@ScoutBundle/Resources/config/routing/house.yml"
+        prefix:   /
+scout_landlord:
+        resource: "@ScoutBundle/Resources/config/routing/landlord.yml"
+        prefix:   /
+

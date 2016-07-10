@@ -32,12 +32,12 @@ class User extends BaseUser
     public $usertype;
 
     /**
-     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\RoomSeeker\Profile", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\RoomSeeker", mappedBy="user")
      */
     public $roomseeker;
 
     /**
-     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\LandLord\Profile" , mappedBy="user")
+     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\LandLord" , mappedBy="user")
      */
     public $landlord;
 
@@ -54,32 +54,32 @@ class User extends BaseUser
      *
      * @return int
      */
-    public function getUsertype()
+    public function getUserType()
     {
         return $this->usertype;
     }
 
-    public function getRoomseeker()
+    public function getRoomSeeker()
     {
         return $this->roomseeker;
     }
 
-    public function getAgent()
+    public function getLandLord()
     {
-        return $this->agent;
+        return $this->landlord;
     }
 
-    public function setRoomseeker(\ScoutBundle\Entity\Roomseeker\Profile $profile)
+    public function setRoomseeker(\ScoutBundle\Entity\RoomSeeker $roomseeker)
     {
-        $this->roomseeker = $profile;
+        $this->roomseeker = $roomseeker;
 
         return $this;
     }
 
 
-    public function setAgent(\ScoutBundle\Entity\Agent\Profile $profile)
+    public function setAgent(\ScoutBundle\Entity\LandLord $landlord)
     {
-        $this->agent = $profile;
+        $this->landlord = $landlord;
 
         return $this;
     }

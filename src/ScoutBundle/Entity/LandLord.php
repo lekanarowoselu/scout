@@ -1,22 +1,22 @@
 <?php
 
-namespace ScoutBundle\Entity\LandLord;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * LandLord
  *
- * @ORM\Table(name="landlord_profile")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\LandLord\ProfileRepository")
+ * @ORM\Table(name="landlord")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\LandLordRepository")
  *
  * @ORM\HasLifecycleCallbacks
  *
  */
-class Profile
+class LandLord
 {
     /**
      * @var int
@@ -92,7 +92,7 @@ class Profile
     private $contactEmail;
 
     /**
-     * @ORM\OneToOne(targetEntity="AuthBundle\Entity\User", inversedBy="agent")
+     * @ORM\OneToOne(targetEntity="AuthBundle\Entity\User", inversedBy="landlord")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
 
@@ -106,51 +106,12 @@ class Profile
 //    private $applications;
 
     /**
-     * @ORM\OneToMany(targetEntity="House", mappedBy="agent")
+     * @ORM\OneToMany(targetEntity="House", mappedBy="landlord")
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $houses;
 
-    public function __construct()
-    {
-        $this->houses = new ArrayCollection();
-        //$this->applications = new ArrayCollection();
-    }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="picture_path", type="string", length=255, nullable=true, options={"default" = "images.png"}))
-     */
-    private $picturePath;
-
-
-
-    /**
-     * @Assert\File(maxSize="6000000")
-     */
-    private $file;
-
-
-    /**
-     * Sets file.
-     *
-     * @param UploadedFile $file
-     */
-//    public function setFile(UploadedFile $file = null)
-//    {
-//        $this->file = $file;
-//    }
-
-    /**
-     * Get file.
-     *
-     * @return UploadedFile
-     */
-    public function getFile()
-    {
-        return $this->file;
-    }
 
     /**
      * Get id
@@ -168,7 +129,7 @@ class Profile
      *
      * @param string $name
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setName($name)
     {
@@ -192,7 +153,7 @@ class Profile
      *
      * @param string $description
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setDescription($description)
     {
@@ -216,7 +177,7 @@ class Profile
      *
      * @param string $street
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setStreet($street)
     {
@@ -240,7 +201,7 @@ class Profile
      *
      * @param string $city
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setCity($city)
     {
@@ -264,7 +225,7 @@ class Profile
      *
      * @param string $state
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setState($state)
     {
@@ -288,7 +249,7 @@ class Profile
      *
      * @param integer $telephone
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setTelephone($telephone)
     {
@@ -312,7 +273,7 @@ class Profile
      *
      * @param string $websiteUrl
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setWebsiteUrl($websiteUrl)
     {
@@ -336,7 +297,7 @@ class Profile
      *
      * @param string $contactEmail
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setContactEmail($contactEmail)
     {
@@ -360,7 +321,7 @@ class Profile
      *
      * @param string $country
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setCountry($country)
     {
@@ -379,46 +340,16 @@ class Profile
         return $this->country;
     }
 
-    /**
-     * Add job
-     *
-     * @param \ScoutBundle\Entity\Agent\House $house
-     *
-     * @return Profile
-     */
-    public function addJob(\ScoutBundle\Entity\Agent\house $house)
-    {
-        $this->houses[] = $house;
+  
+  
 
-        return $this;
-    }
-
-    /**
-     * Remove job
-     *
-     * @param \ScoutBundle\Entity\Agent\House $house
-     */
-    public function removeJob(\ScoutBundle\Entity\Agent\house $house)
-    {
-        $this->houses->removeElement($house);
-    }
-
-    /**
-     * Get jobs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getHouses()
-    {
-        return $this->houses;
-    }
 
     /**
      * Set user
      *
      * @param \AuthBundle\Entity\User $user
      *
-     * @return Profile
+     * @return LandLord
      */
     public function setUser(\AuthBundle\Entity\User $user = null)
     {
@@ -437,126 +368,9 @@ class Profile
         return $this->user;
     }
 
-    /**
-     * Set picturePath
-     *
-     * @param string $picturePath
-     *
-     * @return Profile
-     */
-    public function setPicturePath($picturePath)
-    {
-        $this->picturePath = $picturePath;
+    
+   
 
-        return $this;
-    }
-
-    /**
-     * Get picturePath
-     *
-     * @return string
-     */
-    public function getPicturePath()
-    {
-        return $this->picturePath;
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->picturePath
-            ? null
-            : $this->getUploadRootDir().'/'.$this->picturePath;
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->picturePath
-            ? null
-            : $this->getUploadDir().'/'.$this->picturePath;
-    }
-
-    protected function getUploadRootDir()
-    {
-        // the absolute directory path where uploaded
-        // documents should be saved
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    protected function getUploadDir()
-    {
-        // get rid of the __DIR__ so it doesn't screw up
-        // when displaying uploaded doc/image in the view.
-        return 'uploads/documents';
-    }
-
-    private $temp;
-
-    /**
-     * Sets file.
-     *
-     * @param UploadedFile $file
-     */
-    public function setFile(UploadedFile $file = null)
-    {
-        $this->file = $file;
-        // check if we have an old image path
-        if (isset($this->picturePath)) {
-            // store the old name to delete after the update
-            $this->temp = $this->picturePath;
-            $this->picturePath = null;
-        } else {
-            $this->picturePath = 'initial';
-        }
-    }
-
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload()
-    {
-        if (null !== $this->getFile()) {
-            // do whatever you want to generate a unique name
-            $filename = sha1(uniqid(mt_rand(), true));
-            $this->picturePath = $filename.'.'.$this->getFile()->guessExtension();
-        }
-    }
-
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
-    public function upload()
-    {
-        if (null === $this->getFile()) {
-            return;
-        }
-
-        // if there is an error when moving the file, an exception will
-        // be automatically thrown by move(). This will properly prevent
-        // the entity from being persisted to the database on error
-        $this->getFile()->move($this->getUploadRootDir(), $this->picturePath);
-
-        // check if we have an old image
-        if (isset($this->temp)) {
-            // delete the old image
-            unlink($this->getUploadRootDir().'/'.$this->temp);
-            // clear the temp image path
-            $this->temp = null;
-        }
-        $this->file = null;
-    }
-
-    /**
-     * @ORM\PostRemove()
-     */
-    public function removeUpload()
-    {
-        $file = $this->getAbsolutePath();
-        if ($file) {
-            unlink($file);
-        }
-    }
 
 //    /**
 //     * Add application
@@ -595,4 +409,46 @@ class Profile
     public function __toString() {
         return $this->name;
     }
+
+    /**
+     * Add house
+     *
+     * @param \ScoutBundle\Entity\House $house
+     *
+     * @return LandLord
+     */
+    public function addHouse(\ScoutBundle\Entity\House $house)
+    {
+        $this->houses[] = $house;
+
+        return $this;
+    }
+
+    /**
+     * Remove house
+     *
+     * @param \ScoutBundle\Entity\House $house
+     */
+    public function removeHouse(\ScoutBundle\Entity\House $house)
+    {
+        $this->houses->removeElement($house);
+    }
+
+    /**
+     * Get houses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHouses()
+    {
+        return $this->houses;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->houses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 }

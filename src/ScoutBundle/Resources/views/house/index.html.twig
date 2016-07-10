@@ -1,0 +1,61 @@
+{% extends 'ScoutBundle::adminbase.html.twig' %}
+
+{% block body %}
+    <h1>House list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Metatitle</th>
+                <th>Metadescription</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Price_terms</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Region</th>
+                <th>Numberofrooms</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for house in houses %}
+            <tr>
+                <td><a href="{{ path('_show', { 'id': house.id }) }}">{{ house.id }}</a></td>
+                <td>{{ house.type }}</td>
+                <td>{{ house.title }}</td>
+                <td>{{ house.metaTitle }}</td>
+                <td>{{ house.metaDescription }}</td>
+                <td>{{ house.description }}</td>
+                <td>{{ house.address }}</td>
+                <td>{{ house.priceterms }}</td>
+                <td>{% if house.createdAt %}{{ house.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if house.updatedAt %}{{ house.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ house.region }}</td>
+                <td>{{ house.numberOfRooms }}</td>
+                <td>{% if house.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('_show', { 'id': house.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('_edit', { 'id': house.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

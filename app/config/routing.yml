@@ -1,3 +1,7 @@
+scout_land_lord:
+    resource: "@ScoutBundle/Controller/LandLordController.php"
+    type:     annotation
+
 scout:
     resource: "@ScoutBundle/Resources/config/routing.yml"
     prefix:   /{_locale}

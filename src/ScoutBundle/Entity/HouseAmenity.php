@@ -7,12 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Category
- *
- * @ORM\Table(name="agent_house_category")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\HouseCategoryRepository")
+ * Amenities
+ *nb
+ * @ORM\Table(name="house_amenity")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\HouseAmenityRepository")
  */
-class HouseCategory
+class HouseAmenity
 {
     /**
      * @var int
@@ -38,7 +38,7 @@ class HouseCategory
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="House", mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity="House", mappedBy="Amenities")
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $houses;
@@ -65,7 +65,7 @@ class HouseCategory
      *
      * @param string $name
      *
-     * @return HouseCategory
+     * @return HouseAmenity
      */
     public function setName($name)
     {
@@ -89,13 +89,13 @@ class HouseCategory
      *
      * @param string $description
      *
-     * @return HouseCategory
+     * @return HouseAmenity
      *
     public function setDescription($description)
     {
-        $this->description = $description;
+    $this->description = $description;
 
-        return $this;
+    return $this;
     }
 
     /**
@@ -113,7 +113,7 @@ class HouseCategory
      *
      * @param \ScoutBundle\Entity\Agent\House $house
      *
-     * @return HouseCategory
+     * @return HouseAmenity
      */
     public function addHouse(\ScoutBundle\Entity\Agent\House $house)
     {
@@ -141,11 +141,11 @@ class HouseCategory
     {
         return $this->houses;
     }
-/*    public function __toString()
-    {
-        return $this->getName();
-    }*/
-    public function getCategory()
+    /*    public function __toString()
+        {
+            return $this->getName();
+        }*/
+    public function getAmenity()
     {
         return $this->getName();
     }

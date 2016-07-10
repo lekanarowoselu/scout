@@ -1,0 +1,76 @@
+{% extends 'ScoutBundle::adminbase.html.twig' %}
+
+{% block body %}
+    <h1>House</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ house.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ house.type }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ house.title }}</td>
+            </tr>
+            <tr>
+                <th>Metatitle</th>
+                <td>{{ house.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>Metadescription</th>
+                <td>{{ house.metaDescription }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ house.description }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ house.address }}</td>
+            </tr>
+            <tr>
+                <th>Price_terms</th>
+                <td>{{ house.priceterms }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if house.createdAt %}{{ house.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if house.updatedAt %}{{ house.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ house.region }}</td>
+            </tr>
+            <tr>
+                <th>Numberofrooms</th>
+                <td>{{ house.numberOfRooms }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if house.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('_edit', { 'id': house.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Form;
+namespace ScoutBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VillaLocationType extends AbstractType
+class HouseLocationType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -19,7 +19,7 @@ class VillaLocationType extends AbstractType
             ->add('metaDescription')
             ->add('name')
             ->add('description')
-            ->add('villa')
+            ->add('house')
             ->add('translations')
             ->add('lang')
         ;
@@ -31,7 +31,7 @@ class VillaLocationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\VillaLocation'
+            'data_class' => 'ScoutBundle\Entity\HouseLocation'
         ));
     }
 }
