@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\Form;
+namespace ScoutBundle\Form;
 
-use AppBundle\Entity\PageCategory;
-use AppBundle\Repository\PageCategoryRepository;
-use AppBundle\Entity\Page;
-use AppBundle\Repository\PageRepository;
+use ScoutBundle\Entity\PageCategory;
+use ScoutBundle\Repository\PageCategoryRepository;
+use ScoutBundle\Entity\Page;
+use ScoutBundle\Repository\PageRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,7 +45,7 @@ class PageType extends AbstractType
 
             //->add('pageCategory')
             ->add('pageCategory',  EntityType::class, array(
-                'class' => 'AppBundle:PageCategory',
+                'class' => 'ScoutBundle:PageCategory',
                   'query_builder' => function(PageCategoryRepository $repository) use ( $options ) {
                     $qb = $repository->createQueryBuilder("u");
                     return $qb
@@ -55,7 +55,7 @@ class PageType extends AbstractType
                 }))
 
             ->add('translations',  EntityType::class, array(
-                'class' => 'AppBundle:Page',
+                'class' => 'ScoutBundle:Page',
                 'required' => false,
                 'multiple' => true,
                 'query_builder' => function(PageRepository $repository) use ( $options ) {
@@ -74,7 +74,7 @@ class PageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Page',
+            'data_class' => 'ScoutBundle\Entity\Page',
             'locale' => 1
         ));
     }

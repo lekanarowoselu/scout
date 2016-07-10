@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Lang;
-use AppBundle\Form\LangType;
+use ScoutBundle\Entity\Lang;
+use ScoutBundle\Form\LangType;
 
 /**
  * Lang controller.
@@ -22,9 +22,9 @@ class LangController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $langs = $em->getRepository('AppBundle:Lang')->findAll();
+        $langs = $em->getRepository('ScoutBundle:Lang')->findAll();
 
-        return $this->render('AppBundle:lang:index.html.twig', array(
+        return $this->render('ScoutBundle:lang:index.html.twig', array(
             'langs' => $langs,
         ));
     }
@@ -36,7 +36,7 @@ class LangController extends Controller
     public function newAction(Request $request)
     {
         $lang = new Lang();
-        $form = $this->createForm('AppBundle\Form\LangType', $lang);
+        $form = $this->createForm('ScoutBundle\Form\LangType', $lang);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -47,7 +47,7 @@ class LangController extends Controller
             return $this->redirectToRoute('lang_show', array('id' => $lang->getId()));
         }
 
-        return $this->render('AppBundle:lang:new.html.twig', array(
+        return $this->render('ScoutBundle:lang:new.html.twig', array(
             'lang' => $lang,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class LangController extends Controller
     {
         $deleteForm = $this->createDeleteForm($lang);
 
-        return $this->render('AppBundle:lang:show.html.twig', array(
+        return $this->render('ScoutBundle:lang:show.html.twig', array(
             'lang' => $lang,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -74,7 +74,7 @@ class LangController extends Controller
     public function editAction(Request $request, Lang $lang)
     {
         $deleteForm = $this->createDeleteForm($lang);
-        $editForm = $this->createForm('AppBundle\Form\LangType', $lang);
+        $editForm = $this->createForm('ScoutBundle\Form\LangType', $lang);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -85,7 +85,7 @@ class LangController extends Controller
             return $this->redirectToRoute('lang_show', array('id' => $lang->getId()));
         }
 
-        return $this->render('AppBundle:lang:edit.html.twig', array(
+        return $this->render('ScoutBundle:lang:edit.html.twig', array(
             'lang' => $lang,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

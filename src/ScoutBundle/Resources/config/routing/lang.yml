@@ -1,24 +1,24 @@
 lang_index:
     path:     /admin/lang_index
-    defaults: { _controller: "AppBundle:Lang:index" }
+    defaults: { _controller: "ScoutBundle:Lang:index" }
     methods:  GET
 
 lang_show:
     path:     /admin/{id}/lang_show
-    defaults: { _controller: "AppBundle:Lang:show" }
+    defaults: { _controller: "ScoutBundle:Lang:show" }
     methods:  GET
 
 lang_new:
     path:     /admin/lang_new
-    defaults: { _controller: "AppBundle:Lang:new" }
+    defaults: { _controller: "ScoutBundle:Lang:new" }
     methods:  [GET, POST]
 
 lang_edit:
     path:     /admin/{id}/lang_edit
-    defaults: { _controller: "AppBundle:Lang:edit" }
+    defaults: { _controller: "ScoutBundle:Lang:edit" }
     methods:  [GET, POST]
 
 lang_delete:
     path:     /{id}/lang_delete
-    defaults: { _controller: "AppBundle:Lang:delete" }
+    defaults: { _controller: "ScoutBundle:Lang:delete" }
     methods:  DELETE

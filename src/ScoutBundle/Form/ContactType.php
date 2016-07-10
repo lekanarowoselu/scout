@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Form\Site;
+namespace ScoutBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,7 +32,7 @@ class ContactType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ScoutBundle\Entity\Site\Contact'
+            'data_class' => 'ScoutBundle\Entity\Contact'
         ));
     }
 }

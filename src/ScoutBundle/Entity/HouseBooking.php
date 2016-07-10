@@ -5,7 +5,7 @@
  * Date: 06/06/16
  * Time: 15:48
  */
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,10 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * VillaBooking
  *
- * @ORM\Table(name="villa_booking")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\VillaBookingRepository")
+ * @ORM\Table(name="house_booking")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\VillaBookingRepository")
  */
-class VillaBooking
+class HouseBooking
 {
 
     /**
@@ -397,11 +397,11 @@ class VillaBooking
     /**
      * Set villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      *
      * @return VillaBooking
      */
-    public function setVilla(\AppBundle\Entity\Villa $villa)
+    public function setVilla(\ScoutBundle\Entity\Villa $villa)
     {
         $this->villa = $villa;
 
@@ -411,7 +411,7 @@ class VillaBooking
     /**
      * Get villa
      *
-     * @return \AppBundle\Entity\Villa
+     * @return \ScoutBundle\Entity\Villa
      */
     public function getVilla()
     {

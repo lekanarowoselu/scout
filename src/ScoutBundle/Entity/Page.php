@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     @ORM\UniqueConstraint(name="page_name_idx", columns={"page_name", "lang_id"}),
  *     @ORM\UniqueConstraint(name="page_meta_title_idx", columns={"meta_title", "lang_id"})
  *     })
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\PageRepository")
  *
  * @UniqueEntity(
  *     fields={"title", "lang"},
@@ -184,7 +184,7 @@ class Page
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Slider")
+     * @ORM\ManyToOne(targetEntity="ScoutBundle\Entity\Slider")
      * @ORM\JoinColumn(name="slider_id", referencedColumnName="id")
      */
 
@@ -560,11 +560,11 @@ class Page
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return Page
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -574,7 +574,7 @@ class Page
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {
@@ -584,11 +584,11 @@ class Page
     /**
      * Set pageCategory
      *
-     * @param \AppBundle\Entity\PageCategory $pageCategory
+     * @param \ScoutBundle\Entity\PageCategory $pageCategory
      *
      * @return Page
      */
-    public function setPageCategory(\AppBundle\Entity\PageCategory $pageCategory = null)
+    public function setPageCategory(\ScoutBundle\Entity\PageCategory $pageCategory = null)
     {
         $this->pageCategory = $pageCategory;
 
@@ -598,7 +598,7 @@ class Page
     /**
      * Get pageCategory
      *
-     * @return \AppBundle\Entity\PageCategory
+     * @return \ScoutBundle\Entity\PageCategory
      */
     public function getPageCategory()
     {
@@ -612,11 +612,11 @@ class Page
     //   /**
 //     * Add translation
 //     *
-//     * @param \AppBundle\Entity\Page $translation
+//     * @param \ScoutBundle\Entity\Page $translation
 //     *
 //     * @return Page
 //     */
-//    public function addTranslation(\AppBundle\Entity\Page $translation)
+//    public function addTranslation(\ScoutBundle\Entity\Page $translation)
 //    {
 //        $this->translations[] = $translation;
 //
@@ -626,9 +626,9 @@ class Page
 //    /**
 //     * Remove translation
 //     *
-//     * @param \AppBundle\Entity\Page $translation
+//     * @param \ScoutBundle\Entity\Page $translation
 //     */
-//    public function removeTranslation(\AppBundle\Entity\Page $translation)
+//    public function removeTranslation(\ScoutBundle\Entity\Page $translation)
 //    {
 //        $this->translations->removeElement($translation);
 //    }
@@ -756,11 +756,11 @@ class Page
     /**
      * Add image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param \ScoutBundle\Entity\Image $image
      *
      * @return Page
      */
-    public function addImage(\AppBundle\Entity\Image $image)
+    public function addImage(\ScoutBundle\Entity\Image $image)
     {
         $this->images[] = $image;
 
@@ -770,9 +770,9 @@ class Page
     /**
      * Remove image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param \ScoutBundle\Entity\Image $image
      */
-    public function removeImage(\AppBundle\Entity\Image $image)
+    public function removeImage(\ScoutBundle\Entity\Image $image)
     {
         $this->images->removeElement($image);
     }
@@ -790,11 +790,11 @@ class Page
     /**
      * Set slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      *
      * @return Page
      */
-    public function setSlider(\AppBundle\Entity\Slider $slider = null)
+    public function setSlider(\ScoutBundle\Entity\Slider $slider = null)
     {
         $this->slider = $slider;
 
@@ -804,7 +804,7 @@ class Page
     /**
      * Get slider
      *
-     * @return \AppBundle\Entity\Slider
+     * @return \ScoutBundle\Entity\Slider
      */
     public function getSlider()
     {

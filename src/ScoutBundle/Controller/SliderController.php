@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Slider;
-use AppBundle\Form\SliderType;
+use ScoutBundle\Entity\Slider;
+use ScoutBundle\Form\SliderType;
 
 /**
  * Slider controller.
@@ -22,9 +22,9 @@ class SliderController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $sliders = $em->getRepository('AppBundle:Slider')->findAll();
+        $sliders = $em->getRepository('ScoutBundle:Slider')->findAll();
 
-        return $this->render('AppBundle:slider:index.html.twig', array(
+        return $this->render('ScoutBundle:slider:index.html.twig', array(
             'sliders' => $sliders,
         ));
     }
@@ -40,10 +40,10 @@ class SliderController extends Controller
         $em = $this->getDoctrine()->getManager();
         $locale = $request->attributes->get('_locale');
 
-        //$slider->setLang($em->getRepository('AppBundle:Lang')->findOneBy(['locale' => $locale]));
-        $slides = $em->getRepository('AppBundle:Image')->findAll();
+        //$slider->setLang($em->getRepository('ScoutBundle:Lang')->findOneBy(['locale' => $locale]));
+        $slides = $em->getRepository('ScoutBundle:Image')->findAll();
         
-        $form = $this->createForm('AppBundle\Form\SliderType', $slider);
+        $form = $this->createForm('ScoutBundle\Form\SliderType', $slider);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -54,7 +54,7 @@ class SliderController extends Controller
             return $this->redirectToRoute('slider_show', array('id' => $slider->getId()));
         }
 
-        return $this->render('AppBundle:slider:new.html.twig', array(
+        return $this->render('ScoutBundle:slider:new.html.twig', array(
             'slider' => $slider,
             'form' => $form->createView(),
             '_locale'=>  $locale,
@@ -70,7 +70,7 @@ class SliderController extends Controller
     {
         $deleteForm = $this->createDeleteForm($slider);
 
-        return $this->render('AppBundle:slider:show.html.twig', array(
+        return $this->render('ScoutBundle:slider:show.html.twig', array(
             'slider' => $slider,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -83,7 +83,7 @@ class SliderController extends Controller
     public function editAction(Request $request, Slider $slider)
     {
         $deleteForm = $this->createDeleteForm($slider);
-        $editForm = $this->createForm('AppBundle\Form\SliderType', $slider);
+        $editForm = $this->createForm('ScoutBundle\Form\SliderType', $slider);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -94,7 +94,7 @@ class SliderController extends Controller
             return $this->redirectToRoute('slider_edit', array('id' => $slider->getId()));
         }
 
-        return $this->render('AppBundle:slider:edit.html.twig', array(
+        return $this->render('ScoutBundle:slider:edit.html.twig', array(
             'slider' => $slider,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

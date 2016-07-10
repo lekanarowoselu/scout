@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\News;
-use AppBundle\Form\NewsType;
+use ScoutBundle\Entity\News;
+use ScoutBundle\Form\NewsType;
 
 /**
  * News controller.
@@ -22,7 +22,7 @@ class NewsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $news = $em->getRepository('AppBundle:News')->findAll();
+        $news = $em->getRepository('ScoutBundle:News')->findAll();
 
         return $this->render('news/index.html.twig', array(
             'news' => $news,
@@ -37,9 +37,9 @@ class NewsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $news = $em->getRepository('AppBundle:News')->findAll();
+        $news = $em->getRepository('ScoutBundle:News')->findAll();
 
-        return $this->render('AppBundle:news:index.html.twig', array(
+        return $this->render('ScoutBundle:news:index.html.twig', array(
             'news' => $news,
         ));
     }
@@ -51,7 +51,7 @@ class NewsController extends Controller
     public function newAction(Request $request)
     {
         $news = new News();
-        $form = $this->createForm('AppBundle\Form\NewsType', $news);
+        $form = $this->createForm('ScoutBundle\Form\NewsType', $news);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -62,7 +62,7 @@ class NewsController extends Controller
             return $this->redirectToRoute('news_show', array('id' => $news->getId()));
         }
 
-        return $this->render('AppBundle:news:new.html.twig', array(
+        return $this->render('ScoutBundle:news:new.html.twig', array(
             'news' => $news,
             'form' => $form->createView(),
         ));
@@ -91,7 +91,7 @@ class NewsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($news);
 
-        return $this->render('AppBundle:news:show.html.twig', array(
+        return $this->render('ScoutBundle:news:show.html.twig', array(
             'news' => $news,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -103,7 +103,7 @@ class NewsController extends Controller
     public function editAction(Request $request, News $news)
     {
         $deleteForm = $this->createDeleteForm($news);
-        $editForm = $this->createForm('AppBundle\Form\NewsType', $news);
+        $editForm = $this->createForm('ScoutBundle\Form\NewsType', $news);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -114,7 +114,7 @@ class NewsController extends Controller
             return $this->redirectToRoute('news_edit', array('id' => $news->getId()));
         }
 
-        return $this->render('AppBundle:news:edit.html.twig', array(
+        return $this->render('ScoutBundle:news:edit.html.twig', array(
             'news' => $news,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

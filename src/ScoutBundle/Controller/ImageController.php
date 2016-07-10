@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Image;
-use AppBundle\Form\ImageType;
+use ScoutBundle\Entity\Image;
+use ScoutBundle\Form\ImageType;
 
 /**
  * Image controller.
@@ -22,9 +22,9 @@ class ImageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $images = $em->getRepository('AppBundle:Image')->findAll();
+        $images = $em->getRepository('ScoutBundle:Image')->findAll();
 
-        return $this->render('AppBundle:image:index.html.twig', array(
+        return $this->render('ScoutBundle:image:index.html.twig', array(
             'images' => $images,
         ));
     }
@@ -36,7 +36,7 @@ class ImageController extends Controller
     public function newAction(Request $request)
     {
         $image = new Image();
-        $form = $this->createForm('AppBundle\Form\ImageType', $image);
+        $form = $this->createForm('ScoutBundle\Form\ImageType', $image);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -47,7 +47,7 @@ class ImageController extends Controller
             return $this->redirectToRoute('image_show', array('id' => $image->getId()));
         }
 
-        return $this->render('AppBundle:image:new.html.twig', array(
+        return $this->render('ScoutBundle:image:new.html.twig', array(
             'image' => $image,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class ImageController extends Controller
     {
         $deleteForm = $this->createDeleteForm($image);
 
-        return $this->render('AppBundle:image:show.html.twig', array(
+        return $this->render('ScoutBundle:image:show.html.twig', array(
             'image' => $image,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -74,7 +74,7 @@ class ImageController extends Controller
     public function editAction(Request $request, Image $image)
     {
         $deleteForm = $this->createDeleteForm($image);
-        $editForm = $this->createForm('AppBundle\Form\ImageType', $image);
+        $editForm = $this->createForm('ScoutBundle\Form\ImageType', $image);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -85,7 +85,7 @@ class ImageController extends Controller
             return $this->redirectToRoute('image_show', array('id' => $image->getId()));
         }
 
-        return $this->render('AppBundle:image:edit.html.twig', array(
+        return $this->render('ScoutBundle:image:edit.html.twig', array(
             'image' => $image,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -1,24 +1,34 @@
-_index:
-    path:     /
+house_index:
+    path:     /house
     defaults: { _controller: "ScoutBundle:House:index" }
     methods:  GET
 
-_show:
-    path:     /{id}/show
+house_show:
+    path:     /{id}/house_show
     defaults: { _controller: "ScoutBundle:House:show" }
     methods:  GET
 
-_new:
-    path:     /new
+house_list:
+    path:     /admin/house
+    defaults: { _controller: "ScoutBundle:House:list" }
+    methods:  GET
+
+house_detail:
+    path:     /admin/{id}/house_detail
+    defaults: { _controller: "ScoutBundle:House:detail" }
+    methods:  GET
+
+house_new:
+    path:     /admin/house_new
     defaults: { _controller: "ScoutBundle:House:new" }
     methods:  [GET, POST]
 
-_edit:
-    path:     /{id}/edit
+house_edit:
+    path:     /admin/{id}/house_edit
     defaults: { _controller: "ScoutBundle:House:edit" }
     methods:  [GET, POST]
 
-_delete:
+house_delete:
     path:     /{id}/delete
     defaults: { _controller: "ScoutBundle:House:delete" }
     methods:  DELETE

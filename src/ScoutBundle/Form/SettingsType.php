@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace ScoutBundle\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\AbstractType;
@@ -40,7 +40,7 @@ class SettingsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Settings'
+            'data_class' => 'ScoutBundle\Entity\Settings'
         ));
     }
 }

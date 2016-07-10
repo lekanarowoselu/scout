@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\Agent;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;

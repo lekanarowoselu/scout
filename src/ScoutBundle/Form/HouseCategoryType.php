@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace ScoutBundle\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use AppBundle\Entity\VillaCategory;
@@ -10,7 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VillaCategoryType extends AbstractType
+class HouseCategoryType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -32,10 +32,10 @@ class VillaCategoryType extends AbstractType
             ))
             ->add('lang', null, ['disabled' => true])
             ->add('translations',  EntityType::class, array(
-                'class' => 'AppBundle:VillaCategory',
+                'class' => 'ScoutBundle:HouseCategory',
                 'required' => false,
                 'multiple' => true,
-                'query_builder' => function(VillaCategoryRepository $repository) use ( $options ) {
+                'query_builder' => function(HouseCategoryRepository $repository) use ( $options ) {
                     $qb = $repository->createQueryBuilder("u");
                     return $qb
                         ->where($qb->expr()->neq('u.lang', $options["locale"]));
@@ -50,7 +50,7 @@ class VillaCategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\VillaCategory',
+            'data_class' => 'HouseBundle\Entity\HouseCategory',
             'locale' => 1,
         ));
     }

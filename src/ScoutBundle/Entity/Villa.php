@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Villa
  *
  * @ORM\Table(name="villa")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\VillaRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\VillaRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Villa
@@ -117,7 +117,7 @@ class Villa
 
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Slider")
+     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Slider")
      * @ORM\JoinColumn(name="slider_id", referencedColumnName="id")
      */
 
@@ -286,11 +286,11 @@ class Villa
     /**
      * Add category
      *
-     * @param \AppBundle\Entity\VillaCategory $category
+     * @param \ScoutBundle\Entity\VillaCategory $category
      *
      * @return Villa
      */
-    public function addCategory(\AppBundle\Entity\VillaCategory $category)
+    public function addCategory(\ScoutBundle\Entity\VillaCategory $category)
     {
         $this->categories[] = $category;
 
@@ -300,9 +300,9 @@ class Villa
     /**
      * Remove category
      *
-     * @param \AppBundle\Entity\VillaCategory $category
+     * @param \ScoutBundle\Entity\VillaCategory $category
      */
-    public function removeCategory(\AppBundle\Entity\VillaCategory $category)
+    public function removeCategory(\ScoutBundle\Entity\VillaCategory $category)
     {
         $this->categories->removeElement($category);
     }
@@ -320,11 +320,11 @@ class Villa
     /**
      * Add image
      *
-     * @param \AppBundle\Entity\VillaImage $image
+     * @param \ScoutBundle\Entity\VillaImage $image
      *
      * @return Villa
      */
-    public function addImage(\AppBundle\Entity\VillaImage $image)
+    public function addImage(\ScoutBundle\Entity\VillaImage $image)
     {
         $this->images[] = $image;
         $image->setVilla($this);
@@ -335,9 +335,9 @@ class Villa
     /**
      * Remove image
      *
-     * @param \AppBundle\Entity\VillaImage $image
+     * @param \ScoutBundle\Entity\VillaImage $image
      */
-    public function removeImage(\AppBundle\Entity\VillaImage $image)
+    public function removeImage(\ScoutBundle\Entity\VillaImage $image)
     {
         $this->images->removeElement($image);
         $image->setVilla(null);
@@ -356,11 +356,11 @@ class Villa
     /**
      * Add service
      *
-     * @param \AppBundle\Entity\VillaService $service
+     * @param \ScoutBundle\Entity\VillaService $service
      *
      * @return Villa
      */
-    public function addService(\AppBundle\Entity\VillaService $service)
+    public function addService(\ScoutBundle\Entity\VillaService $service)
     {
         $this->services[] = $service;
 
@@ -370,9 +370,9 @@ class Villa
     /**
      * Remove service
      *
-     * @param \AppBundle\Entity\VillaService $service
+     * @param \ScoutBundle\Entity\VillaService $service
      */
-    public function removeService(\AppBundle\Entity\VillaService $service)
+    public function removeService(\ScoutBundle\Entity\VillaService $service)
     {
         $this->services->removeElement($service);
     }
@@ -390,11 +390,11 @@ class Villa
     /**
      * Add amenity
      *
-     * @param \AppBundle\Entity\VillaAmenity $amenity
+     * @param \ScoutBundle\Entity\VillaAmenity $amenity
      *
      * @return Villa
      */
-    public function addAmenity(\AppBundle\Entity\VillaAmenity $amenity)
+    public function addAmenity(\ScoutBundle\Entity\VillaAmenity $amenity)
     {
         $this->amenities[] = $amenity;
 
@@ -404,9 +404,9 @@ class Villa
     /**
      * Remove amenity
      *
-     * @param \AppBundle\Entity\VillaAmenity $amenity
+     * @param \ScoutBundle\Entity\VillaAmenity $amenity
      */
-    public function removeAmenity(\AppBundle\Entity\VillaAmenity $amenity)
+    public function removeAmenity(\ScoutBundle\Entity\VillaAmenity $amenity)
     {
         $this->amenities->removeElement($amenity);
     }
@@ -424,11 +424,11 @@ class Villa
     /**
      * Add surfaceArea
      *
-     * @param \AppBundle\Entity\VillaSurfaceArea $surfaceArea
+     * @param \ScoutBundle\Entity\VillaSurfaceArea $surfaceArea
      *
      * @return Villa
      */
-    public function addSurfaceArea(\AppBundle\Entity\VillaSurfaceArea $surfaceArea)
+    public function addSurfaceArea(\ScoutBundle\Entity\VillaSurfaceArea $surfaceArea)
     {
         $this->surface_areas[] = $surfaceArea;
 
@@ -438,9 +438,9 @@ class Villa
     /**
      * Remove surfaceArea
      *
-     * @param \AppBundle\Entity\VillaSurfaceArea $surfaceArea
+     * @param \ScoutBundle\Entity\VillaSurfaceArea $surfaceArea
      */
-    public function removeSurfaceArea(\AppBundle\Entity\VillaSurfaceArea $surfaceArea)
+    public function removeSurfaceArea(\ScoutBundle\Entity\VillaSurfaceArea $surfaceArea)
     {
         $this->surface_areas->removeElement($surfaceArea);
     }
@@ -458,11 +458,11 @@ class Villa
     /**
      * Add location
      *
-     * @param \AppBundle\Entity\VillaLocation $location
+     * @param \ScoutBundle\Entity\VillaLocation $location
      *
      * @return Villa
      */
-    public function addLocation(\AppBundle\Entity\VillaLocation $location)
+    public function addLocation(\ScoutBundle\Entity\VillaLocation $location)
     {
         $this->locations[] = $location;
 
@@ -472,9 +472,9 @@ class Villa
     /**
      * Remove location
      *
-     * @param \AppBundle\Entity\VillaLocation $location
+     * @param \ScoutBundle\Entity\VillaLocation $location
      */
-    public function removeLocation(\AppBundle\Entity\VillaLocation $location)
+    public function removeLocation(\ScoutBundle\Entity\VillaLocation $location)
     {
         $this->locations->removeElement($location);
     }
@@ -492,11 +492,11 @@ class Villa
     /**
      * Add booking
      *
-     * @param \AppBundle\Entity\VillaBooking $booking
+     * @param \ScoutBundle\Entity\VillaBooking $booking
      *
      * @return Villa
      */
-    public function addBooking(\AppBundle\Entity\VillaBooking $booking)
+    public function addBooking(\ScoutBundle\Entity\VillaBooking $booking)
     {
         $this->bookings[] = $booking;
 
@@ -506,9 +506,9 @@ class Villa
     /**
      * Remove booking
      *
-     * @param \AppBundle\Entity\VillaBooking $booking
+     * @param \ScoutBundle\Entity\VillaBooking $booking
      */
-    public function removeBooking(\AppBundle\Entity\VillaBooking $booking)
+    public function removeBooking(\ScoutBundle\Entity\VillaBooking $booking)
     {
         $this->bookings->removeElement($booking);
     }
@@ -676,11 +676,11 @@ class Villa
     /**
      * Add translation
      *
-     * @param \AppBundle\Entity\Villa $translation
+     * @param \ScoutBundle\Entity\Villa $translation
      *
      * @return Villa
      */
-    public function addTranslation(\AppBundle\Entity\Villa $translation)
+    public function addTranslation(\ScoutBundle\Entity\Villa $translation)
     {
         $this->translations[] = $translation;
 
@@ -690,9 +690,9 @@ class Villa
     /**
      * Remove translation
      *
-     * @param \AppBundle\Entity\Villa $translation
+     * @param \ScoutBundle\Entity\Villa $translation
      */
-    public function removeTranslation(\AppBundle\Entity\Villa $translation)
+    public function removeTranslation(\ScoutBundle\Entity\Villa $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -710,11 +710,11 @@ class Villa
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return Villa
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -724,7 +724,7 @@ class Villa
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {
@@ -749,11 +749,11 @@ class Villa
     /**
      * Set slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      *
      * @return Villa
      */
-    public function setSlider(\AppBundle\Entity\Slider $slider = null)
+    public function setSlider(\ScoutBundle\Entity\Slider $slider = null)
     {
         $this->slider = $slider;
 
@@ -763,7 +763,7 @@ class Villa
     /**
      * Get slider
      *
-     * @return \AppBundle\Entity\Slider
+     * @return \ScoutBundle\Entity\Slider
      */
     public function getSlider()
     {

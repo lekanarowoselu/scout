@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\Site;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Contact
  *
  * @ORM\Table(name="contact")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Site\ContactRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\ContactRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Contact

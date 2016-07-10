@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -17,7 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     @ORM\UniqueConstraint(name="page_category_slug_idx", columns={"slug", "lang_id"}),
  *     @ORM\UniqueConstraint(name="page_category_meta_title_idx", columns={"meta_title", "lang_id"})
  *     })
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageCategoryRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\PageCategoryRepository")
  *
  * @UniqueEntity("title")
  * @UniqueEntity("slug")
@@ -325,11 +325,11 @@ class PageCategory
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return PageCategory
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -339,7 +339,7 @@ class PageCategory
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {
@@ -349,11 +349,11 @@ class PageCategory
     /**
      * Add page
      *
-     * @param \AppBundle\Entity\Page $page
+     * @param \ScoutBundle\Entity\Page $page
      *
      * @return PageCategory
      */
-    public function addPage(\AppBundle\Entity\Page $page)
+    public function addPage(\ScoutBundle\Entity\Page $page)
     {
         $this->pages[] = $page;
 
@@ -363,9 +363,9 @@ class PageCategory
     /**
      * Remove page
      *
-     * @param \AppBundle\Entity\Page $page
+     * @param \ScoutBundle\Entity\Page $page
      */
-    public function removePage(\AppBundle\Entity\Page $page)
+    public function removePage(\ScoutBundle\Entity\Page $page)
     {
         $this->pages->removeElement($page);
     }
@@ -383,11 +383,11 @@ class PageCategory
     /**
      * Add translation
      *
-     * @param \AppBundle\Entity\PageCategory $translation
+     * @param \ScoutBundle\Entity\PageCategory $translation
      *
      * @return PageCategory
      */
-    public function addTranslation(\AppBundle\Entity\PageCategory $translation)
+    public function addTranslation(\ScoutBundle\Entity\PageCategory $translation)
     {
         $this->translations[] = $translation;
 
@@ -403,9 +403,9 @@ class PageCategory
     /**
      * Remove translation
      *
-     * @param \AppBundle\Entity\PageCategory $translation
+     * @param \ScoutBundle\Entity\PageCategory $translation
      */
-    public function removeTranslation(\AppBundle\Entity\PageCategory $translation)
+    public function removeTranslation(\ScoutBundle\Entity\PageCategory $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -489,11 +489,11 @@ class PageCategory
     /**
      * Set parent
      *
-     * @param \AppBundle\Entity\PageCategory  $parent
+     * @param \ScoutBundle\Entity\PageCategory  $parent
      *
      * @return PageCategory
      */
-    public function setParent(\AppBundle\Entity\PageCategory  $parent = null)
+    public function setParent(\ScoutBundle\Entity\PageCategory  $parent = null)
     {
         $this->parent = $parent;
 

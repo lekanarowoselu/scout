@@ -1,29 +1,29 @@
 settings_index:
     path:     /admin/settings
-    defaults: { _controller: "AppBundle:Settings:index" }
+    defaults: { _controller: "ScoutBundle:Settings:index" }
     methods:  GET
 
 settings_show:
     path:     /admin/{id}/settings_show
-    defaults: { _controller: "AppBundle:Settings:show" }
+    defaults: { _controller: "ScoutBundle:Settings:show" }
     methods:  GET
 
 settings_display:
     path:     /{id}/settings
-    defaults: { _controller: "AppBundle:Settings:display" }
+    defaults: { _controller: "ScoutBundle:Settings:display" }
     methods:  GET
 
 settings_new:
     path:     /admin/settings_new
-    defaults: { _controller: "AppBundle:Settings:new" }
+    defaults: { _controller: "ScoutBundle:Settings:new" }
     methods:  [GET, POST]
 
 settings_edit:
     path:     /admin/{id}/settings_edit
-    defaults: { _controller: "AppBundle:Settings:edit" }
+    defaults: { _controller: "ScoutBundle:Settings:edit" }
     methods:  [GET, POST]
 
 settings_delete:
     path:     /{id}/delete
-    defaults: { _controller: "AppBundle:Settings:delete" }
+    defaults: { _controller: "ScoutBundle:Settings:delete" }
     methods:  DELETE

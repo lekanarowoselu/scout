@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle\Form;
+namespace ScoutBundle\Form;
 
-use AppBundle\Entity\Image;
-use AppBundle\Repository\ImageRepository;
+use ScoutBundle\Entity\Image;
+use ScoutBundle\Repository\ImageRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,7 +29,7 @@ class SliderType extends AbstractType
 //            ->add('images')
 
             ->add('images', EntityType::class, array(
-                'class' => 'AppBundle\Entity\Image',
+                'class' => 'ScoutBundle\Entity\Image',
                 //'choice_label' => 'name',
                 'choice_label' => function ($value, $key, $index) {
 //                        if ($value == true) {
@@ -59,7 +59,7 @@ class SliderType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Slider',
+            'data_class' => 'ScoutBundle\Entity\Slider',
            // 'locale'=> 'en'
         ));
     }

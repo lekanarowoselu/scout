@@ -1,31 +1,29 @@
 page_show:
     path:     /page/{slug}
-    defaults: { _controller: "AppBundle:Page:show" }
+    defaults: { _controller: "ScoutBundle:Page:show" }
     methods:  GET
-
-
 
 page_index:
     path:     /admin/page_index
-    defaults: { _controller: "AppBundle:Page:index" }
+    defaults: { _controller: "ScoutBundle:Page:index" }
     methods:  GET
 
 page_detail:
     path:     /admin/{id}/page_detail
-    defaults: { _controller: "AppBundle:Page:detail" }
+    defaults: { _controller: "ScoutBundle:Page:detail" }
     methods:  GET
 
 page_new:
     path:     /admin/page_new
-    defaults: { _controller: "AppBundle:Page:new" }
+    defaults: { _controller: "ScoutBundle:Page:new" }
     methods:  [GET, POST]
 
 page_edit:
     path:     /admin/{id}/page_edit
-    defaults: { _controller: "AppBundle:Page:edit" }
+    defaults: { _controller: "ScoutBundle:Page:edit" }
     methods:  [GET, POST]
 
 page_delete:
     path:     /{id}/page_delete
-    defaults: { _controller: "AppBundle:Page:delete" }
+    defaults: { _controller: "ScoutBundle:Page:delete" }
     methods:  DELETE

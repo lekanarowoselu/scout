@@ -1,24 +1,24 @@
 slider_index:
     path:     /admin/slider
-    defaults: { _controller: "AppBundle:Slider:index" }
+    defaults: { _controller: "ScoutBundle:Slider:index" }
     methods:  GET
 
 slider_show:
     path:     /admin/{id}/slider_show
-    defaults: { _controller: "AppBundle:Slider:show" }
+    defaults: { _controller: "ScoutBundle:Slider:show" }
     methods:  GET
 
 slider_new:
     path:     /admin/slider_new
-    defaults: { _controller: "AppBundle:Slider:new" }
+    defaults: { _controller: "ScoutBundle:Slider:new" }
     methods:  [GET, POST]
 
 slider_edit:
     path:     /admin/{id}/slider_edit
-    defaults: { _controller: "AppBundle:Slider:edit" }
+    defaults: { _controller: "ScoutBundle:Slider:edit" }
     methods:  [GET, POST]
 
 slider_delete:
     path:     /{id}/delete
-    defaults: { _controller: "AppBundle:Slider:delete" }
+    defaults: { _controller: "ScoutBundle:Slider:delete" }
     methods:  DELETE

@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Page;
-use AppBundle\Form\PageType;
+use ScoutBundle\Entity\Page;
+use ScoutBundle\Form\PageType;
 
 /**
  * Page controller.
@@ -22,10 +22,10 @@ class PageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $locale = $request->attributes->get('_locale');
-       // $pages = $em->getRepository('AppBundle:Page')->findAll();
-        $pages = $em->getRepository('AppBundle:Page')->findByLang($locale);
+       // $pages = $em->getRepository('ScoutBundle:Page')->findAll();
+        $pages = $em->getRepository('ScoutBundle:Page')->findByLang($locale);
 
-        return $this->render('AppBundle:page:index.html.twig', array(
+        return $this->render('ScoutBundle:page:index.html.twig', array(
             'pages' => $pages,
             '_locale'=>  $locale
         ));
@@ -48,8 +48,8 @@ class PageController extends Controller
 
             $use_lang = 1;
         }
-        $page->setLang($em->getRepository('AppBundle:Lang')->findOneBy(['locale' => $locale]));
-        $form = $this->createForm('AppBundle\Form\PageType', $page, array('locale' => $use_lang));
+        $page->setLang($em->getRepository('ScoutBundle:Lang')->findOneBy(['locale' => $locale]));
+        $form = $this->createForm('ScoutBundle\Form\PageType', $page, array('locale' => $use_lang));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -66,7 +66,7 @@ class PageController extends Controller
             return $this->redirectToRoute('page_detail', array('id' => $page->getId()));
         }
 
-        return $this->render('AppBundle:page:new.html.twig', array(
+        return $this->render('ScoutBundle:page:new.html.twig', array(
             'page' => $page,
             'form' => $form->createView(),
             '_locale'=>  $locale
@@ -89,7 +89,7 @@ class PageController extends Controller
         /*
          * i Get my current page
          */
-        $page = $em->getRepository('AppBundle:Page')->findOneBySlug($slug);
+        $page = $em->getRepository('ScoutBundle:Page')->findOneBySlug($slug);
         /*
          * i build translation link for my current page
          */
@@ -99,7 +99,7 @@ class PageController extends Controller
         if(!empty( $pagesliders))
         {$pageslider = $pagesliders;}
         else{
-            $pageslider = $em->getRepository('AppBundle:Slider')->find(1); }
+            $pageslider = $em->getRepository('ScoutBundle:Slider')->find(1); }
 
         
         $translationsLink = false;
@@ -126,8 +126,8 @@ class PageController extends Controller
 //                $pager = $translations[0];
 //            }
 //        }
-//              $servicePages = $em->getRepository('AppBundle:Page')->findByCategoryName($locale, "Service");
-//      $smartbuyPages = $em->getRepository('AppBundle:Page')->findByCategoryName($locale, "Smartbuy");
+//              $servicePages = $em->getRepository('ScoutBundle:Page')->findByCategoryName($locale, "Service");
+//      $smartbuyPages = $em->getRepository('ScoutBundle:Page')->findByCategoryName($locale, "Smartbuy");
 
         return $this->render('page/show.html.twig', array(
             'page' => $page,
@@ -154,12 +154,12 @@ class PageController extends Controller
         //$em = $this->getDoctrine()->getManager();
         //$langManager = $this->container->get("web.translate.service");
         //$locale = $langManager->getLang();
-        //$page = $em->getRepository('AppBundle:Page')->findOneBy($_locale);
+        //$page = $em->getRepository('ScoutBundle:Page')->findOneBy($_locale);
         //$lastestnews = $em->getRepository('WebBundle:Page')->findLatestNews($locale,$this->arrayCategoryNewsTitle[$locale]);
         //cant stay like this
         //$social = $em->getRepository("WebBundle:SocialEntry")->findOneBy([],["publishedAt" => "DESC"]);
 
-        return $this->render('AppBundle:page:show.html.twig', array(
+        return $this->render('ScoutBundle:page:show.html.twig', array(
             'page' => $page,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -184,7 +184,7 @@ class PageController extends Controller
             $use_lang = 1;
         }
         $deleteForm = $this->createDeleteForm($page);
-        $editForm = $this->createForm('AppBundle\Form\PageType', $page, array('locale' => $use_lang));
+        $editForm = $this->createForm('ScoutBundle\Form\PageType', $page, array('locale' => $use_lang));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -195,7 +195,7 @@ class PageController extends Controller
             return $this->redirectToRoute('page_detail', array('id' => $page->getId()));
         }
 
-        return $this->render('AppBundle:page:edit.html.twig', array(
+        return $this->render('ScoutBundle:page:edit.html.twig', array(
             'page' => $page,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -6,7 +6,7 @@
  * Time: 15:52
  */
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -20,7 +20,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * Slider
  *
  * @ORM\Table(name="slider")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SliderRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\SliderRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Slider
@@ -98,14 +98,14 @@ class Slider
 //    private $lang;
 
 //    /**
-//     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Page", inversedBy="slider")
+//     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Page", inversedBy="slider")
 //     * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
 //     */
 //
 //    private $page;
 //
 //    /**
-//     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Villa", inversedBy="slider")
+//     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Villa", inversedBy="slider")
 //     * @ORM\JoinColumn(name="villa_id", referencedColumnName="id")
 //     */
 //
@@ -133,12 +133,12 @@ class Slider
     private $images;
 
 //    /**
-//     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Page" , mappedBy="slider")
+//     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Page" , mappedBy="slider")
 //     */
 //    public $page;
 //
 //    /**
-//     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Villa" , mappedBy="slider")
+//     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Villa" , mappedBy="slider")
 //     */
 //    public $villa;
     /****************************************************/
@@ -343,11 +343,11 @@ class Slider
     /**
      * Add translation
      *
-     * @param \AppBundle\Entity\Slider $translation
+     * @param \ScoutBundle\Entity\Slider $translation
      *
      * @return Slider
      */
-    public function addTranslation(\AppBundle\Entity\Slider $translation)
+    public function addTranslation(\ScoutBundle\Entity\Slider $translation)
     {
         $this->translations[] = $translation;
 
@@ -357,9 +357,9 @@ class Slider
     /**
      * Remove translation
      *
-     * @param \AppBundle\Entity\Slider $translation
+     * @param \ScoutBundle\Entity\Slider $translation
      */
-    public function removeTranslation(\AppBundle\Entity\Slider $translation)
+    public function removeTranslation(\ScoutBundle\Entity\Slider $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -377,11 +377,11 @@ class Slider
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return Slider
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -391,7 +391,7 @@ class Slider
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {
@@ -410,11 +410,11 @@ class Slider
     /**
      * Add image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param \ScoutBundle\Entity\Image $image
      *
      * @return Slider
      */
-    public function addImage(\AppBundle\Entity\Image $image)
+    public function addImage(\ScoutBundle\Entity\Image $image)
     {
         $this->images[] = $image;
 
@@ -429,9 +429,9 @@ class Slider
     /**
      * Remove image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param \ScoutBundle\Entity\Image $image
      */
-    public function removeImage(\AppBundle\Entity\Image $image)
+    public function removeImage(\ScoutBundle\Entity\Image $image)
     {
         $this->images->removeElement($image);
     }
@@ -449,11 +449,11 @@ class Slider
     /**
      * Set page
      *
-     * @param \AppBundle\Entity\Page $page
+     * @param \ScoutBundle\Entity\Page $page
      *
      * @return Slider
      */
-    public function setPage(\AppBundle\Entity\Page $page = null)
+    public function setPage(\ScoutBundle\Entity\Page $page = null)
     {
         $this->page = $page;
 
@@ -463,7 +463,7 @@ class Slider
     /**
      * Get page
      *
-     * @return \AppBundle\Entity\Page
+     * @return \ScoutBundle\Entity\Page
      */
     public function getPage()
     {
@@ -473,11 +473,11 @@ class Slider
     /**
      * Set villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      *
      * @return Slider
      */
-    public function setVilla(\AppBundle\Entity\Villa $villa = null)
+    public function setVilla(\ScoutBundle\Entity\Villa $villa = null)
     {
         $this->villa = $villa;
 
@@ -487,7 +487,7 @@ class Slider
     /**
      * Get villa
      *
-     * @return \AppBundle\Entity\Villa
+     * @return \ScoutBundle\Entity\Villa
      */
     public function getVilla()
     {

@@ -6,10 +6,10 @@
  * Time: 16:16
  */
 
-namespace AppBundle\Form\EventListener;
+namespace ScoutBundle\Form\EventListener;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use AppBundle\Repository\PageCategoryRepository;
+use ScoutBundle\Repository\PageCategoryRepository;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;

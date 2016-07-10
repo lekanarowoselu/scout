@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\MailingList;
-use AppBundle\Form\MailingListType;
+use ScoutBundle\Entity\MailingList;
+use ScoutBundle\Form\MailingListType;
 
 /**
  * MailingList controller.
@@ -22,9 +22,9 @@ class MailingListController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $mailingLists = $em->getRepository('AppBundle:MailingList')->findAll();
+        $mailingLists = $em->getRepository('ScoutBundle:MailingList')->findAll();
 
-        return $this->render('AppBundle:mailinglist:index.html.twig', array(
+        return $this->render('ScoutBundle:mailinglist:index.html.twig', array(
             'mailingLists' => $mailingLists,
         ));
     }
@@ -36,7 +36,7 @@ class MailingListController extends Controller
     public function newAction(Request $request)
     {
         $mailingList = new MailingList();
-        $form = $this->createForm('AppBundle\Form\MailingListType', $mailingList);
+        $form = $this->createForm('ScoutBundle\Form\MailingListType', $mailingList);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -47,7 +47,7 @@ class MailingListController extends Controller
             return $this->redirectToRoute('mailinglist_show', array('id' => $mailingList->getId()));
         }
 
-        return $this->render('AppBundle:mailinglist:new.html.twig', array(
+        return $this->render('ScoutBundle:mailinglist:new.html.twig', array(
             'mailingList' => $mailingList,
             'form' => $form->createView(),
         ));
@@ -74,7 +74,7 @@ class MailingListController extends Controller
     public function editAction(Request $request, MailingList $mailingList)
     {
         $deleteForm = $this->createDeleteForm($mailingList);
-        $editForm = $this->createForm('AppBundle\Form\MailingListType', $mailingList);
+        $editForm = $this->createForm('ScoutBundle\Form\MailingListType', $mailingList);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -85,7 +85,7 @@ class MailingListController extends Controller
             return $this->redirectToRoute('mailinglist_edit', array('id' => $mailingList->getId()));
         }
 
-        return $this->render('AppBundle:mailinglist:edit.html.twig', array(
+        return $this->render('ScoutBundle:mailinglist:edit.html.twig', array(
             'mailingList' => $mailingList,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Form;
+namespace ScoutBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VillaSurfaceAreaType extends AbstractType
+class HouseBookingType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,17 @@ class VillaSurfaceAreaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('villa')
-            ->add('translations')
-            ->add('lang')
+            ->add('first_name')
+            ->add('last_name')
+            ->add('email')
+//            ->add('arrivalDate', 'datetime')
+//            ->add('departureDate', 'datetime')
+            ->add('adults')
+            ->add('children')
+            ->add('babies')
+            ->add('message')
+//            ->add('createdAt', 'datetime')
+//            ->add('updatedAt', 'datetime')
         ;
     }
     
@@ -29,7 +35,7 @@ class VillaSurfaceAreaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\VillaSurfaceArea'
+            'data_class' => 'ScoutBundle\Entity\VillaBooking'
         ));
     }
 }

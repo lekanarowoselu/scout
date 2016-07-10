@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Villa;
-use AppBundle\Form\VillaType;
+use ScoutBundle\Entity\Villa;
+use ScoutBundle\Form\VillaType;
 
 /**
  * Villa controller.
@@ -22,7 +22,7 @@ class VillaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $villas = $em->getRepository('AppBundle:Villa')->findAll();
+        $villas = $em->getRepository('ScoutBundle:Villa')->findAll();
 
         if(  $villas != null) {
 
@@ -75,7 +75,7 @@ class VillaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $villas = $em->getRepository('AppBundle:Villa')->findAll();
+        $villas = $em->getRepository('ScoutBundle:Villa')->findAll();
 
 //        if(  $villas != null) {
 //
@@ -95,7 +95,7 @@ class VillaController extends Controller
 
 //        else{
 
-            return $this->render('AppBundle:villa:index.html.twig', array(
+            return $this->render('ScoutBundle:villa:index.html.twig', array(
                 'villas' => $villas,
 
             ));
@@ -119,12 +119,12 @@ class VillaController extends Controller
 
             $use_lang = 1;
         }
-        $villa->setLang($em->getRepository('AppBundle:Lang')->findOneBy(['locale' => $locale]));
+        $villa->setLang($em->getRepository('ScoutBundle:Lang')->findOneBy(['locale' => $locale]));
         
         
         
         
-        $form = $this->createForm('AppBundle\Form\VillaType', $villa, array('locale' => $use_lang));
+        $form = $this->createForm('ScoutBundle\Form\VillaType', $villa, array('locale' => $use_lang));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -135,7 +135,7 @@ class VillaController extends Controller
             return $this->redirectToRoute('villa_show', array('id' => $villa->getId()));
         }
 
-        return $this->render('AppBundle:villa:new.html.twig', array(
+        return $this->render('ScoutBundle:villa:new.html.twig', array(
             'villa' => $villa,
             'form' => $form->createView(),
             '_locale'=>  $locale
@@ -150,7 +150,7 @@ class VillaController extends Controller
     {
         $deleteForm = $this->createDeleteForm($villa);
 
-        return $this->render('AppBundle:villa:show.html.twig', array(
+        return $this->render('ScoutBundle:villa:show.html.twig', array(
             'villa' => $villa,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -163,7 +163,7 @@ class VillaController extends Controller
     public function editAction(Request $request, Villa $villa)
     {
         $deleteForm = $this->createDeleteForm($villa);
-        $editForm = $this->createForm('AppBundle\Form\VillaType', $villa);
+        $editForm = $this->createForm('ScoutBundle\Form\VillaType', $villa);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -174,7 +174,7 @@ class VillaController extends Controller
             return $this->redirectToRoute('villa_edit', array('id' => $villa->getId()));
         }
 
-        return $this->render('AppBundle:villa:edit.html.twig', array(
+        return $this->render('ScoutBundle:villa:edit.html.twig', array(
             'villa' => $villa,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -1,34 +1,34 @@
 news_index:
     path:     /news
-    defaults: { _controller: "AppBundle:News:index" }
+    defaults: { _controller: "ScoutBundle:News:index" }
     methods:  GET
 
 news_show:
     path:     /{id}/news_show
-    defaults: { _controller: "AppBundle:News:show" }
+    defaults: { _controller: "ScoutistBundle:News:show" }
     methods:  GET
 
 news_list:
     path:     /admin/news
-    defaults: { _controller: "AppBundle:News:list" }
+    defaults: { _controller: "ScoutlistBundle:News:list" }
     methods:  GET
 
 news_detail:
     path:     /admin/{id}/news_show
-    defaults: { _controller: "AppBundle:News:detail" }
+    defaults: { _controller: "ScoutBundle:News:detail" }
     methods:  GET
 
 news_new:
     path:     /new
-    defaults: { _controller: "AppBundle:News:new" }
+    defaults: { _controller: "ScoutBundle:News:new" }
     methods:  [GET, POST]
 
 news_edit:
     path:     /{id}/edit
-    defaults: { _controller: "AppBundle:News:edit" }
+    defaults: { _controller: "ScoutBundle:News:edit" }
     methods:  [GET, POST]
 
 news_delete:
     path:     /{id}/delete
-    defaults: { _controller: "AppBundle:News:delete" }
+    defaults: { _controller: "ScoutBundle:News:delete" }
     methods:  DELETE

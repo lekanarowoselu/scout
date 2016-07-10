@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Testimonial;
-use AppBundle\Form\TestimonialType;
+use ScoutBundle\Entity\Testimonial;
+use ScoutBundle\Form\TestimonialType;
 
 /**
  * Testimonial controller.
@@ -23,7 +23,7 @@ class TestimonialController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $testimonials = $em->getRepository('AppBundle:Testimonial')->findAll();
+        $testimonials = $em->getRepository('ScoutBundle:Testimonial')->findAll();
 
         return $this->render('testimonial/index.html.twig', array(
             'testimonials' => $testimonials,
@@ -37,7 +37,7 @@ class TestimonialController extends Controller
     public function newAction(Request $request)
     {
         $testimonial = new Testimonial();
-        $form = $this->createForm('AppBundle\Form\TestimonialType', $testimonial);
+        $form = $this->createForm('ScoutBundle\Form\TestimonialType', $testimonial);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -64,7 +64,7 @@ class TestimonialController extends Controller
         }
 
         $testimonial = new Testimonial();
-        $form = $this->createForm('AppBundle\Form\TestimonialType', $testimonial);
+        $form = $this->createForm('ScoutBundle\Form\TestimonialType', $testimonial);
         $form->handleRequest($request);
 
 //        if ($form->isSubmitted() && $form->isValid()) {
@@ -119,7 +119,7 @@ class TestimonialController extends Controller
     public function editAction(Request $request, Testimonial $testimonial)
     {
         $deleteForm = $this->createDeleteForm($testimonial);
-        $editForm = $this->createForm('AppBundle\Form\TestimonialType', $testimonial);
+        $editForm = $this->createForm('ScoutBundle\Form\TestimonialType', $testimonial);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

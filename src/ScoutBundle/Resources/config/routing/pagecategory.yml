@@ -1,24 +1,24 @@
 pagecategory_index:
     path:     /admin/pagecategory_index
-    defaults: { _controller: "AppBundle:PageCategory:index" }
+    defaults: { _controller: "ScoutBundle:PageCategory:index" }
     methods:  GET
 
 pagecategory_show:
     path:     /admin/{id}/pagecategory_show
-    defaults: { _controller: "AppBundle:PageCategory:show" }
+    defaults: { _controller: "ScoutBundle:PageCategory:show" }
     methods:  GET
 
 pagecategory_new:
     path:     /admin/pagecategory_new
-    defaults: { _controller: "AppBundle:PageCategory:new" }
+    defaults: { _controller: "ScoutBundle:PageCategory:new" }
     methods:  [GET, POST]
 
 pagecategory_edit:
     path:     /admin/{id}/pagecategory_edit
-    defaults: { _controller: "AppBundle:PageCategory:edit" }
+    defaults: { _controller: "ScoutBundle:PageCategory:edit" }
     methods:  [GET, POST]
 
 pagecategory_delete:
     path:     /{id}/pagecategory_delete
-    defaults: { _controller: "AppBundle:PageCategory:delete" }
+    defaults: { _controller: "ScoutBundle:PageCategory:delete" }
     methods:  DELETE

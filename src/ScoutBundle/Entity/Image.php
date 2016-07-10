@@ -6,7 +6,7 @@
  * Time: 15:52
  */
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 
 
@@ -23,7 +23,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * images
  *
  * @ORM\Table(name="image")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\ImageRepository")
  * @UniqueEntity("name")
  * @UniqueEntity("imageFilename")
  * @UniqueEntity("imageFilename")
@@ -292,11 +292,11 @@ class Image
     /**
      * Set villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      *
      * @return Image
      */
-    public function setVilla(\AppBundle\Entity\Villa $villa)
+    public function setVilla(\ScoutBundle\Entity\Villa $villa)
     {
         $this->villa = $villa;
 
@@ -306,7 +306,7 @@ class Image
     /**
      * Get villa
      *
-     * @return \AppBundle\Entity\Villa
+     * @return \ScoutBundle\Entity\Villa
      */
     public function getVilla()
     {
@@ -340,11 +340,11 @@ class Image
     /**
      * Set page
      *
-     * @param \AppBundle\Entity\Page $page
+     * @param \ScoutBundle\Entity\Page $page
      *
      * @return Image
      */
-    public function setPage(\AppBundle\Entity\Page $page = null)
+    public function setPage(\ScoutBundle\Entity\Page $page = null)
     {
         $this->page = $page;
 
@@ -354,7 +354,7 @@ class Image
     /**
      * Get page
      *
-     * @return \AppBundle\Entity\Page
+     * @return \ScoutBundle\Entity\Page
      */
     public function getPage()
     {
@@ -364,11 +364,11 @@ class Image
     /**
      * Set slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      *
      * @return Image
      */
-    public function setSlider(\AppBundle\Entity\Slider $slider = null)
+    public function setSlider(\ScoutBundle\Entity\Slider $slider = null)
     {
         $this->slider = $slider;
 
@@ -378,7 +378,7 @@ class Image
     /**
      * Get slider
      *
-     * @return \AppBundle\Entity\Slider
+     * @return \ScoutBundle\Entity\Slider
      */
     public function getSlider()
     {
@@ -395,11 +395,11 @@ class Image
     /**
      * Add slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      *
      * @return Image
      */
-    public function addSlider(\AppBundle\Entity\Slider $slider)
+    public function addSlider(\ScoutBundle\Entity\Slider $slider)
     {
         $this->sliders[] = $slider;
 
@@ -409,9 +409,9 @@ class Image
     /**
      * Remove slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      */
-    public function removeSlider(\AppBundle\Entity\Slider $slider)
+    public function removeSlider(\ScoutBundle\Entity\Slider $slider)
     {
         $this->sliders->removeElement($slider);
     }

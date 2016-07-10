@@ -1,24 +1,34 @@
-_index:
-    path:     /
+landlord_index:
+    path:     /landlord
     defaults: { _controller: "ScoutBundle:LandLord:index" }
     methods:  GET
 
-_show:
-    path:     /{id}/show
+landlord_show:
+    path:     /{id}/landlord_show
     defaults: { _controller: "ScoutBundle:LandLord:show" }
     methods:  GET
 
-_new:
-    path:     /new
+landlord_list:
+    path:     /admin/landlord
+    defaults: { _controller: "ScoutBundle:LandLord:list" }
+    methods:  GET
+
+landlord_detail:
+    path:     /admin/{id}/landlord_detail
+    defaults: { _controller: "ScoutBundle:LandLord:detail" }
+    methods:  GET
+
+landlord_new:
+    path:     /admin/new
     defaults: { _controller: "ScoutBundle:LandLord:new" }
     methods:  [GET, POST]
 
-_edit:
-    path:     /{id}/edit
+landlord_edit:
+    path:     /admin/{id}/edit
     defaults: { _controller: "ScoutBundle:LandLord:edit" }
     methods:  [GET, POST]
 
-_delete:
+landlord_delete:
     path:     /{id}/delete
     defaults: { _controller: "ScoutBundle:LandLord:delete" }
     methods:  DELETE

@@ -122,7 +122,7 @@ class House
     private $enabled;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Location", inversedBy="houses")
+     * @ORM\ManyToOne(targetEntity="HouseLocation", inversedBy="houses")
      * @ORM\JoinColumn(name="location_id", referencedColumnName="id", nullable=false)
      */
     private $location;
@@ -136,7 +136,7 @@ class House
     
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Slider")
+     * @ORM\OneToOne(targetEntity="ScoutBundle\Entity\Slider")
      * @ORM\JoinColumn(name="slider_id", referencedColumnName="id")
      */
 
@@ -617,11 +617,11 @@ class House
     /**
      * Set slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      *
      * @return House
      */
-    public function setSlider(\AppBundle\Entity\Slider $slider = null)
+    public function setSlider(\ScoutBundle\Entity\Slider $slider = null)
     {
         $this->slider = $slider;
 
@@ -631,7 +631,7 @@ class House
     /**
      * Get slider
      *
-     * @return \AppBundle\Entity\Slider
+     * @return \ScoutBundle\Entity\Slider
      */
     public function getSlider()
     {

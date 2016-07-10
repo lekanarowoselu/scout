@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Amenities
  *
  * @ORM\Table(name="villa_amenity")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\VillaAmenityRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\VillaAmenityRepository")
  */
 class VillaAmenity
 {
@@ -144,11 +144,11 @@ class VillaAmenity
     /**
      * Set villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      *
      * @return VillaAmenity
      */
-    public function setVilla(\AppBundle\Entity\Villa $villa)
+    public function setVilla(\ScoutBundle\Entity\Villa $villa)
     {
         $this->villa = $villa;
 
@@ -158,7 +158,7 @@ class VillaAmenity
     /**
      * Get villa
      *
-     * @return \AppBundle\Entity\Villa
+     * @return \ScoutBundle\Entity\Villa
      */
     public function getVilla()
     {
@@ -224,11 +224,11 @@ class VillaAmenity
     /**
      * Add translation
      *
-     * @param \AppBundle\Entity\VillaAmenity $translation
+     * @param \ScoutBundle\Entity\VillaAmenity $translation
      *
      * @return VillaAmenity
      */
-    public function addTranslation(\AppBundle\Entity\VillaAmenity $translation)
+    public function addTranslation(\ScoutBundle\Entity\VillaAmenity $translation)
     {
         $this->translations[] = $translation;
 
@@ -238,9 +238,9 @@ class VillaAmenity
     /**
      * Remove translation
      *
-     * @param \AppBundle\Entity\VillaAmenity $translation
+     * @param \ScoutBundle\Entity\VillaAmenity $translation
      */
-    public function removeTranslation(\AppBundle\Entity\VillaAmenity $translation)
+    public function removeTranslation(\ScoutBundle\Entity\VillaAmenity $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -258,11 +258,11 @@ class VillaAmenity
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return VillaAmenity
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -272,7 +272,7 @@ class VillaAmenity
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {

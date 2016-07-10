@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * News
  *
  * @ORM\Table(name="news")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\NewsRepository")
  */
 class News
 {

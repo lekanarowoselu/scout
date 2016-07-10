@@ -5,7 +5,7 @@
  * Date: 08/06/16
  * Time: 17:35
  */
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Settings
  *
  * @ORM\Table(name="settings")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SettingsRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\SettingsRepository")
  */
 class Settings
 {
@@ -174,11 +174,11 @@ class Settings
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return Settings
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -188,7 +188,7 @@ class Settings
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {

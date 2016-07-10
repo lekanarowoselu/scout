@@ -1,21 +1,21 @@
 contact_index:
-    path:     /
+    path:     /admin/contact_index
     defaults: { _controller: "ScoutBundle:Contact:index" }
     methods:  GET
 
 
 contact_show:
-    path:     /{id}/show
+    path:     /admin/{id}/contact_show
     defaults: { _controller: "ScoutBundle:Contact:show" }
     methods:  GET
 
 contact_new:
     path:     /contact
-    defaults: { _controller: "ScoutBundle:Site/Contact:new" }
+    defaults: { _controller: "ScoutBundle:Contact:new" }
     methods:  [GET, POST]
 
 contact_edit:
-    path:     /{id}/edit
+    path:     /admin/{id}/contact_edit
     defaults: { _controller: "ScoutBundle:Contact:edit" }
     methods:  [GET, POST]
 
@@ -25,6 +25,6 @@ contact_delete:
     methods:  DELETE
 
 contact_ajax:
-    path:     /create
+    path:     /contact_create
     defaults: { _controller: "ScoutBundle:Contact:create" }
     methods:  [GET, POST]

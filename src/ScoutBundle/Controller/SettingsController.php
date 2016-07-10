@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\Settings;
-use AppBundle\Form\SettingsType;
+use ScoutBundle\Entity\Settings;
+use ScoutBundle\Form\SettingsType;
 
 /**
  * Settings controller.
@@ -22,9 +22,9 @@ class SettingsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $settings = $em->getRepository('AppBundle:Settings')->findAll();
+        $settings = $em->getRepository('ScoutBundle:Settings')->findAll();
 
-        return $this->render('AppBundle:settings:index.html.twig', array(
+        return $this->render('ScoutBundle:settings:index.html.twig', array(
             'settings' => $settings,
         ));
     }
@@ -38,8 +38,8 @@ class SettingsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $setting = new Settings();
         $locale = $request->attributes->get('_locale');
-        $setting->setLang($em->getRepository('AppBundle:Lang')->findOneBy(['locale' => $locale]));
-        $form = $this->createForm('AppBundle\Form\SettingsType', $setting);
+        $setting->setLang($em->getRepository('ScoutBundle:Lang')->findOneBy(['locale' => $locale]));
+        $form = $this->createForm('ScoutBundle\Form\SettingsType', $setting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -50,7 +50,7 @@ class SettingsController extends Controller
             return $this->redirectToRoute('settings_show', array('id' => $setting->getId()));
         }
 
-        return $this->render('AppBundle:settings:new.html.twig', array(
+        return $this->render('ScoutBundle:settings:new.html.twig', array(
             'setting' => $setting,
             'form' => $form->createView(),
         ));
@@ -65,7 +65,7 @@ class SettingsController extends Controller
        // $deleteForm = $this->createDeleteForm($setting);
         $em = $this->getDoctrine()->getManager();
         $locale = $request->attributes->get('_locale');
-        $setting = $em->getRepository('AppBundle:Settings')->findByLang($locale);
+        $setting = $em->getRepository('ScoutBundle:Settings')->findByLang($locale);
         return $this->render('settings/_show.html.twig', array(
             'setting' => $setting,
             //'delete_form' => $deleteForm->createView(),
@@ -79,7 +79,7 @@ class SettingsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($setting);
 
-        return $this->render('AppBundle:settings:show.html.twig', array(
+        return $this->render('ScoutBundle:settings:show.html.twig', array(
             'setting' => $setting,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,7 +92,7 @@ class SettingsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($setting);
         
-        $editForm = $this->createForm('AppBundle\Form\SettingsType', $setting);
+        $editForm = $this->createForm('ScoutBundle\Form\SettingsType', $setting);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -103,7 +103,7 @@ class SettingsController extends Controller
             return $this->redirectToRoute('settings_show', array('id' => $setting->getId()));
         }
 
-        return $this->render('AppBundle:settings:edit.html.twig', array(
+        return $this->render('ScoutBundle:settings:edit.html.twig', array(
             'setting' => $setting,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -6,7 +6,7 @@
  * Time: 15:51
  */
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * SurfaceArea
  *
  * @ORM\Table(name="villa_surface_area")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\VillaSurfaceAreaRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\VillaSurfaceAreaRepository")
  */
 
 class VillaSurfaceArea
@@ -135,11 +135,11 @@ class VillaSurfaceArea
     /**
      * Set villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      *
      * @return VillaSurfaceArea
      */
-    public function setVilla(\AppBundle\Entity\Villa $villa)
+    public function setVilla(\ScoutBundle\Entity\Villa $villa)
     {
         $this->villa = $villa;
 
@@ -149,7 +149,7 @@ class VillaSurfaceArea
     /**
      * Get villa
      *
-     * @return \AppBundle\Entity\Villa
+     * @return \ScoutBundle\Entity\Villa
      */
     public function getVilla()
     {
@@ -171,11 +171,11 @@ class VillaSurfaceArea
     /**
      * Add translation
      *
-     * @param \AppBundle\Entity\VillaSurfaceArea $translation
+     * @param \ScoutBundle\Entity\VillaSurfaceArea $translation
      *
      * @return VillaSurfaceArea
      */
-    public function addTranslation(\AppBundle\Entity\VillaSurfaceArea $translation)
+    public function addTranslation(\ScoutBundle\Entity\VillaSurfaceArea $translation)
     {
         $this->translations[] = $translation;
 
@@ -185,9 +185,9 @@ class VillaSurfaceArea
     /**
      * Remove translation
      *
-     * @param \AppBundle\Entity\VillaSurfaceArea $translation
+     * @param \ScoutBundle\Entity\VillaSurfaceArea $translation
      */
-    public function removeTranslation(\AppBundle\Entity\VillaSurfaceArea $translation)
+    public function removeTranslation(\ScoutBundle\Entity\VillaSurfaceArea $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -205,11 +205,11 @@ class VillaSurfaceArea
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return VillaSurfaceArea
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -219,7 +219,7 @@ class VillaSurfaceArea
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {

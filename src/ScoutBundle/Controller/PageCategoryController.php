@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\PageCategory;
-use AppBundle\Form\PageCategoryType;
+use ScoutBundle\Entity\PageCategory;
+use ScoutBundle\Form\PageCategoryType;
 
 /**
  * PageCategory controller.
@@ -24,9 +24,9 @@ class PageCategoryController extends Controller
         //$locale = $_GET['_locale'];
         $locale = $request->attributes->get('_locale');
 
-        $pageCategories = $em->getRepository('AppBundle:PageCategory')->findByLang($locale);
+        $pageCategories = $em->getRepository('ScoutBundle:PageCategory')->findByLang($locale);
 
-        return $this->render('AppBundle:pagecategory:index.html.twig', array(
+        return $this->render('ScoutBundle:pagecategory:index.html.twig', array(
             'pageCategories' => $pageCategories,
             '_locale'=>  $locale
         ));
@@ -50,9 +50,9 @@ class PageCategoryController extends Controller
 
             $use_lang = 1;
         }
-        $pageCategory->setLang($em->getRepository('AppBundle:Lang')->findOneBy(['locale' => $locale]));
+        $pageCategory->setLang($em->getRepository('ScoutBundle:Lang')->findOneBy(['locale' => $locale]));
 
-        $form = $this->createForm('AppBundle\Form\PageCategoryType', $pageCategory,  array('locale' => $use_lang));
+        $form = $this->createForm('ScoutBundle\Form\PageCategoryType', $pageCategory,  array('locale' => $use_lang));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -70,7 +70,7 @@ class PageCategoryController extends Controller
             return $this->redirectToRoute('pagecategory_show', array('id' => $pageCategory->getId()));
         }
 
-        return $this->render('AppBundle:pagecategory:new.html.twig', array(
+        return $this->render('ScoutBundle:pagecategory:new.html.twig', array(
             'pageCategory' => $pageCategory,
             'form' => $form->createView(),
             '_locale'=>  $locale
@@ -85,7 +85,7 @@ class PageCategoryController extends Controller
     {
         $deleteForm = $this->createDeleteForm($pageCategory);
         $locale = $request->attributes->get('_locale');
-        return $this->render('AppBundle:pagecategory:show.html.twig', array(
+        return $this->render('ScoutBundle:pagecategory:show.html.twig', array(
             'pageCategory' => $pageCategory,
             'delete_form' => $deleteForm->createView(),
             '_locale'=>  $locale
@@ -102,7 +102,7 @@ class PageCategoryController extends Controller
         $deleteForm = $this->createDeleteForm($pageCategory);
         //$locale = $request->attributes->get('_locale');
         $data_lang = $pageCategory->getLang()->getId();
-        $editForm = $this->createForm('AppBundle\Form\PageCategoryType', $pageCategory,  array('locale' => $data_lang));
+        $editForm = $this->createForm('ScoutBundle\Form\PageCategoryType', $pageCategory,  array('locale' => $data_lang));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -117,7 +117,7 @@ class PageCategoryController extends Controller
             return $this->redirectToRoute('pagecategory_show', array('id' => $pageCategory->getId()));
         }
 
-        return $this->render('AppBundle:pagecategory:edit.html.twig', array(
+        return $this->render('ScoutBundle:pagecategory:edit.html.twig', array(
             'pageCategory' => $pageCategory,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

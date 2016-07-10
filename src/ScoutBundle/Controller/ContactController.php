@@ -1,12 +1,12 @@
 <?php
 
-namespace ScoutBundle\Controller\Site;
+namespace ScoutBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use ScoutBundle\Entity\Site\Contact;
+use ScoutBundle\Entity\Contact;
 use ScoutBundle\Form\ContactType;
 
 /**
@@ -37,7 +37,7 @@ class ContactController extends Controller
     public function newAction(Request $request)
     {
         $contact = new Contact();
-        $form = $this->createForm('ScoutBundle\Form\Site\ContactType', $contact);
+        $form = $this->createForm('ScoutBundle\Form\ContactType', $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

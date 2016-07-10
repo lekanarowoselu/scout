@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\RoomSeeker;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * RoomSeeker
  *
- * @ORM\Table(name="roomseeker_profile")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\RoomSeeker\ProfileRepository")
+ * @ORM\Table(name="roomseeker")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\RoomSeekerRepository")
  *
  * @ORM\HasLifecycleCallbacks
  *
  */
-class Profile
+class RoomSeeker
 {
     /**
      * @var int

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Testimonial
  *
  * @ORM\Table(name="testimonial")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TestimonialRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\TestimonialRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Testimonial

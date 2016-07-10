@@ -1,6 +1,6 @@
 <?php
 
-namespace ScoutBundle\Entity\Agent;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,8 +10,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Room
  *
- * @ORM\Table(name="agent_house_room")
- * @ORM\Entity(repositoryClass="ScoutBundle\Repository\Agent\RoomRepository")
+ * @ORM\Table(name="house_room")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\RoomRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Room
@@ -47,19 +47,6 @@ class Room
      */
     private $description;
 
-//    /**
-//     * @var string
-//     *
-//     * @ORM\Column(name="how_to_apply", type="text")
-//     */
-//    private $howToApply;
-
-//    /**
-//     * @var \DateTime
-//     *
-//     * @ORM\Column(name="expires_at", type="datetime")
-//     */
-//    private $expiresAt;
 
     /**
      * @var \DateTime
@@ -81,21 +68,11 @@ class Room
      */
     private $house;
 
-//    /**
-//     * @ORM\OneToMany(targetEntity="Room", mappedBy="rooms")
-//     * @var \Doctrine\Common\Collections\ArrayCollection
-//     */
-//    private $rooms;
 
-//    /**
-//     * @ORM\ManyToMany(targetEntity="HouseCategory", inversedBy="houses")
-//     * @ORM\JoinTable(name="agent_houses_categories")
-//     */
-//    private $categories;
 
     /**
      * @ORM\ManyToMany(targetEntity="RoomFeature", inversedBy="features")
-     * @ORM\JoinTable(name="agent_house_rooms_features")
+     * @ORM\JoinTable(name="house_rooms_features")
      */
     private $features;
 
@@ -191,53 +168,6 @@ class Room
         return $this->description;
     }
 
-//    /**
-//     * Set howToApply
-//     *
-//     * @param string $howToApply
-//     *
-//     * @return house
-//     */
-//    public function setHowToApply($howToApply)
-//    {
-//        $this->howToApply = $howToApply;
-//
-//        return $this;
-//    }
-
-    /**
-     * Get howToApply
-     *
-     * @return string
-     */
-//    public function getHowToApply()
-//    {
-//        return $this->howToApply;
-//    }
-
-    /**
-     * Set expiresAt
-     *
-     * @param \DateTime $expiresAt
-     *
-     * @return House
-     */
-//    public function setExpiresAt($expiresAt)
-//    {
-//        $this->expiresAt = $expiresAt;
-//
-//        return $this;
-//    }
-
-//    /**
-//     * Get expiresAt
-//     *
-//     * @return \DateTime
-//     */
-//    public function getExpiresAt()
-//    {
-//        return $this->expiresAt;
-//    }
 
 
 
@@ -294,136 +224,6 @@ class Room
         return $this->updatedAt;
     }
 
-    /**
-     * Set company
-     *
-     * @param \ScoutBundle\Entity\Agent\Profile $agent
-     *
-     * @return house
-     */
-    public function setHouse(\ScoutBundle\Entity\Agent\House $house = null)
-    {
-        $this->house = $house;
-
-        return $this;
-    }
-
-    /**
-     * Get House
-     *
-     * @return \ScoutBundle\Entity\Agent\House
-     */
-    public function getHouse()
-    {
-        return $this->house;
-    }
-
-//    /**
-//     * Add application
-//     *
-//     * @param \ScoutBundle\Entity\Agent\Room $room
-//     *
-//     * @return House
-//     */
-//    public function addRoom(\ScoutBundle\Entity\Agent\Room $room)
-//    {
-//        $this->rooms[] = $room;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Remove room
-//     *
-//     * @param \ScoutBundle\Entity\Agent\Room $room
-//     */
-//    public function removeRoom(\ScoutBundle\Entity\Agent\Room $room)
-//    {
-//        $this->rooms->removeElement($room);
-//    }
-//
-//    /**
-//     * Get applications
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getRooms()
-//    {
-//        return $this->rooms;
-//    }
-
-//    /**
-//     * Add category
-//     *
-//     * @param \ScoutBundle\Entity\Agent\HouseCategory $category
-//     *
-//     * @return house
-//     */
-//    public function addCategory(\ScoutBundle\Entity\Agent\HouseCategory $category)
-//    {
-//        $this->categories[] = $category;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Remove category
-//     *
-//     * @param \ScoutBundle\Entity\Agent\HouseCategory $category
-//     */
-//    public function removeCategory(\ScoutBundle\Entity\Agent\HouseCategory $category)
-//    {
-//        $this->categories->removeElement($category);
-//    }
-//
-//    /**
-//     * Get categories
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getCategories()
-//    {
-//        return $this->categories;
-//    }
-
-    /**
-     * Add category
-     *
-     * @param \ScoutBundle\Entity\Agent\RoomFeature $feature
-     *
-     * @return room
-     */
-    public function addAmenity(\ScoutBundle\Entity\Agent\RoomFeature $feature)
-    {
-        $this->features[] = $feature;
-
-        return $this;
-    }
-
-
-
-
-
-    /**
-     * Remove feature
-     *
-     * @param \ScoutBundle\Entity\Agent\RoomFeature $feature
-     */
-    public function removeFeature(\ScoutBundle\Entity\Agent\RoomFeature $feature)
-    {
-        $this->features->removeElement($feature);
-    }
-
-
-    /**
-     * Get amenities
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFeatures()
-    {
-        return $this->features;
-    }
 
     
     public function __toString()

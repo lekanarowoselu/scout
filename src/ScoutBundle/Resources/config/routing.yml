@@ -2,15 +2,18 @@ scout_homepage:
     path:     /
     defaults: { _controller: ScoutBundle:Site\Default:index }
 
-
 scout_contact:
     resource: "@ScoutBundle/Resources/config/routing/contact.yml"
     prefix:   /
 
 scout_house:
-        resource: "@ScoutBundle/Resources/config/routing/house.yml"
-        prefix:   /
-scout_landlord:
-        resource: "@ScoutBundle/Resources/config/routing/landlord.yml"
-        prefix:   /
+    resource: "@ScoutBundle/Resources/config/routing/house.yml"
+    prefix:   /
 
+scout_landlord:
+    resource: "@ScoutBundle/Resources/config/routing/landlord.yml"
+    prefix:   /
+
+scout_houselocation:
+    resource: "@ScoutBundle/Resources/config/routing/houselocation.yml"
+    prefix:   /

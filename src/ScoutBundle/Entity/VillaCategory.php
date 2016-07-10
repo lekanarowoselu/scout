@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -21,7 +21,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity("slug")
  *
  * @UniqueEntity("metaTitle")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\VillaCategoryRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\VillaCategoryRepository")
  */
 class VillaCategory
 {
@@ -189,11 +189,11 @@ class VillaCategory
     /**
      * Add villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      *
      * @return VillaCategory
      */
-    public function addVilla(\AppBundle\Entity\Villa $villa)
+    public function addVilla(\ScoutBundle\Entity\Villa $villa)
     {
         $this->villas[] = $villa;
 
@@ -203,9 +203,9 @@ class VillaCategory
     /**
      * Remove villa
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\Villa $villa
      */
-    public function removeVilla(\AppBundle\Entity\Villa $villa)
+    public function removeVilla(\ScoutBundle\Entity\Villa $villa)
     {
         $this->villas->removeElement($villa);
     }
@@ -300,11 +300,11 @@ class VillaCategory
     /**
      * Add translation
      *
-     * @param \AppBundle\Entity\VillaCategory $translation
+     * @param \ScoutBundle\Entity\VillaCategory $translation
      *
      * @return VillaCategory
      */
-    public function addTranslation(\AppBundle\Entity\VillaCategory $translation)
+    public function addTranslation(\ScoutBundle\Entity\VillaCategory $translation)
     {
         $this->translations[] = $translation;
 
@@ -314,9 +314,9 @@ class VillaCategory
     /**
      * Remove translation
      *
-     * @param \AppBundle\Entity\VillaCategory $translation
+     * @param \ScoutBundle\Entity\VillaCategory $translation
      */
-    public function removeTranslation(\AppBundle\Entity\VillaCategory $translation)
+    public function removeTranslation(\ScoutBundle\Entity\VillaCategory $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -334,11 +334,11 @@ class VillaCategory
     /**
      * Set lang
      *
-     * @param \AppBundle\Entity\Lang $lang
+     * @param \ScoutBundle\Entity\Lang $lang
      *
      * @return VillaCategory
      */
-    public function setLang(\AppBundle\Entity\Lang $lang = null)
+    public function setLang(\ScoutBundle\Entity\Lang $lang = null)
     {
         $this->lang = $lang;
 
@@ -348,7 +348,7 @@ class VillaCategory
     /**
      * Get lang
      *
-     * @return \AppBundle\Entity\Lang
+     * @return \ScoutBundle\Entity\Lang
      */
     public function getLang()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace ScoutBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Lang
  *
  * @ORM\Table(name="lang")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\LangRepository")
+ * @ORM\Entity(repositoryClass="scoutBundle\Repository\LangRepository")
  */
 class Lang
 {
@@ -69,48 +69,48 @@ class Lang
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Villa", mappedBy="lang")
+     * @ORM\OneToMany(targetEntity="House", mappedBy="lang")
      */
-    private $villas;
+    private $houses;
 
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="VillaAmenity", mappedBy="lang")
+     * @ORM\OneToMany(targetEntity="HouseAmenity", mappedBy="lang")
      */
-    private $villaAmenities;
+    private $houseAmenities;
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="VillaCategory", mappedBy="lang")
+     * @ORM\OneToMany(targetEntity="HouseCategory", mappedBy="lang")
      */
-    private $villaCategories;
+    private $houseCategories;
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="VillaLocation", mappedBy="lang")
+     * @ORM\OneToMany(targetEntity="HouseLocation", mappedBy="lang")
      */
-    private $villaLocations;
+    private $houseLocations;
 
 
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="VillaService", mappedBy="lang")
-     */
-    private $villaServices;
-
-
-    /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="VillaSurfaceArea", mappedBy="lang")
-     */
-    private $villaSurfaceAreas;
-  
+//    /**
+//     * @var ArrayCollection
+//     *
+//     * @ORM\OneToMany(targetEntity="HouseService", mappedBy="lang")
+//     */
+//    private $houseServices;
+//
+//
+//    /**
+//     * @var ArrayCollection
+//     *
+//     * @ORM\OneToMany(targetEntity="HouseSurfaceArea", mappedBy="lang")
+//     */
+//    private $houseSurfaceAreas;
+//
 
 
     /**
@@ -194,11 +194,11 @@ class Lang
     /**
      * Add pageCategory
      *
-     * @param \AppBundle\Entity\PageCategory $pageCategory
+     * @param \ScoutBundle\Entity\PageCategory $pageCategory
      *
      * @return Lang
      */
-    public function addPageCategory(\AppBundle\Entity\PageCategory $pageCategory)
+    public function addPageCategory(\ScoutBundle\Entity\PageCategory $pageCategory)
     {
         $this->pageCategories[] = $pageCategory;
 
@@ -208,9 +208,9 @@ class Lang
     /**
      * Remove pageCategory
      *
-     * @param \AppBundle\Entity\PageCategory $pageCategory
+     * @param \ScoutBundle\Entity\PageCategory $pageCategory
      */
-    public function removePageCategory(\AppBundle\Entity\PageCategory $pageCategory)
+    public function removePageCategory(\ScoutBundle\Entity\PageCategory $pageCategory)
     {
         $this->pageCategories->removeElement($pageCategory);
     }
@@ -228,11 +228,11 @@ class Lang
     /**
      * Add page
      *
-     * @param \AppBundle\Entity\Page $page
+     * @param \ScoutBundle\Entity\Page $page
      *
      * @return Lang
      */
-    public function addPage(\AppBundle\Entity\Page $page)
+    public function addPage(\ScoutBundle\Entity\Page $page)
     {
         $this->pages[] = $page;
 
@@ -242,9 +242,9 @@ class Lang
     /**
      * Remove page
      *
-     * @param \AppBundle\Entity\Page $page
+     * @param \ScoutBundle\Entity\Page $page
      */
-    public function removePage(\AppBundle\Entity\Page $page)
+    public function removePage(\ScoutBundle\Entity\Page $page)
     {
         $this->pages->removeElement($page);
     }
@@ -252,11 +252,11 @@ class Lang
     /**
      * Add setting
      *
-     * @param \AppBundle\Entity\Settings $setting
+     * @param \ScoutBundle\Entity\Settings $setting
      *
      * @return Lang
      */
-    public function addSetting(\AppBundle\Entity\Settings $setting)
+    public function addSetting(\ScoutBundle\Entity\Settings $setting)
     {
         $this->settings[] = $setting;
 
@@ -266,9 +266,9 @@ class Lang
     /**
      * Remove setting
      *
-     * @param \AppBundle\Entity\Settings $setting
+     * @param \ScoutBundle\Entity\Settings $setting
      */
-    public function removeSetting(\AppBundle\Entity\Settings $setting)
+    public function removeSetting(\ScoutBundle\Entity\Settings $setting)
     {
         $this->settings->removeElement($setting);
     }
@@ -286,11 +286,11 @@ class Lang
     /**
      * Add slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      *
      * @return Lang
      */
-    public function addSlider(\AppBundle\Entity\Slider $slider)
+    public function addSlider(\ScoutBundle\Entity\Slider $slider)
     {
         $this->sliders[] = $slider;
 
@@ -300,9 +300,9 @@ class Lang
     /**
      * Remove slider
      *
-     * @param \AppBundle\Entity\Slider $slider
+     * @param \ScoutBundle\Entity\Slider $slider
      */
-    public function removeSlider(\AppBundle\Entity\Slider $slider)
+    public function removeSlider(\ScoutBundle\Entity\Slider $slider)
     {
         $this->sliders->removeElement($slider);
     }
@@ -318,210 +318,210 @@ class Lang
     }
 
     /**
-     * Add villa
+     * Add house
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\House $house
      *
      * @return Lang
      */
-    public function addVilla(\AppBundle\Entity\Villa $villa)
+    public function addHouse(\ScoutBundle\Entity\House $house)
     {
-        $this->villas[] = $villa;
+        $this->houses[] = $house;
 
         return $this;
     }
 
     /**
-     * Remove villa
+     * Remove house
      *
-     * @param \AppBundle\Entity\Villa $villa
+     * @param \ScoutBundle\Entity\House $house
      */
-    public function removeVilla(\AppBundle\Entity\Villa $villa)
+    public function removeHouse(\ScoutBundle\Entity\House $house)
     {
-        $this->villas->removeElement($villa);
+        $this->houses->removeElement($house);
     }
 
     /**
-     * Get villas
+     * Get houses
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getVillas()
+    public function getHouses()
     {
-        return $this->villas;
+        return $this->houses;
     }
 
     /**
-     * Add villaAmenity
+     * Add houseAmenity
      *
-     * @param \AppBundle\Entity\VillaAmenity $villaAmenity
+     * @param \ScoutBundle\Entity\HouseAmenity $houseAmenity
      *
      * @return Lang
      */
-    public function addVillaAmenity(\AppBundle\Entity\VillaAmenity $villaAmenity)
+    public function addHouseAmenity(\ScoutBundle\Entity\HouseAmenity $houseAmenity)
     {
-        $this->villaAmenities[] = $villaAmenity;
+        $this->houseAmenities[] = $houseAmenity;
 
         return $this;
     }
 
     /**
-     * Remove villaAmenity
+     * Remove houseAmenity
      *
-     * @param \AppBundle\Entity\VillaAmenity $villaAmenity
+     * @param \ScoutBundle\Entity\HouseAmenity $houseAmenity
      */
-    public function removeVillaAmenity(\AppBundle\Entity\VillaAmenity $villaAmenity)
+    public function removeHouseAmenity(\ScoutBundle\Entity\HouseAmenity $houseAmenity)
     {
-        $this->villaAmenities->removeElement($villaAmenity);
+        $this->houseAmenities->removeElement($houseAmenity);
     }
 
     /**
-     * Get villaAmenities
+     * Get houseAmenities
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getVillaAmenities()
+    public function getHouseAmenities()
     {
-        return $this->villaAmenities;
+        return $this->houseAmenities;
     }
 
     /**
-     * Add villaCategory
+     * Add houseCategory
      *
-     * @param \AppBundle\Entity\VillaCategory $villaCategory
+     * @param \ScoutBundle\Entity\HouseCategory $houseCategory
      *
      * @return Lang
      */
-    public function addVillaCategory(\AppBundle\Entity\VillaCategory $villaCategory)
+    public function addHouseCategory(\ScoutBundle\Entity\HouseCategory $houseCategory)
     {
-        $this->villaCategories[] = $villaCategory;
+        $this->houseCategories[] = $houseCategory;
 
         return $this;
     }
 
     /**
-     * Remove villaCategory
+     * Remove houseCategory
      *
-     * @param \AppBundle\Entity\VillaCategory $villaCategory
+     * @param \ScoutBundle\Entity\HouseCategory $houseCategory
      */
-    public function removeVillaCategory(\AppBundle\Entity\VillaCategory $villaCategory)
+    public function removeHouseCategory(\ScoutBundle\Entity\HouseCategory $houseCategory)
     {
-        $this->villaCategories->removeElement($villaCategory);
+        $this->houseCategories->removeElement($houseCategory);
     }
 
     /**
-     * Get villaCategories
+     * Get houseCategories
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getVillaCategories()
+    public function getHouseCategories()
     {
-        return $this->villaCategories;
+        return $this->houseCategories;
     }
 
     /**
-     * Add villaLocation
+     * Add houseLocation
      *
-     * @param \AppBundle\Entity\VillaLocation $villaLocation
+     * @param \ScoutBundle\Entity\HouseLocation $houseLocation
      *
      * @return Lang
      */
-    public function addVillaLocation(\AppBundle\Entity\VillaLocation $villaLocation)
+    public function addHouseLocation(\ScoutBundle\Entity\HouseLocation $houseLocation)
     {
-        $this->villaLocations[] = $villaLocation;
+        $this->houseLocations[] = $houseLocation;
 
         return $this;
     }
 
     /**
-     * Remove villaLocation
+     * Remove houseLocation
      *
-     * @param \AppBundle\Entity\VillaLocation $villaLocation
+     * @param \ScoutBundle\Entity\HouseLocation $houseLocation
      */
-    public function removeVillaLocation(\AppBundle\Entity\VillaLocation $villaLocation)
+    public function removeHouseLocation(\ScoutBundle\Entity\HouseLocation $houseLocation)
     {
-        $this->villaLocations->removeElement($villaLocation);
+        $this->houseLocations->removeElement($houseLocation);
     }
 
     /**
-     * Get villaLocations
+     * Get houseLocations
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getVillaLocations()
+    public function getHouseLocations()
     {
-        return $this->villaLocations;
+        return $this->houseLocations;
     }
 
-    /**
-     * Add villaService
-     *
-     * @param \AppBundle\Entity\VillaService $villaService
-     *
-     * @return Lang
-     */
-    public function addVillaService(\AppBundle\Entity\VillaService $villaService)
-    {
-        $this->villaServices[] = $villaService;
-
-        return $this;
-    }
-
-    /**
-     * Remove villaService
-     *
-     * @param \AppBundle\Entity\VillaService $villaService
-     */
-    public function removeVillaService(\AppBundle\Entity\VillaService $villaService)
-    {
-        $this->villaServices->removeElement($villaService);
-    }
-
-    /**
-     * Get villaServices
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getVillaServices()
-    {
-        return $this->villaServices;
-    }
-
-
-
-    /**
-     * Add villaSurfaceArea
-     *
-     * @param \AppBundle\Entity\VillaSurfaceArea $villaSurfaceArea
-     *
-     * @return Lang
-     */
-    public function addVillaSurfaceArea(\AppBundle\Entity\VillaSurfaceArea $villaSurfaceArea)
-    {
-        $this->villaSurfaceAreas[] = $villaSurfaceArea;
-
-        return $this;
-    }
-
-    /**
-     * Remove villaSurfaceArea
-     *
-     * @param \AppBundle\Entity\VillaSurfaceArea $villaSurfaceArea
-     */
-    public function removeVillaSurfaceArea(\AppBundle\Entity\VillaSurfaceArea $villaSurfaceArea)
-    {
-        $this->villaSurfaceAreas->removeElement($villaSurfaceArea);
-    }
-
-    /**
-     * Get villaSurfaceArea
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getVillaSurfaceAreas()
-    {
-        return $this->villaSurfaceAreas;
-    }
+//    /**
+//     * Add houseService
+//     *
+//     * @param \ScoutBundle\Entity\HouseService $houseService
+//     *
+//     * @return Lang
+//     */
+//    public function addHouseService(\ScoutBundle\Entity\HouseService $houseService)
+//    {
+//        $this->houseServices[] = $houseService;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove houseService
+//     *
+//     * @param \ScoutBundle\Entity\HouseService $houseService
+//     */
+//    public function removeHouseService(\ScoutBundle\Entity\HouseService $houseService)
+//    {
+//        $this->houseServices->removeElement($houseService);
+//    }
+//
+//    /**
+//     * Get houseServices
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getHouseServices()
+//    {
+//        return $this->houseServices;
+//    }
+//
+//
+//
+//    /**
+//     * Add houseSurfaceArea
+//     *
+//     * @param \ScoutBundle\Entity\HouseSurfaceArea $houseSurfaceArea
+//     *
+//     * @return Lang
+//     */
+//    public function addHouseSurfaceArea(\ScoutBundle\Entity\HouseSurfaceArea $houseSurfaceArea)
+//    {
+//        $this->houseSurfaceAreas[] = $houseSurfaceArea;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove houseSurfaceArea
+//     *
+//     * @param \ScoutBundle\Entity\HouseSurfaceArea $houseSurfaceArea
+//     */
+//    public function removeHouseSurfaceArea(\ScoutBundle\Entity\HouseSurfaceArea $houseSurfaceArea)
+//    {
+//        $this->houseSurfaceAreas->removeElement($houseSurfaceArea);
+//    }
+//
+//    /**
+//     * Get houseSurfaceArea
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getHouseSurfaceAreas()
+//    {
+//        return $this->houseSurfaceAreas;
+//    }
     /**
      * Constructor
      */
@@ -531,12 +531,12 @@ class Lang
         $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
         $this->settings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sliders = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->villas = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->villaAmenities = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->villaCategories = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->villaLocations = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->villaServices = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->villaSurfaceAreas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->houses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->houseAmenities = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->houseCategories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->houseLocations = new \Doctrine\Common\Collections\ArrayCollection();
+       // $this->houseServices = new \Doctrine\Common\Collections\ArrayCollection();
+        //$this->houseSurfaceAreas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 }

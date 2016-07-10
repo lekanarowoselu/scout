@@ -16,10 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
- * locations
+ * Houselocations
  *
  * @ORM\Table(name="house_location")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\HouseLocationRepository")
+ * @ORM\Entity(repositoryClass="ScoutBundle\Repository\HouseLocationRepository")
  */
 
 class HouseLocation
