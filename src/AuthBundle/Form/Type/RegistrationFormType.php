@@ -1,7 +1,7 @@
 <?php
 // src/Octopouce/AuthBundle/Form/Type/RegistrationFormType.php
 
-namespace Octopouce\AuthBundle\Form\Type;
+namespace AuthBundle\Form\Type;
 
 use FOS\UserBundle\Util\LegacyFormHelper;
 use Symfony\Component\Form\AbstractType;

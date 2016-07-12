@@ -54,10 +54,10 @@ class RegistrationController extends BaseController
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
             //$user->setRoles(array('ROLE_ADMIN', 'ROLE_USER'));
-           $usertype =  $form['usertype']->getData();
-            if($usertype == 3){$user->addRole('ROLE_COMPANY');}
-            if($usertype == 2){$user->addRole('ROLE_JOBSEEKER');}
-            $userManager->updateUser($user);
+//           $usertype =  $form['usertype']->getData();
+//            if($usertype == 3){$user->addRole('ROLE_COMPANY');}
+//            if($usertype == 2){$user->addRole('ROLE_JOBSEEKER');}
+//            $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {
 
