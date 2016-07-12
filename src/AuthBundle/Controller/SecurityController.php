@@ -78,7 +78,7 @@ class SecurityController extends BaseController
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('OctopouceAuthBundle:Security:login.html.twig', $data);
+        return $this->render('AuthBundle:Security:login.html.twig', $data);
     }
 
 
