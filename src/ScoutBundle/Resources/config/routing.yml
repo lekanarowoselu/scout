@@ -1,6 +1,6 @@
 scout_homepage:
     path:     /
-    defaults: { _controller: ScoutBundle:Site\Default:index }
+    defaults: { _controller: ScoutBundle:Default:index }
 
 scout_contact:
     resource: "@ScoutBundle/Resources/config/routing/contact.yml"

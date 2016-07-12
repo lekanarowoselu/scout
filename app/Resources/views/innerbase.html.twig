@@ -2,7 +2,7 @@
 
 {% block innerbody %}
 <body class="">
-<div class="page-wrapper">
+<div class="page-wrapper"  >
 
     <div class="header-wrapper">
         <div class="header">
@@ -11,8 +11,8 @@
 
 
                     <div class="header-top">
-                        <div class="header-top-inner">
-                            <a class="header-logo" href="index.html">
+                        <div class="header-top-inner" >
+                            <a class="header-logo" href="{{ path('scout_homepage') }}">
                                 <span class="header-logo-shape"><img src="{{ asset('bundles/scout/assets/img/logo_black.png')  }}" style="height: 55px;"></span>
                                 <!--<span class="header-logo-text">Room Scout</span>-->
                             </a><!-- /.header-logo -->
@@ -105,16 +105,17 @@
                 <div class="content-title">
                     <div class="content-title-inner">
                         <div class="container">
-                            <h1>Get In Touch</h1>
+
                         </div><!-- /.container -->
                     </div><!-- /.content-title-inner -->
                 </div><!-- /.content-title -->
 
 
                 <div class="content">
+
+                    {% block body %}{% endblock %}
                     {% block fos_user_content %}
                     {% endblock fos_user_content %}
-                    {% block body %}{% endblock %}
                 </div><!-- /.content -->
             </div><!-- /.main-inner -->
         </div><!-- /.main -->

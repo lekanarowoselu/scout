@@ -1,6 +1,6 @@
 {% extends '::homebase.html.twig' %}
 
-{% block body %}
+{% block innerbody %}
 
 
 <body class="cover-pull-top header-transparent">
@@ -12,7 +12,7 @@
                 <div class="container">
                     <div class="header-top">
                         <div class="header-top-inner">
-                            <a class="header-logo" href="index.html">
+                            <a class="header-logo" href="{{ path('scout_homepage') }}">
                                 <span class="header-logo-shape"><img src="{{ asset('bundles/scout/assets/img/logo_white.png')  }}" style="height: 51px;"></span>
                                 <!--<span class="header-logo-text">Room Scout</span>-->
                             </a><!-- /.header-logo -->
@@ -26,19 +26,19 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ path('scout_house') }}" class="nav-link ">
+                                        <a href="{{ path('house_index') }}" class="nav-link ">
                                             Houses
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ path('scout_landlord') }}" class="nav-link ">
+                                        <a href="{{ path('landlord_index') }}" class="nav-link ">
                                             Landlords
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ path('scout_houselocation') }}" class="nav-link ">
+                                        <a href="{{ path('houselocation_index') }}" class="nav-link ">
                                             Locations
                                         </a>
                                     </li>
@@ -606,7 +606,7 @@
             </div><!-- /.main-inner -->
         </div><!-- /.main -->
     </div><!-- /.main-wrapper -->
-
+</div>
 
 {% endblock %}
 
