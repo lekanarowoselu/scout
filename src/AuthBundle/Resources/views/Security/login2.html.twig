@@ -1,5 +1,5 @@
 
-
+{% extends "AuthBundle::layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
@@ -7,40 +7,81 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-{#<form action="{{ path("fos_user_security_check") }}" method="post">#}
-    {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+    <div class="dashboard-login-wrapper">
+        <div class="dashboard-login-inner">
+            <div class="dashboard-login-left">
+                <h2>Admin Login</h2>
 
-    {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
-    {#<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />#}
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <div class="form-group">
+                        <label for="username">{{ 'security.login.username'|trans }}</label>
+                        <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="username">
 
-    {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
-    {#<input type="password" id="password" name="_password" required="required" />#}
+                    </div><!-- /.form-group -->
 
-    {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
-    {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
+                    <div class="form-group">
+                        <label for="password">{{ 'security.login.password'|trans }}</label>
+                        <input type="password" class="form-control"id="password" name="_password" required="required" placeholder="Password">
 
-    {#<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />#}
-{#</form>#}
+                    </div><!-- /.form-group -->
+                    <div class="checkbox">
+                        <label for="remember_me">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            {{ 'security.login.remember_me'|trans }}
+                        </label>
+                    </div>
+                    <div class="form-group-btn">
+                        <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary pull-right">Sign In</button>
 
-    <form action="{{ path("fos_user_security_check") }}" method="post">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-        <div class="form-group">
-            <label for="username">{{ 'security.login.username'|trans }}</label>
-            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="username">
-        </div>
-        <div class="form-group">
-            <label for="password">{{ 'security.login.password'|trans }}</label>
-            <input type="password" class="form-control"id="password" name="_password" required="required" placeholder="Password">
-        </div>
 
-        <div class="checkbox">
-            <label for="remember_me">
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                {{ 'security.login.remember_me'|trans }}
-            </label>
-        </div>
-        <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-default">Submit</button>
-    </form>
+                    </div><!-- /.form-group-btn -->
+                </form>
+
+                <div class="dashboard-footer">
+                    <p>
+                        Room Scout &copy; 2016. All Rights reserved.
+                    </p>
+
+                    <ul>
+                        <li><a href="{{ path('fos_user_resetting_request') }}">Did you forget password?</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">I don't have an account</a></li>
+                    </ul>
+                </div><!-- /.dashboard-footer -->
+            </div><!-- /.dashboard-login-left -->
+
+            <div class="dashboard-login-right">
+                <div class="dashboard-login-right-content">
+                    <a href="{{ path('scout_homepage') }}"><i class="fa fa-long-arrow-left"></i> Back To Front End</a>
+
+                    <h1>Room Scout Back End Interface</h1>
+
+                    <h2>
+                        Mauris ut rutrum lacus. Donec vulputate, lorem et volutpat consectetur, sapien mauris consectetur sapien, eu sagittis dui quam id justo.
+                    </h2>
+                </div><!-- /.dashboard-login-right-content -->
+            </div><!-- /.dashboard-login-right -->
+        </div><!-- /.dashboard-login -->
+    </div><!-- /.dashboard-login -->
+   {#<form action="{{ path("fos_user_security_check") }}" method="post">#}
+        {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+        {#<div class="form-group">#}
+            {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
+            {#<input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="username">#}
+        {#</div>#}
+        {#<div class="form-group">#}
+            {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
+            {#<input type="password" class="form-control"id="password" name="_password" required="required" placeholder="Password">#}
+        {#</div>#}
+
+        {#<div class="checkbox">#}
+            {#<label for="remember_me">#}
+                {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
+                {#{{ 'security.login.remember_me'|trans }}#}
+            {#</label>#}
+        {#</div>#}
+        {#<button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-default">Submit</button>#}
+    {#</form>#}
 
 
 {% endblock fos_user_content %}

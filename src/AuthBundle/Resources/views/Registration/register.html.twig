@@ -1,32 +1,73 @@
 
 {% extends '::innerbase.html.twig' %}
-
+{% trans_default_domain 'FOSUserBundle' %}
 {% block fos_user_content %}
+
+
+    {#<form name="fos_user_registration_form" method="post" action="/register/" class="form-group form-horizontal">#}
+        {#<div id="fos_user_registration_form"><div class="form-group">#}
+                {#<label class="col-sm-2 control-label required" for="fos_user_registration_form_email">form.email</label>#}
+                {#<div class="col-sm-10"><input type="email" id="fos_user_registration_form_email"#}
+                                              {#name="fos_user_registration_form[email]" required="required"#}
+                                              {#class="form-control form-control" style="margin-bottom:15px" /></div>#}
+            {#</div><div class="form-group">#}
+                {#<label class="col-sm-2 control-label required" for="fos_user_registration_form_username">form.username</label>#}
+                {#<div class="col-sm-10"><input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]"#}
+                                              {#required="required" maxlength="255" pattern=".{2,}" class="form-control form-control" style="margin-bottom:15px" /></div>#}
+            {#</div>#}
+            {#<div class="form-group"><label class="col-sm-2 control-label required" for="fos_user_registration_form_plainPassword_first">form.password</label>#}
+                {#<div class="col-sm-10"><input type="password" id="fos_user_registration_form_plainPassword_first"#}
+                                              {#name="fos_user_registration_form[plainPassword][first]" required="required"#}
+                                              {#class="form-control form-control" style="margin-bottom:15px" /></div>#}
+            {#</div><div class="form-group"><label class="col-sm-2 control-label required" #}
+                                                 {#for="fos_user_registration_form_plainPassword_second">form.password_confirmation</label>#}
+                {#<div class="col-sm-10"><input type="password" id="fos_user_registration_form_plainPassword_second" #}
+                                              {#name="fos_user_registration_form[plainPassword][second]" required="required" class="form-control form-control" style="margin-bottom:15px" /></div>#}
+            {#</div><div class="form-group"><label class="col-sm-2 control-label required" for="fos_user_registration_form_usertype">I am a, </label><div class="col-sm-10"><select id="fos_user_registration_form_usertype" name="fos_user_registration_form[usertype]" class="form-control form-control" style="margin-bottom:15px">            <option value="2" >Job Seeker</option>            <option value="3" >Company</option></select></div>#}
+            {#</div>#}
+            {#<input type="hidden" id="fos_user_registration_form__token" #}
+                   {#name="fos_user_registration_form[_token]" value="ovFySQdzSQMp_0SkdeOFTrcvunx1xJ40OJQP5aIHj58" /></div>#}
+        {#<div>#}
+            {#<input type="submit" value="registration.submit" />#}
+        {#</div>#}
+
+
+
+
+    {#</form>#}
+
+
     <div class="content">
         <div class="container">
-            <form method="post">
+            <form name="fos_user_registration_form" method="post" action="/register/">
+                <input type="hidden" id="fos_user_registration_form__token"
+                       name="fos_user_registration_form[_token]" value="ovFySQdzSQMp_0SkdeOFTrcvunx1xJ40OJQP5aIHj58" />
                 <div class="row">
                     <div class="col-md-12 col-lg-8 col-lg-offset-2">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">Username</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]"
+                                           required="required" maxlength="255" pattern=".{2,}" class="form-control">
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
                                     <label for="">E-mail</label>
-                                    <input type="mail" class="form-control">
+                                    <input type="email" id="fos_user_registration_form_email"
+                                           name="fos_user_registration_form[email]" required="required"  class="form-control">
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
                                     <label for="">Password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" id="fos_user_registration_form_plainPassword_first"
+                                           name="fos_user_registration_form[plainPassword][first]" required="required" class="form-control">
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
                                     <label for="">Retype Password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password"  id="fos_user_registration_form_plainPassword_second"
+                                           name="fos_user_registration_form[plainPassword][second]" required="required"  class="form-control">
                                 </div><!-- /.form-group -->
                             </div><!-- /.col-* -->
 
@@ -51,7 +92,7 @@
                         <div class="center">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> By signing up, you agree with the <a href="terms-conditions.html">terms and conditions</a>.
+                                    <input type="checkbox"> By signing up, you agree with the <a href="{{ path('page_show', {slug:'termsandconditions'}) }}">terms and conditions</a>.
                                 </label>
                             </div><!-- /.form-group -->
 
@@ -61,7 +102,7 @@
                         </div><!-- /.center -->
 
                         <div class="form-group-bottom-link">
-                            <a href="login.html">I already have an account <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="{{ path('fos_user_security_login') }}">I already have an account <i class="fa fa-long-arrow-right"></i></a>
                         </div><!-- /.form-group-bottom-link -->
                     </div><!-- /.col-* -->
                 </div><!-- /.row -->
@@ -69,7 +110,20 @@
         </div><!-- /.container -->
     </div><!-- /.content -->
 
-    {% include "AuthBundle:Registration:register_content.html.twig" %}
+
+
+    {#{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-group'}}) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<div>#}
+        {#<input type="submit" value="{{ 'registration.submit'|trans }}" />#}
+    {#</div>#}
+
+
+
+
+    {#{{ form_end(form) }}#}
+
+    {#{% include "AuthBundle:Registration:register_content.html.twig" %}#}
 
 {% endblock fos_user_content %}
 

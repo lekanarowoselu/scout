@@ -43,8 +43,9 @@ class DefaultController extends Controller
     public function adminAction()
 
     {
-
-        return $this->render('AppBundle:admin:index.html.twig');
+       
+        return $this->redirectToRoute('admin_login');
+        //return $this->render('ScoutBundle:admin:index.html.twig');
     }
 
     public function menuAction(Request $request, $_route)
@@ -53,7 +54,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $locale = $request->attributes->get('_locale');
 
-        $villaCategories = $em->getRepository('AppBundle:VillaCategory')->findAllByLang($locale);
+        $houseCategories = $em->getRepository('ScoutBundle:HouseCategory')->findAllByLang($locale);
 
         //$villaCategories = $em->getRepository('AppBundle:VillaCategory')->findAll();
 
@@ -62,7 +63,7 @@ class DefaultController extends Controller
        // $locale = $request->attributes->get('_locale');
 //        $servicePages = $em->getRepository('AppBundle:Page')->findByCategoryName($locale, "Service");
 //        $smartbuyPages = $em->getRepository('AppBundle:Page')->findByCategoryName($locale, "Smartbuy");
-        $pagecategories = $em->getRepository('AppBundle:PageCategory')->findAllByLang($locale);
+        $pagecategories = $em->getRepository('ScoutBundle:PageCategory')->findAllByLang($locale);
 //        foreach ($pagecategories as $category) {
 //            //echo $category->getTitle();
 //          $pages =  $category->getPages();
@@ -77,7 +78,7 @@ class DefaultController extends Controller
         //$pages = $em->getRepository('AppBundle:Page')->findAllByLangugae($locale);
 
         return $this->render('default/menu.html.twig', array(
-            "categories" => $villaCategories,
+            "categories" => $houseCategories,
            "pagecategories" => $pagecategories,
 //            "smartbuyPages" => $smartbuyPages,
             "_route"=>$_route,

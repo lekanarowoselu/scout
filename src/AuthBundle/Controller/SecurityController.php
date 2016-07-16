@@ -18,6 +18,8 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 class SecurityController extends BaseController
 {
     public function loginAction(Request $request)
@@ -65,7 +67,10 @@ class SecurityController extends BaseController
             'last_username' => $lastUsername,
             'error' => $error,
             'csrf_token' => $csrfToken,
-        ));
+                'req'=> $request,
+        )
+
+            );
     }
 
     /**
@@ -78,7 +83,22 @@ class SecurityController extends BaseController
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('AuthBundle:Security:login.html.twig', $data);
+
+        
+        //$request->attributes->get('_route');
+        //$requestAttributes = $this->container->get('request')->attributes;
+
+        if ('admin_login' === $data['req']->attributes->get('_route')) {
+           return $this->render('AuthBundle:Security:login2.html.twig', $data);
+           // $template = sprintf('AuthBundle:Security:login2.html.twig');
+        } else {
+            return $this->render('AuthBundle:Security:login.html.twig', $data);
+            //$template = sprintf('AuthBundle:Security:login.html.twig');
+        }
+
+
+       // return $this->container->get('templating')->renderResponse($template, $data);
+        //return $this->render('AuthBundle:Security:login.html.twig', $data);
     }
 
 

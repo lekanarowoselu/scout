@@ -17,3 +17,52 @@ scout_landlord:
 scout_houselocation:
     resource: "@ScoutBundle/Resources/config/routing/houselocation.yml"
     prefix:   /
+
+admin_scout_index:
+    path:     /admin/dashboard
+    defaults: { _controller: "ScoutBundle:Default:admin" }
+    methods:  GET
+
+scout_news:
+    resource: "@ScoutBundle/Resources/config/routing/news.yml"
+    prefix:   /
+
+scout_mailinglist:
+    resource: "@ScoutBundle/Resources/config/routing/mailinglist.yml"
+    prefix:   /
+
+scout_slider:
+    resource: "@ScoutBundle/Resources/config/routing/slider.yml"
+    prefix:   /
+
+scout_lang:
+    resource: "@ScoutBundle/Resources/config/routing/lang.yml"
+    prefix:   /
+
+scout_pagecategory:
+    resource: "@ScoutBundle/Resources/config/routing/pagecategory.yml"
+    prefix:   /
+
+scout_housebooking:
+    resource: "@ScoutBundle/Resources/config/routing/housebooking.yml"
+    prefix:   /
+
+scout_settings:
+    resource: "@ScoutBundle/Resources/config/routing/settings.yml"
+    prefix:   /
+
+scout_image:
+    resource: "@ScoutBundle/Resources/config/routing/image.yml"
+    prefix:   /
+
+scout_testimonial:
+    resource: "@ScoutBundle/Resources/config/routing/testimonial.yml"
+    prefix:   /
+
+scout_page:
+    resource: "@ScoutBundle/Resources/config/routing/page.yml"
+    prefix:   /
+
+scout_houseamenity:
+    resource: "@ScoutBundle/Resources/config/routing/houseamenity.yml"
+    prefix:   /
