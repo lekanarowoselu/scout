@@ -44,8 +44,8 @@ class DefaultController extends Controller
 
     {
        
-        return $this->redirectToRoute('admin_login');
-        //return $this->render('ScoutBundle:admin:index.html.twig');
+        //return $this->redirectToRoute('admin_login');
+        return $this->render('ScoutBundle:admin:index.html.twig');
     }
 
     public function menuAction(Request $request, $_route)
